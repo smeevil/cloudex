@@ -8,7 +8,7 @@ There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ```elixir
 defp deps do
-  [  {:cloudex, "~> 0.0.1"},  ]
+  [  {:cloudex, "~> 0.0.2"},  ]
 end
 ```
 
@@ -37,8 +37,10 @@ or in your config.exs using :
     cloud_name: "my-cloud-name"
 ```
 
-## Example
+## Uploading
+You can upload image files or urls pointing to an image as follows :
 
+### example
 For uploading a url :
 ```elixir
 Cloudex.upload("http://example.org/test.jpg")
@@ -75,6 +77,96 @@ The response will be a Cloudex.UploadedImage Struct, or a list of those when you
     width: 250
 }
 ```
+
+## Cloudinary URL generation
+This package also provides an helper to generate urls from cloudinary given a public id of the image.
+As a second argument you can pass in options to transform your image according via cloudinary.
+
+Current supported options are :
+```
+  :aspect_ratio
+  :border
+  :color
+  :coulor
+  :crop
+  :default_image
+  :delay
+  :density
+  :dpr
+  :effect
+  :fetch_format
+  :flags
+  :gravity
+  :height
+  :opacity
+  :overlay
+  :quality
+  :radius
+  :transformation
+  :underlay
+  :width
+  :x
+  :y
+  :zoom
+```
+### Example
+```
+Cloudex.Url.for("a_public_id")
+"//res.cloudinary.com/my_cloud_name/image/upload/a_public_id"
+```
+
+```
+Cloudex.Url.for("a_public_id", %{width: 400, height: 300})
+"//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id"
+```
+
+```
+Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
+"//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
+```
+
+## Phoenix helper
+If you are using phoenix, you can create a small helper called for example cl_image_tag
+Create a file containing the following :
+
+```elixir
+defmodule MyApp.CloudexImageHelper do
+  import Phoenix.HTML.Tag
+
+  def cl_image_tag(public_id, options \\ []) do
+    transformation_options = %{}
+    if Keyword.has_key?(options, :transforms) do
+      transformation_options = Map.merge(%{}, options[:transforms])
+    end
+
+    image_tag_options = Keyword.delete(options, :transforms)
+
+    defaults = [
+      src: Cloudex.Url.for(public_id, transformation_options),
+      width: picture.width,
+      height: picture.height,
+      alt: "image with name #{public_id}"
+    ]
+
+    attributes = Keyword.merge(defaults, image_tag_options)
+
+    tag(:img, attributes)
+  end
+end
+```
+
+Then in your ```web.ex``` add the following line in the ```def view``` section:
+
+```elixir
+import MyApp.CloudexImageHelper
+```
+
+You should now be able to use the helper in your views as follows :
+
+```elixir
+cl_image_tag(public_id, class: "thumbnail", transforms: %{opacity: "50", quality: "jpegmini", sign_url: true})
+```
+
 ## Documentation
 
 Documentation can be found at docs/index.html or [online](http://smeevil.github.io/cloudex)
