@@ -2,7 +2,7 @@ Cloudex
 ======
 
 Cloudex is an Elixir library that can upload image files or urls to Cloudinary.
-There is also a [CLI tool](https://bitbucket.org/govannon/cloudex_cli) available.
+There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ## Getting started
 
