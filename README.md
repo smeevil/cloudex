@@ -77,7 +77,7 @@ The response will be a Cloudex.UploadedImage Struct, or a list of those when you
 ```
 ## Documentation
 
-Documentation can be found at docs/index.html
+Documentation can be found at docs/index.html or [online](http://smeevil.github.io/cloudex)
 
 ## License
 
