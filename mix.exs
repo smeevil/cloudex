@@ -4,7 +4,9 @@ defmodule Cloudex.Mixfile do
   def project do
     [app: :cloudex,
      version: "0.0.1",
-     elixir: "~> 1.1",
+     description: "A library that helps with uploading image files and urls to cloudinary",
+     package: package,
+     elixir: "~> 1.2",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps]
@@ -27,6 +29,18 @@ defmodule Cloudex.Mixfile do
       {:credo, "~> 0.1.10", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev}
+    ]
+  end
+
+  defp package do
+    [
+      maintainers: ["Gerard de Brieder"],
+      licenses: ["WTFPL"],
+      files: ["lib", "priv", "mix.exs", "README*", "LICENSE*"],
+      links: %{
+        "GitHub" => "https://github.com/smeevil/cloudex",
+        "Docs"   => "http://smeevil.github.io/cloudex/"
+      }
     ]
   end
 end
