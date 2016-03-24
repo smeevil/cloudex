@@ -25,7 +25,7 @@ defmodule Cloudex.Mixfile do
       {:httpoison, "~> 0.8.0"},
       {:poison, "~> 1.5.0"},
       {:timex, "~> 0.19.5"},
-      {:tzdata, "== 0.1.8", override: true}, #hack for timex to work with escript
+      {:tzdata, "> 0.0.0"},
       {:credo, "~> 0.1.10", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev}
