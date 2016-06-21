@@ -22,28 +22,30 @@ defmodule Cloudex.CloudinaryApi.Live do
   returns {:ok, %UploadedFile{}} containing all the information from cloudinary
   or {:error, "reason"}
   """
-  @spec upload(item :: String.t) :: Cloudex.UploadedImage.t
-  def upload(item) when is_binary(item) do
+  @spec upload(item :: String.t, opts :: map) :: Cloudex.UploadedImage.t
+  def upload(item, opts \\ %{})
+  def upload(item, opts) when is_binary(item) do
     case item do
-      "http://" <> _rest -> item |> upload_url
-      _                  -> item |> upload_file
+      "http://" <> _rest -> item |> upload_url(opts)
+      _                  -> item |> upload_file(opts)
     end
   end
 
   @doc """
   Catches upload called without a string argument
   """
-  def upload(invalid_item) do
+  def upload(invalid_item, _opts) do
     {:error, "Upload/1 only accepts a String or {:ok, String}, received: #{inspect invalid_item}"}
   end
 
-  defp upload_file(file_path) do
-    body = {:multipart, (%{} |> sign |> Map.to_list) ++ [{:file, file_path}]}
+  defp upload_file(file_path, opts) do
+    body = {:multipart, (opts |> sign |> Map.to_list) ++ [{:file, file_path}]}
     body |> post(file_path)
   end
 
-  defp upload_url(url) do
-    %{file: url}
+  defp upload_url(url, opts) do
+    opts
+      |> Map.merge(%{file: url})
       |> sign
       |> URI.encode_query
       |> post(url)
@@ -63,7 +65,7 @@ defmodule Cloudex.CloudinaryApi.Live do
     response |> handle_response(source)
   end
 
-  defp handle_response(%{"error" => %{"message" => error}}, source) do
+  defp handle_response(%{"error" => %{"message" => error}}, _source) do
     {:error, error}
   end
 
@@ -74,18 +76,21 @@ defmodule Cloudex.CloudinaryApi.Live do
   defp sign(data) do
     timestamp = current_time
 
-    data_to_sign = %{timestamp: (timestamp <> Settings.get(:secret))}
+    data_to_sign = data
+      |> Map.delete(:file)
+      |> Map.merge(%{timestamp: (timestamp <> Settings.get(:secret))})
 
     signature = data_to_sign
       |> Enum.sort
-      |> URI.encode_query
+      |> Enum.map(fn {key, val} -> "#{key}=#{val}" end)
+      |> Enum.join("&")
       |> sha
 
-    data |> Map.merge %{
+    Map.merge(data, %{
       "timestamp" => timestamp,
       "signature" => signature,
       "api_key" => Settings.get(:api_key)
-    }
+    })
   end
 
   defp sha(query) do
@@ -94,7 +99,7 @@ defmodule Cloudex.CloudinaryApi.Live do
 
   defp current_time do
     Time.now
-      |> Time.to_secs
+      |> Time.to_seconds
       |> round
       |> Integer.to_string
   end
@@ -107,4 +112,3 @@ defmodule Cloudex.CloudinaryApi.Live do
     struct %UploadedImage{}, converted
   end
 end
-
