@@ -14,7 +14,7 @@ defmodule Cloudex.Mixfile do
 
   def application do
     [
-      applications: [:logger, :httpoison, :tzdata],
+      applications: [:logger, :httpoison, :tzdata, :timex],
       mod: {Cloudex.Settings, []}
     ]
   end
