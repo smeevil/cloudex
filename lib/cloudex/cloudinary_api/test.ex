@@ -30,7 +30,7 @@ defmodule Cloudex.CloudinaryApi.Test do
   end
 
   defp return_fake_response do
-    {:ok, date} = Timex.Date.local |> Timex.DateFormat.format("{ISO}")
+    {:ok, date} = Timex.DateTime.local |> Timex.format("{ISO}")
     {:ok, %UploadedImage{
       bytes: 22659,
       created_at: date,
