@@ -14,5 +14,5 @@
   "mix_test_watch": {:hex, :mix_test_watch, "0.2.6", "9fcc2b1b89d1594c4a8300959c19d50da2f0ff13642c8f681692a6e507f92cab", [:mix], [{:fs, "~> 0.9.1", [hex: :fs, optional: false]}]},
   "poison": {:hex, :poison, "2.1.0", "f583218ced822675e484648fa26c933d621373f01c6c76bd00005d7bd4b82e27", [:mix], []},
   "ssl_verify_fun": {:hex, :ssl_verify_fun, "1.1.0", "edee20847c42e379bf91261db474ffbe373f8acb56e9079acb6038d4e0bf414f", [:rebar, :make], []},
-  "timex": {:hex, :timex, "0.19.5", "506ba0f20d71700366e281cbc2b67b74b15924422317c2b70f4bc20db155acd7", [:mix], [{:tzdata, "~> 0.5.2", [hex: :tzdata, optional: false]}, {:combine, "~> 0.5", [hex: :combine, optional: false]}]},
+  "timex": {:hex, :timex, "2.1.6", "2c59cd03074bccea47acd668c4dd6aad269879bcc9d6d4dd98fe0ffbaf48fcaa", [:mix], [{:gettext, "~> 0.10", [hex: :gettext, optional: false]}, {:combine, "~> 0.7", [hex: :combine, optional: false]}, {:tzdata, "~> 0.1.8 or ~> 0.5", [hex: :tzdata, optional: false]}]},
   "tzdata": {:hex, :tzdata, "0.5.8", "a4ffe564783c6519e4df230a5d0e1cf44b7db7f576bcae76d05540b5da5b6143", [:mix], [{:hackney, "~> 1.0", [hex: :hackney, optional: false]}]}}
