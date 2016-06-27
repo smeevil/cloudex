@@ -1,3 +1,6 @@
+## 0.1.2 (2016-06-27)
+Bumped dependencies
+
 ## 0.1.1 (2016-06-21)
 added timex to the applications list to allow for exrm releases (@manukall)
 
