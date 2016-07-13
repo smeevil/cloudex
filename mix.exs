@@ -23,7 +23,7 @@ defmodule Cloudex.Mixfile do
     [
       {:httpoison, "~> 0.9.0"},
       {:poison, "~> 2.2.0"},
-      {:timex, "~> 2.2"},
+      {:timex, "~> 3.0"},
       {:tzdata, "> 0.0.0"},
       {:credo, "~> 0.4.5", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},

@@ -4,7 +4,6 @@ defmodule Cloudex.CloudinaryApi.Live do
   """
 
   @behaviour Cloudex.CloudinaryApi
-  use Timex
 
   alias Cloudex.UploadedImage
   alias Cloudex.Settings
@@ -99,8 +98,8 @@ defmodule Cloudex.CloudinaryApi.Live do
   end
 
   defp current_time do
-    Time.now
-      |> Time.to_seconds
+    Timex.now
+      |> Timex.to_unix
       |> round
       |> Integer.to_string
   end

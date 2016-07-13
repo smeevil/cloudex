@@ -1,4 +1,3 @@
-use Timex
 defmodule Cloudex.CloudinaryApi.Test do
   @moduledoc """
   A simple stub of cloudinary api responses to speed up testing
@@ -33,7 +32,7 @@ defmodule Cloudex.CloudinaryApi.Test do
 
   defp return_fake_response(opts) do
     public_id = Map.get(opts, :public_id, "i2nruesgu4om3w9mtk1z")
-    {:ok, date} = Timex.DateTime.local |> Timex.format("{ISO}")
+    {:ok, date} = Timex.local |> Timex.format("{ISO:Basic}")
     {:ok, %UploadedImage{
       bytes: 22659,
       created_at: date,
