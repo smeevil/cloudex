@@ -26,8 +26,9 @@ defmodule Cloudex.CloudinaryApi.Live do
   def upload(item, opts \\ %{})
   def upload(item, opts) when is_binary(item) do
     case item do
-      "http://" <> _rest -> item |> upload_url(opts)
-      _                  -> item |> upload_file(opts)
+      "http://" <> _rest  -> item |> upload_url(opts)
+      "https://" <> _rest -> item |> upload_url(opts)
+      _                   -> item |> upload_file(opts)
     end
   end
 
