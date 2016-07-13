@@ -1,3 +1,6 @@
+## 0.1.4 (2016-07-13)
+updated timex dep
+
 ## 0.1.3 (2016-07-13)
 allow uploading images from https urls, thank you @manukall !
 
