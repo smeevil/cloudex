@@ -1,5 +1,6 @@
 Cloudex
 ======
+![](https://img.shields.io/hexpm/v/cloudex.svg) ![](https://img.shields.io/hexpm/dt/cloudex.svg) ![](https://img.shields.io/hexpm/dw/cloudex.svg) ![](https://img.shields.io/coveralls/smeevil/cloudex.svg) ![](https://img.shields.io/github/issues/smeevil/cloudex.svg) ![](https://img.shields.io/github/issues-pr/smeevil/cloudex.svg) ![](https://semaphoreci.com/api/v1/smeevil/cloudex/branches/master/shields_badge.svg)
 
 Cloudex is an Elixir library that can upload image files or urls to Cloudinary.
 There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
