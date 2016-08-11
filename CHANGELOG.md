@@ -1,3 +1,6 @@
+## 0.1.5 (2016-08-11)
+bumped deps
+
 ## 0.1.4 (2016-07-13)
 updated timex dep
 
