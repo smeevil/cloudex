@@ -78,7 +78,7 @@ defmodule Cloudex.CloudinaryApi.Live do
 
     data_to_sign = data
       |> Map.delete(:file)
-      |> Map.merge(%{timestamp: (timestamp <> Settings.get(:secret))})
+      |> Map.merge(%{"timestamp" => (timestamp <> Settings.get(:secret))})
 
     signature = data_to_sign
       |> Enum.sort
