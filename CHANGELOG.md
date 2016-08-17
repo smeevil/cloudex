@@ -1,4 +1,4 @@
-## 0.1.6 (2016-08-17)
+## 0.1.7 (2016-08-17)
 The file extension regex is now case insensitive
 
 ## 0.1.6 (2016-08-16)
