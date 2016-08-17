@@ -3,7 +3,7 @@ defmodule Cloudex do
   @moduledoc """
   Cloudex takes care of uploading image files or urls to Cloudinary
   """
-  @extension_regex ~r/\.(jpg|jpeg|gif|png)$/
+  @extension_regex ~r/\.(jpg|jpeg|gif|png)$/i
 
   @doc """
   You can start the GenServer that holds the cloudinary api settings by hand using this function.

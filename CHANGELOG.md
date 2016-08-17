@@ -1,3 +1,6 @@
+## 0.1.6 (2016-08-17)
+The file extension regex is now case insensitive
+
 ## 0.1.6 (2016-08-16)
 keys for upload opts (like "folder") need to be binaries. sorting however puts atoms before binaries, so signing did not work in such cases. Thank you @manukall!
 
