@@ -1,3 +1,7 @@
+## 0.1.8 (2016-08-19)
+Removed the file and url extension check as requested.
+It is not the responsibility of this lib.
+
 ## 0.1.7 (2016-08-17)
 The file extension regex is now case insensitive
 

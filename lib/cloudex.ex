@@ -3,7 +3,6 @@ defmodule Cloudex do
   @moduledoc """
   Cloudex takes care of uploading image files or urls to Cloudinary
   """
-  @extension_regex ~r/\.(jpg|jpeg|gif|png)$/i
 
   @doc """
   You can start the GenServer that holds the cloudinary api settings by hand using this function.
@@ -41,19 +40,12 @@ defmodule Cloudex do
 
   defp sanitize_list([item|tail], sanitized_list) do
     result = case Regex.match?(~r/^http/, item) do
-      true -> item |> check_url
+      true -> {:ok, item}
       _    -> item |> handle_file_or_directory
     end
 
     new_list = [result|sanitized_list]
     sanitize_list(tail, new_list)
-  end
-
-  defp check_url(url) do
-    case Regex.match?(@extension_regex, url) do
-      true -> {:ok, url}
-      _    -> {:error, "#{url} is not an image url."}
-    end
   end
 
   defp handle_file_or_directory(file_or_directory) do
@@ -69,7 +61,7 @@ defmodule Cloudex do
 
   defp check_file(path) do
     case path |> File.exists? do
-      true -> path |> is_image?
+      true -> {:ok, path}
       _    -> {:error, "File #{path} does not exist."}
     end
   end
@@ -80,12 +72,6 @@ defmodule Cloudex do
     |> Enum.map(fn file -> check_file("#{path}/#{file}") end)
   end
 
-  defp is_image?(path) do
-    case Regex.match?(@extension_regex, path) do
-      true -> {:ok, path}
-      _ -> {:error, "#{path} is not an image."}
-    end
-  end
 
   defp cloudinary_api do
     api = Application.get_env(:cloudex, :cloudinary_api)
