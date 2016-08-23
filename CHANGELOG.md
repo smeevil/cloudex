@@ -1,3 +1,7 @@
+## 0.1.9 (2016-08-23)
+Cloudex.Url.for now accepts a version as well, thank you @manukall
+bumped deps
+
 ## 0.1.8 (2016-08-19)
 Removed the file and url extension check as requested.
 It is not the responsibility of this lib.

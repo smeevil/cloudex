@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.13.0">
-    <title>Cloudex.Url – cloudex v0.1.6</title>
+    <title>Cloudex.Url – cloudex v0.1.8</title>
     <link rel="stylesheet" href="dist/app-9c1e3d5aa2.css" />
     
     <script src="dist/sidebar_items.js"></script>
@@ -26,7 +26,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.6
+        v0.1.8
       </h2>
     </div>
     
@@ -59,7 +59,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v0.1.6</small>
+        <small class="visible-xs">cloudex v0.1.8</small>
         Cloudex.Url
         
         
@@ -150,6 +150,12 @@ You can also pass a map with options to apply transformations to the image, for 
 <p>An url to the image using multiple transformation options and a signature</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{crop: &quot;fill&quot;, fetch_format: &#39;auto&#39;, flags: &#39;progressive&#39;, width: 300, height: 254, quality: &quot;jpegmini&quot;, sign_url: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id&quot;</code></pre>
+<p>An url to a specific version of the image</p>
+<p>iex&gt; Cloudex.Url.for(“a_public_id”, %{version: 1471959066})
+“//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id”</p>
+<p>An url to a specific version of the image adjusted to a specific width and height</p>
+<p>iex&gt; Cloudex.Url.for(“a_public_id”, %{width: 400, height: 300, version: 1471959066})
+“//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id”</p>
 
   </section>
 </div>
