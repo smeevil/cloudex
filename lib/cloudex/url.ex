@@ -25,11 +25,21 @@ An url to the image using multiple transformation options and a signature
 
       iex> Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
+
+  An url to a specific version of the image
+
+  iex> Cloudex.Url.for("a_public_id", %{version: 1471959066})
+  "//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id"
+
+  An url to a specific version of the image adjusted to a specific width and height
+
+  iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, version: 1471959066})
+  "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id"
   """
 
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
-    [base_url, "image", "upload", signature_for(public_id, options, transformations), transformations, public_id]
+    [base_url, "image", "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
     |> Enum.reject(fn (x) -> x == nil end)
     |> Enum.join("/")
   end
@@ -50,13 +60,19 @@ An url to the image using multiple transformation options and a signature
 
   defp signature_for(_, _, _), do: nil
 
-  defp transformation_string_from(%{} = options) when options == %{}, do: nil
+  defp version_for(%{version: version}) when is_integer(version), do: "v#{version}"
+  defp version_for(_), do: nil
 
   defp transformation_string_from(%{} = options) do
     options
     |> Enum.sort
     |> process
-    |> Enum.join(",")
+    |> join_transformations
+  end
+
+  defp join_transformations([]), do: nil
+  defp join_transformations(transformations) do
+    Enum.join(transformations, ",")
   end
 
   defp process(options) do
