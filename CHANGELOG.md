@@ -1,3 +1,12 @@
+## 0.1.10 (2016-08-26)
+@bgeihsgt (Thanks!) added the following changes :
+
+Whenever an HTTPoison call failed, it would fail with a match error.
+This uses with goodness to bubble up request or JSON parsing errors.
+
+I also increased the task timeout on upload to 60 seconds.
+
+
 ## 0.1.9 (2016-08-23)
 Cloudex.Url.for now accepts a version as well, thank you @manukall
 bumped deps

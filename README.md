@@ -9,7 +9,7 @@ There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ```elixir
 defp deps do
-  [  {:cloudex, "~> 0.1.1"},  ]
+  [  {:cloudex, "~> 0.1.10"},  ]
 end
 ```
 
