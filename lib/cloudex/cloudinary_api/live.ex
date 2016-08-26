@@ -52,7 +52,7 @@ defmodule Cloudex.CloudinaryApi.Live do
   end
 
   defp post(body, source) do
-    {:ok, raw_response} = HTTPoison.request(
+    with {:ok, raw_response} <- HTTPoison.request(
       :post,
       "http://api.cloudinary.com/v1_1/#{Settings.get(:cloud_name)}/image/upload",
       body,
@@ -60,9 +60,9 @@ defmodule Cloudex.CloudinaryApi.Live do
         {"Content-Type", "application/x-www-form-urlencoded"},
         {"Accept", "application/json"},
       ]
-    )
-    {:ok, response} = raw_response.body |> Poison.decode
-    response |> handle_response(source)
+    ),
+    {:ok, response} <- Poison.decode(raw_response.body),
+    do: handle_response(response, source)
   end
 
   defp handle_response(%{"error" => %{"message" => error}}, _source) do

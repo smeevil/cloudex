@@ -25,7 +25,7 @@ defmodule Cloudex do
     valid_list = Enum.filter(sanitized_list, fn item -> match?({:ok, _}, item) end)
     upload_results = valid_list
       |> Enum.map(fn image -> Task.async(cloudinary_api, :upload, [image]) end)
-      |> Enum.map(&Task.await/1)
+      |> Enum.map(&Task.await(&1, 60_000))
     upload_results ++ invalid_list
   end
 
