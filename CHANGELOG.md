@@ -1,3 +1,8 @@
+## 0.1.11 (2016-10-25)
+@jprincipe added support for video urls. Thank you !
+
+Also bumped dependencies.
+
 ## 0.1.10 (2016-08-26)
 @bgeihsgt (Thanks!) added the following changes :
 
