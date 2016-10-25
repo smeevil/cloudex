@@ -151,11 +151,17 @@ You can also pass a map with options to apply transformations to the image, for 
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{crop: &quot;fill&quot;, fetch_format: &#39;auto&#39;, flags: &#39;progressive&#39;, width: 300, height: 254, quality: &quot;jpegmini&quot;, sign_url: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id&quot;</code></pre>
 <p>An url to a specific version of the image</p>
-<p>iex&gt; Cloudex.Url.for(“a_public_id”, %{version: 1471959066})
-“//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id”</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{version: 1471959066})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id&quot;</code></pre>
 <p>An url to a specific version of the image adjusted to a specific width and height</p>
-<p>iex&gt; Cloudex.Url.for(“a_public_id”, %{width: 400, height: 300, version: 1471959066})
-“//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id”</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, version: 1471959066})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id&quot;</code></pre>
+<p>An url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{format: &quot;png&quot;})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png&quot;</code></pre>
+<p>An url to the resource type.  If resource type not specified, “image” is the default</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{resource_type: &quot;video&quot;})
+&quot;//res.cloudinary.com/my_cloud_name/video/upload/a_public_id&quot;</code></pre>
 
   </section>
 </div>

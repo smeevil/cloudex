@@ -28,24 +28,39 @@ An url to the image using multiple transformation options and a signature
 
   An url to a specific version of the image
 
-  iex> Cloudex.Url.for("a_public_id", %{version: 1471959066})
-  "//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id"
+      iex> Cloudex.Url.for("a_public_id", %{version: 1471959066})
+      "//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id"
 
   An url to a specific version of the image adjusted to a specific width and height
 
-  iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, version: 1471959066})
-  "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id"
+      iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, version: 1471959066})
+      "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id"
+
+  An url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.
+
+      iex> Cloudex.Url.for("a_public_id", %{format: "png"})
+      "//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png"
+
+  An url to the resource type.  If resource type not specified, "image" is the default
+
+      iex> Cloudex.Url.for("a_public_id", %{resource_type: "video"})
+      "//res.cloudinary.com/my_cloud_name/video/upload/a_public_id"
   """
 
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
-    [base_url, "image", "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
+    [base_url, resource_type(options), "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
     |> Enum.reject(fn (x) -> x == nil end)
     |> Enum.join("/")
+    |> append_format(options)
   end
 
   defp base_url do
     "#{@base_url}/#{Settings.get(:cloud_name)}"
+  end
+
+  defp append_format(url, options) do
+    url <> format(options)
   end
 
   defp signature_for(public_id, %{sign_url: true}, transformations) do
@@ -62,6 +77,12 @@ An url to the image using multiple transformation options and a signature
 
   defp version_for(%{version: version}) when is_integer(version), do: "v#{version}"
   defp version_for(_), do: nil
+
+  defp resource_type(%{resource_type: resource_type}), do: to_string(resource_type)
+  defp resource_type(_), do: "image"
+
+  defp format(%{format: format}), do: ".#{format}"
+  defp format(_), do: ""
 
   defp transformation_string_from(%{} = options) do
     options
