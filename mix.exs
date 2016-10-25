@@ -42,7 +42,7 @@ defmodule Cloudex.Mixfile do
     [
       maintainers: ["Gerard de Brieder"],
       licenses: ["WTFPL"],
-      files: ["lib", "priv", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
       links: %{
         "GitHub" => "https://github.com/smeevil/cloudex",
         "Docs"   => "http://smeevil.github.io/cloudex/"
