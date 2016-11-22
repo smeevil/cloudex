@@ -17,14 +17,14 @@ defmodule Cloudex do
     Uploads a (list of) image file(s) and/or url(s) to cloudinary
   """
   @spec upload(list :: String.t) :: [Cloudex.UploadedImage.t]
-  @spec upload(list :: [String.t]) :: [Cloudex.UploadedImage.t]
-  def upload(list) do
+  @spec upload(list :: [String.t], %{tags: [String.t]}) :: [Cloudex.UploadedImage.t]
+  def upload(list, opts \\ %{}) do
     sanitized_list = list |> sanitize_list
 
     invalid_list = Enum.filter(sanitized_list, fn item -> match?({:error, _}, item) end)
     valid_list = Enum.filter(sanitized_list, fn item -> match?({:ok, _}, item) end)
     upload_results = valid_list
-      |> Enum.map(fn image -> Task.async(cloudinary_api, :upload, [image]) end)
+      |> Enum.map(fn image -> Task.async(cloudinary_api, :upload, [image, opts]) end)
       |> Enum.map(&Task.await(&1, 60_000))
     upload_results ++ invalid_list
   end
