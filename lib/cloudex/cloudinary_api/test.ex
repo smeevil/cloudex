@@ -11,8 +11,8 @@ defmodule Cloudex.CloudinaryApi.Test do
   @doc """
   Helper function to enable piping of {:ok, path} tuples into upload
   """
-  def upload({:ok, item}, _opts) when is_binary(item) do
-    upload(item)
+  def upload({:ok, item}, opts) when is_binary(item) do
+    upload(item, opts)
   end
 
 
@@ -32,6 +32,7 @@ defmodule Cloudex.CloudinaryApi.Test do
 
   defp return_fake_response(opts) do
     public_id = Map.get(opts, :public_id, "i2nruesgu4om3w9mtk1z")
+    tags = Map.get(opts, :tags, [])
     {:ok, date} = Timex.local |> Timex.format("{ISO:Basic}")
     {:ok, %UploadedImage{
       bytes: 22659,
@@ -45,7 +46,7 @@ defmodule Cloudex.CloudinaryApi.Test do
       secure_url: "https://d1vibqt9pdnk2f.cloudfront.net/image/upload/v1448618543/i2nruesgu4om3w9mtk1z.jpg",
       signature: "77b447746476c82bb4921fdea62a9227c584974b",
       source: "test.jpg",
-      tags: [],
+      tags: tags,
       type: "upload",
       url: "http://images.cloudinary.com/test/image/upload/v1448618543/i2nruesgu4om3w9mtk1z.jpg",
       version: 1448618543,

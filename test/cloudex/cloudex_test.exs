@@ -29,5 +29,11 @@ defmodule CloudexTest do
       {:error, "File nonexistent.png does not exist."}
     ] = Cloudex.upload(["./test/assets/test.jpg", "nonexistent.png", "http://example.org/images/cat.jpg"])
   end
-end
 
+  test "upload with tags" do
+    tags = ["foo", "bar"]
+    [
+      {:ok, %Cloudex.UploadedImage{tags: ^tags}}
+    ] = Cloudex.upload(["./test/assets/test.jpg"], %{tags: tags})
+  end
+end

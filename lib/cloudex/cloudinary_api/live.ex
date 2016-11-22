@@ -8,12 +8,14 @@ defmodule Cloudex.CloudinaryApi.Live do
   alias Cloudex.UploadedImage
   alias Cloudex.Settings
 
+  def upload(item, opts \\ %{})
+
   @doc """
   Helper function to enable piping of {:ok, path} tuples into upload
   """
-  @spec upload({:ok, item :: String.t}) :: Cloudex.UploadedImage.t
-  def upload({:ok, item}) when is_binary(item) do
-    upload(item)
+  @spec upload({:ok, item :: String.t}, %{}) :: Cloudex.UploadedImage.t
+  def upload({:ok, item}, opts) when is_binary(item) do
+    upload(item, opts)
   end
 
   @doc """
@@ -22,7 +24,7 @@ defmodule Cloudex.CloudinaryApi.Live do
   or {:error, "reason"}
   """
   @spec upload(item :: String.t, opts :: map) :: Cloudex.UploadedImage.t
-  def upload(item, opts \\ %{})
+  def upload(item, opts)
   def upload(item, opts) when is_binary(item) do
     case item do
       "http://" <> _rest  -> item |> upload_url(opts)
