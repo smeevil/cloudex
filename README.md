@@ -82,7 +82,7 @@ The response will be a Cloudex.UploadedImage Struct, or a list of those when you
 You can tag uploaded images with strings:
 
 ```elixir
-Cloudex.upload(["test/assets/test.jpg"], %{tags: ["foo", "bar"]})
+Cloudex.upload(["test/assets/test.jpg"], %{tags: "foo,bar"})
 %Cloudex.UploadedImage{
     bytes: 22659,
     created_at: "2015-11-27T10:02:23Z",
