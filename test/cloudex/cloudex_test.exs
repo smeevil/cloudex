@@ -35,5 +35,9 @@ defmodule CloudexTest do
     [
       {:ok, %Cloudex.UploadedImage{tags: ^tags}}
     ] = Cloudex.upload(["./test/assets/test.jpg"], %{tags: Enum.join(tags, ",")})
+    # or simply
+    [
+      {:ok, %Cloudex.UploadedImage{tags: ^tags}}
+    ] = Cloudex.upload(["./test/assets/test.jpg"], %{tags: tags})
   end
 end

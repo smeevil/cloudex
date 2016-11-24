@@ -32,8 +32,10 @@ defmodule Cloudex.CloudinaryApi.Test do
 
   defp return_fake_response(opts) do
     public_id = Map.get(opts, :public_id, "i2nruesgu4om3w9mtk1z")
-    tags = Map.get(opts, :tags, "")
-      |> String.split(",")
+    tags = case Map.get(opts, :tags, []) do
+      list when is_list(list) -> list
+      s -> String.split(s, ",")
+    end
     {:ok, date} = Timex.local |> Timex.format("{ISO:Basic}")
     {:ok, %UploadedImage{
       bytes: 22659,
