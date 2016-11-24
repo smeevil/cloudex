@@ -1,3 +1,6 @@
+## 0.1.12 (2016-11-24)
+@remiq added support for tags. Quite appreciated :)
+
 ## 0.1.11 (2016-10-25)
 @jprincipe added support for video urls. Thank you !
 
