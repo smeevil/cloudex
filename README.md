@@ -79,6 +79,38 @@ The response will be a Cloudex.UploadedImage Struct, or a list of those when you
 }
 ```
 
+You can tag uploaded images with strings:
+
+```elixir
+# as array
+Cloudex.upload(["test/assets/test.jpg"], %{tags: ["foo", "bar"]})
+# as comma-separated string
+Cloudex.upload(["test/assets/test.jpg"], %{tags: "foo,bar"})
+
+# result
+%Cloudex.UploadedImage{
+    bytes: 22659,
+    created_at: "2015-11-27T10:02:23Z",
+    etag: "dbb5764565c1b77ff049d20fcfd1d41d",
+    format: "jpg",
+    height: 167,
+    original_filename: "test",
+    public_id: "i2nruesgu4om3w9mtk1z",
+    resource_type: "image",
+    secure_url: "https://d1vibqt9pdnk2f.cloudfront.net/image/upload/v1448618543/i2nruesgu4om3w9mtk1z.jpg",
+    signature: "77b447746476c82bb4921fdea62a9227c584974b",
+    source: "http://example.org/test.jpg",
+    tags: ["foo", "bar"],
+    type: "upload",
+    url: "http://images.cloudassets.mobi/image/upload/v1448618543/i2nruesgu4om3w9mtk1z.jpg",
+    version: 1448618543,
+    width: 250
+}
+```
+
+List of additional parameters you can use with `upload/2`:
+http://cloudinary.com/documentation/image_upload_api_reference#upload
+
 ## Cloudinary URL generation
 This package also provides an helper to generate urls from cloudinary given a public id of the image.
 As a second argument you can pass in options to transform your image according via cloudinary.

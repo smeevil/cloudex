@@ -8,12 +8,14 @@ defmodule Cloudex.CloudinaryApi.Live do
   alias Cloudex.UploadedImage
   alias Cloudex.Settings
 
+  def upload(item, opts \\ %{})
+
   @doc """
   Helper function to enable piping of {:ok, path} tuples into upload
   """
-  @spec upload({:ok, item :: String.t}) :: Cloudex.UploadedImage.t
-  def upload({:ok, item}) when is_binary(item) do
-    upload(item)
+  @spec upload({:ok, item :: String.t}, %{}) :: Cloudex.UploadedImage.t
+  def upload({:ok, item}, opts) when is_binary(item) do
+    upload(item, opts)
   end
 
   @doc """
@@ -22,7 +24,7 @@ defmodule Cloudex.CloudinaryApi.Live do
   or {:error, "reason"}
   """
   @spec upload(item :: String.t, opts :: map) :: Cloudex.UploadedImage.t
-  def upload(item, opts \\ %{})
+  def upload(item, opts)
   def upload(item, opts) when is_binary(item) do
     case item do
       "http://" <> _rest  -> item |> upload_url(opts)
@@ -39,13 +41,14 @@ defmodule Cloudex.CloudinaryApi.Live do
   end
 
   defp upload_file(file_path, opts) do
-    body = {:multipart, (opts |> sign |> Map.to_list) ++ [{:file, file_path}]}
+    body = {:multipart, (opts |> prepare_opts |> sign |> unify |> Map.to_list) ++ [{:file, file_path}]}
     body |> post(file_path)
   end
 
   defp upload_url(url, opts) do
     opts
       |> Map.merge(%{file: url})
+      |> prepare_opts
       |> sign
       |> URI.encode_query
       |> post(url)
@@ -65,12 +68,26 @@ defmodule Cloudex.CloudinaryApi.Live do
     do: handle_response(response, source)
   end
 
+  defp prepare_opts(%{tags: tags} = opts) when is_list(tags), do: %{opts | tags: Enum.join(tags, ",")}
+  defp prepare_opts(opts), do: opts
+
   defp handle_response(%{"error" => %{"message" => error}}, _source) do
     {:error, error}
   end
 
   defp handle_response(response, source) do
     {:ok, json_result_to_struct(response, source)}
+  end
+
+  @docp """
+  Unifies hybrid map into string-only key map.
+  ie. `%{a: 1, "b" => 2} => %{"a" => 1, "b" => 2}`
+  """
+  defp unify(data) do
+    data
+      |> Enum.reduce(%{}, fn {k, v}, acc ->
+        Map.put(acc, "#{k}", v)
+      end)
   end
 
   defp sign(data) do
