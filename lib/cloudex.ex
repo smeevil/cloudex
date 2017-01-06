@@ -29,6 +29,14 @@ defmodule Cloudex do
     upload_results ++ invalid_list
   end
 
+  @doc """
+  Delete an image
+  """
+  def delete(item) do
+    Task.async(cloudinary_api, :delete, [item])
+    |> Task.await(60_000)
+  end
+
   defp sanitize_list(list, sanitized_list \\ [])
   defp sanitize_list(item, _sanitized_list) when is_binary(item) do
     [item] |> sanitize_list

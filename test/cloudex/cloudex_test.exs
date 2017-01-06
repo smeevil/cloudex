@@ -40,4 +40,8 @@ defmodule CloudexTest do
       {:ok, %Cloudex.UploadedImage{tags: ^tags}}
     ] = Cloudex.upload(["./test/assets/test.jpg"], %{tags: tags})
   end
+
+  test "delete image with public id" do
+    assert {:ok, %Cloudex.DeletedImage{public_id: "public-id"}} = Cloudex.delete("public-id")
+  end
 end
