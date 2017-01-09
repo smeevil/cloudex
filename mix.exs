@@ -4,7 +4,7 @@ defmodule Cloudex.Mixfile do
   def project do
     [
       app: :cloudex,
-      version: "0.1.13",
+      version: "0.1.14",
       description: "A library that helps with uploading image files and urls to cloudinary. Also provides an helper to generate transformations and cloudinary urls pointing to your images",
       package: package(),
       elixir: "~> 1.4",
@@ -19,7 +19,7 @@ defmodule Cloudex.Mixfile do
 
   def application do
     [
-      applications: [:logger, :httpoison, :tzdata, :timex],
+      extra_applications: [:logger],
       mod: {Cloudex.Settings, []}
     ]
   end
