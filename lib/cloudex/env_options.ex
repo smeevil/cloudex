@@ -13,7 +13,7 @@ defmodule Cloudex.EnvOptions do
       > %{my_env_key: "value from env"}
   """
   @spec merge(options :: Map.t) :: Map.t
-  def merge(%{}=options) do
+  def merge(%{} = options) do
     options |> Map.keys |> merge(options)
   end
 
