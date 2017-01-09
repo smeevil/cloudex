@@ -13,6 +13,7 @@ defp deps do
 end
 ```
 
+If you are using elixir 1.4, you can skip this step.
 The Cloudex app must be started. This can be done by adding :cloudex to
 the applications list in your mix.exs file. An example:
 
