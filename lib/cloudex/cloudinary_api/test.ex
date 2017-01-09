@@ -24,17 +24,17 @@ defmodule Cloudex.CloudinaryApi.Test do
   end
 
   @doc """
-  Delete an image when passed in a public id
-  """
-  def delete(item) do
-    {:ok, %Cloudex.DeletedImage{public_id: item}}
-  end
-
-  @doc """
   Catches upload called without a string argument
   """
   def upload(invalid_item, _opts) do
     {:error, "Upload/1 only accepts a String or {:ok, String}, received : #{inspect invalid_item}"}
+  end
+  
+  @doc """
+  Delete an image when passed in a public id
+  """
+  def delete(item) do
+    {:ok, %Cloudex.DeletedImage{public_id: item}}
   end
 
   defp return_fake_response(opts) do

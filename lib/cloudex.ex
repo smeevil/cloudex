@@ -24,7 +24,7 @@ defmodule Cloudex do
     invalid_list = Enum.filter(sanitized_list, fn item -> match?({:error, _}, item) end)
     valid_list = Enum.filter(sanitized_list, fn item -> match?({:ok, _}, item) end)
     upload_results = valid_list
-      |> Enum.map(fn image -> Task.async(cloudinary_api, :upload, [image, opts]) end)
+      |> Enum.map(fn image -> Task.async(cloudinary_api(), :upload, [image, opts]) end)
       |> Enum.map(&Task.await(&1, 60_000))
     upload_results ++ invalid_list
   end
@@ -33,7 +33,7 @@ defmodule Cloudex do
   Delete an image
   """
   def delete(item) do
-    Task.async(cloudinary_api, :delete, [item])
+    Task.async(cloudinary_api(), :delete, [item])
     |> Task.await(60_000)
   end
 

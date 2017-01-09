@@ -104,10 +104,8 @@ defmodule Cloudex.CloudinaryApi.Live do
     {:ok, json_result_to_struct(response, source)}
   end
 
-  @docp """
-  Unifies hybrid map into string-only key map.
-  ie. `%{a: 1, "b" => 2} => %{"a" => 1, "b" => 2}`
-  """
+  #  Unifies hybrid map into string-only key map.
+  #  ie. `%{a: 1, "b" => 2} => %{"a" => 1, "b" => 2}`
   defp unify(data) do
     data
       |> Enum.reduce(%{}, fn {k, v}, acc ->
@@ -116,7 +114,7 @@ defmodule Cloudex.CloudinaryApi.Live do
   end
 
   defp sign(data) do
-    timestamp = current_time
+    timestamp = current_time()
 
     data_to_sign = data
       |> Map.delete(:file)

@@ -49,7 +49,7 @@ An url to the image using multiple transformation options and a signature
 
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
-    [base_url, resource_type(options), "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
+    [base_url(), resource_type(options), "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
     |> Enum.reject(fn (x) -> x == nil end)
     |> Enum.join("/")
     |> append_format(options)

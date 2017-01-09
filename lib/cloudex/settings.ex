@@ -27,7 +27,7 @@ defmodule Cloudex.Settings do
   end
 
   def do_start({:error, :placeholder_settings}) do
-    {:error, placeholder_settings_error_message}
+    {:error, placeholder_settings_error_message()}
   end
 
   def do_start({:error, _} = error) do
@@ -40,7 +40,7 @@ defmodule Cloudex.Settings do
   def do_start({:ok, settings}) do
     case GenServer.start(__MODULE__, settings, name: :cloudex) do
       {:error, {:already_started, _pid}} ->
-        stop
+        stop()
         start(settings)
       {:ok, pid} -> {:ok, pid}
     end
