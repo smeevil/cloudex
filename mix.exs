@@ -26,15 +26,15 @@ defmodule Cloudex.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.9.0"},
+      {:httpoison, "~> 0.11.0"},
       {:poison, "~> 3.0.0"},
-      {:timex, "~> 3.1.0"},
-      {:tzdata, "~> 0.5.9"},
-      {:credo, "~> 0.4.13", only: :dev},
+      {:timex, "~> 3.1.7"},
+      {:tzdata, "~> 0.5.10"},
+      {:credo, "~> 0.5.3", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:mix_test_watch, "~> 0.2.6", only: :dev},
-      {:excoveralls, "~> 0.5.5", only: :test},
+      {:excoveralls, "~> 0.6.0", only: :test},
     ]
   end
 
