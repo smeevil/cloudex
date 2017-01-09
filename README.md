@@ -159,6 +159,15 @@ Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'pro
 "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 ```
 
+## Deleting images
+You can request deletion from cloudinary using ```Cloudex.delete/1``` function where the first argument should be the public id of the image you want to delete.
+ 
+### example:
+```
+Cloudex.delete("ysaixlehebdcusajobmt")
+# => {:ok, %Cloudex.DeletedImage{public_id: "ysaixlehebdcusajobmt"}}
+```
+
 ## Phoenix helper
 If you are using phoenix, you can create a small helper called for example cl_image_tag
 Create a file containing the following :

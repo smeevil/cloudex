@@ -1,3 +1,10 @@
+## 0.1.13 (2017-01-09)
+Thanks to @pauloancheta its now possible to also delete image given their public id using ```Cloudex.delete/1```
+
+- bumped deps
+- fixed deprecation warnings for elixir 1.4
+
+
 ## 0.1.12 (2016-11-24)
 @remiq added support for tags. Quite appreciated :)
 
