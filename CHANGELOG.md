@@ -1,4 +1,4 @@
-## 0.1.14 (2017-01-16)
+## 0.1.15 (2017-01-16)
 Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```  
 
 ## 0.1.13 (2017-01-09)
