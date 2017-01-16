@@ -44,4 +44,11 @@ defmodule CloudexTest do
   test "delete image with public id" do
     assert {:ok, %Cloudex.DeletedImage{public_id: "public-id"}} = Cloudex.delete("public-id")
   end
+
+  test "delete images from a list of public id's" do
+    assert [
+      {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}},
+      {:ok, %Cloudex.DeletedImage{public_id: "public-id-2"}}
+    ] = Cloudex.delete(["public-id-1", "public-id-2"])
+  end
 end
