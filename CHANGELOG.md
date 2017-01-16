@@ -1,3 +1,6 @@
+## 0.1.14 (2017-01-16)
+Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```  
+
 ## 0.1.13 (2017-01-09)
 Thanks to @pauloancheta its now possible to also delete image given their public id using ```Cloudex.delete/1```
 

@@ -29,10 +29,13 @@ defmodule Cloudex do
     upload_results ++ invalid_list
   end
 
+  @doc """
+  Delete a list of images
+  """
   def delete(item_list) when is_list(item_list) do
     Enum.map(item_list, fn item -> delete(item) end)
   end
-
+  
   @doc """
   Delete an image
   """
@@ -41,6 +44,7 @@ defmodule Cloudex do
     |> Task.await(60_000)
   end
 
+  
   defp sanitize_list(list, sanitized_list \\ [])
   defp sanitize_list(item, _sanitized_list) when is_binary(item) do
     [item] |> sanitize_list

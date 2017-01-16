@@ -164,9 +164,18 @@ You can request deletion from cloudinary using ```Cloudex.delete/1``` function w
  
 ### example:
 ```
-Cloudex.delete("ysaixlehebdcusajobmt")
-# => {:ok, %Cloudex.DeletedImage{public_id: "ysaixlehebdcusajobmt"}}
+Cloudex.delete("public-id-1")
+# => {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}}
+
+Cloudex.delete(["public-id-1", "public-id-2"])
+# => 
+[
+  {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}},
+  {:ok, %Cloudex.DeletedImage{public_id: "public-id-2"}}
+]
 ```
+
+
 
 ## Phoenix helper
 If you are using phoenix, you can create a small helper called for example cl_image_tag
