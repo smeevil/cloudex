@@ -29,6 +29,10 @@ defmodule Cloudex do
     upload_results ++ invalid_list
   end
 
+  def delete(item_list) when is_list(item_list) do
+    Enum.map(item_list, fn item -> delete(item) end)
+  end
+
   @doc """
   Delete an image
   """
