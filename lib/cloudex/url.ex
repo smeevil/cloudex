@@ -11,37 +11,42 @@ Given a cloudinary public id string, this will generate an image url of where th
 You can also pass a map with options to apply transformations to the image, for more information see the documentation.
 
 ## examples :
-An url to the image at its original dimensions and no transformations
+A url to the image at its original dimensions and no transformations
 
       iex> Cloudex.Url.for("a_public_id")
       "//res.cloudinary.com/my_cloud_name/image/upload/a_public_id"
 
-An url to the image adjusted to a specific width and height
+A url to the image with just a signature
+
+      iex> Cloudex.Url.for("a_public_id", %{sign_url: true})
+      "//res.cloudinary.com/my_cloud_name/image/upload/s--MXxhpIBQ--/a_public_id"
+
+A url to the image adjusted to a specific width and height
 
       iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300})
       "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id"
 
-An url to the image using multiple transformation options and a signature
+A url to the image using multiple transformation options and a signature
 
       iex> Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 
-  An url to a specific version of the image
+  A url to a specific version of the image
 
       iex> Cloudex.Url.for("a_public_id", %{version: 1471959066})
       "//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id"
 
-  An url to a specific version of the image adjusted to a specific width and height
+  A url to a specific version of the image adjusted to a specific width and height
 
       iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, version: 1471959066})
       "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id"
 
-  An url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.
+  A url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.
 
       iex> Cloudex.Url.for("a_public_id", %{format: "png"})
       "//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png"
 
-  An url to the resource type.  If resource type not specified, "image" is the default
+  A url to the resource type.  If resource type not specified, "image" is the default
 
       iex> Cloudex.Url.for("a_public_id", %{resource_type: "video"})
       "//res.cloudinary.com/my_cloud_name/video/upload/a_public_id"
@@ -49,8 +54,15 @@ An url to the image using multiple transformation options and a signature
 
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
-    [base_url(), resource_type(options), "upload", signature_for(public_id, options, transformations), transformations, version_for(options), public_id]
-    |> Enum.reject(fn (x) -> x == nil end)
+
+    [base_url(),
+     resource_type(options),
+     "upload",
+     signature_for(public_id, options, transformations),
+     (if String.length(transformations) > 0, do: transformations),
+     version_for(options),
+     public_id]
+    |> Enum.reject(& &1 == nil)
     |> Enum.join("/")
     |> append_format(options)
   end
@@ -86,12 +98,12 @@ An url to the image using multiple transformation options and a signature
 
   defp transformation_string_from(%{} = options) do
     options
-    |> Enum.sort
-    |> process
-    |> join_transformations
+    |> Enum.sort()
+    |> process()
+    |> join_transformations()
   end
 
-  defp join_transformations([]), do: nil
+  defp join_transformations([]), do: ""
   defp join_transformations(transformations) do
     Enum.join(transformations, ",")
   end
