@@ -1,3 +1,7 @@
+## 0.1.16 (2017-04-03)
+Thanks to @sudostack for fixing a bug when not passing a transformation string and using signed_urls
+- Bumped deps
+
 ## 0.1.15 (2017-01-16)
 Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```  
 
