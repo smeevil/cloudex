@@ -50,18 +50,27 @@ A url to the image using multiple transformation options and a signature
 
       iex> Cloudex.Url.for("a_public_id", %{resource_type: "video"})
       "//res.cloudinary.com/my_cloud_name/video/upload/a_public_id"
+
+  A url with an overlay
+      iex> Cloudex.Url.for("a_public_id", [
+      ...>   %{border: "5px_solid_rgb:c22c33", radius: 5, crop: "fill", height: 246, width: 470, quality: 80},
+      ...>   %{overlay: "my_overlay", crop: "scale", gravity: "south_east", width: 128 ,x: 5, y: 15}
+      ...> ])
+      "//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id"
   """
 
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
 
-    [base_url(),
-     resource_type(options),
-     "upload",
-     signature_for(public_id, options, transformations),
-     (if String.length(transformations) > 0, do: transformations),
-     version_for(options),
-     public_id]
+    [
+      base_url(),
+      resource_type(options),
+      "upload",
+      signature_for(public_id, options, transformations),
+      (if String.length(transformations) > 0, do: transformations),
+      version_for(options),
+      public_id
+    ]
     |> Enum.reject(& &1 == nil)
     |> Enum.join("/")
     |> append_format(options)
@@ -96,7 +105,8 @@ A url to the image using multiple transformation options and a signature
   defp format(%{format: format}), do: ".#{format}"
   defp format(_), do: ""
 
-  defp transformation_string_from(%{} = options) do
+  defp transformation_string_from(options) when is_list(options), do: Enum.map(options, &transformation_string_from/1) |> Enum.join("/")
+  defp transformation_string_from(options) when is_map(options) do
     options
     |> Enum.sort()
     |> process()

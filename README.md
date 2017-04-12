@@ -159,6 +159,14 @@ Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'pro
 "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 ```
 
+You can add multiple effects using Cloudex.Url.for/2, an example would be adding an overlay to your image, using:
+```
+Cloudex.Url.for("a_public_id", [
+  %{border: "5px_solid_rgb:c22c33", radius: 5, crop: "fill", height: 246, width: 470, quality: 80},
+  %{overlay: "my_overlay", crop: "scale", gravity: "south_east", width: 128 ,x: 5, y: 15}
+])
+"//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id"
+```
 ## Deleting images
 You can request deletion from cloudinary using ```Cloudex.delete/1``` function where the first argument should be the public id of the image you want to delete.
  

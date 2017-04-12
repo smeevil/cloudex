@@ -1,3 +1,15 @@
+## 0.1.17 (2017-04-12)
+You can add multiple effects using Cloudex.Url.for/2, an example would be adding an overlay to your image, using:
+
+```
+Cloudex.Url.for("a_public_id", [
+  %{border: "5px_solid_rgb:c22c33", radius: 5, crop: "fill", height: 246, width: 470, quality: 80},
+  %{overlay: "my_overlay", crop: "scale", gravity: "south_east", width: 128 ,x: 5, y: 15}
+])
+
+"//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id"
+```
+
 ## 0.1.16 (2017-04-03)
 Thanks to @sudostack for fixing a bug when not passing a transformation string and using signed_urls
 - Bumped deps
