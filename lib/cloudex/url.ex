@@ -57,6 +57,10 @@ A url to the image using multiple transformation options and a signature
       ...>   %{overlay: "my_overlay", crop: "scale", gravity: "south_east", width: 128 ,x: 5, y: 15}
       ...> ])
       "//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id"
+
+  A url with a face
+      iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, face: true})
+      "//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id"
   """
 
   def for(public_id, options \\ %{}) do
@@ -148,5 +152,6 @@ A url to the image using multiple transformation options and a signature
   defp process_option(:density, value), do: ["dn_#{value}"]
   defp process_option(:flags, value), do: ["fl_#{value}"]
   defp process_option(:transformation, value), do: ["t_#{value}"]
+  defp process_option(:face, true), do: ["g_face"]
   defp process_option(_, _), do: []
 end
