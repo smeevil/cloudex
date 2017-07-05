@@ -1,3 +1,8 @@
+
+
+
+
+
 defmodule Cloudex.UploadedImage do
   @moduledoc """
   A simple struct containing all the information from cloudinary.

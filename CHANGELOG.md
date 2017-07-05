@@ -1,3 +1,6 @@
+## 0.1.18 (2017-07-05)
+Thanks @dkln for added the g_face option
+
 ## 0.1.17 (2017-04-12)
 You can add multiple effects using Cloudex.Url.for/2, an example would be adding an overlay to your image, using:
 
