@@ -5,7 +5,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.15.0">
-    <title>Cloudex.Url – cloudex v0.1.17</title>
+    <title>Cloudex.Url – cloudex v0.1.18</title>
     <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
     
       <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.Url.html" />
@@ -28,7 +28,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.17
+        v0.1.18
       </h2>
     </div>
     
@@ -60,7 +60,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v0.1.17</small>
+        <small class="visible-xs">cloudex v0.1.18</small>
         Cloudex.Url
         
         
@@ -174,6 +174,9 @@ You can also pass a map with options to apply transformations to the image, for 
 ...&gt;   %{overlay: &quot;my_overlay&quot;, crop: &quot;scale&quot;, gravity: &quot;south_east&quot;, width: 128 ,x: 5, y: 15}
 ...&gt; ])
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id&quot;</code></pre>
+<p>A url with a face</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, face: true})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id&quot;</code></pre>
 
   </section>
 </div>

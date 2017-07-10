@@ -1,3 +1,6 @@
+## 0.1.19 (2017-07-10)
+Thanks @nbancajas for fixing signing bug when appending secret
+
 ## 0.1.18 (2017-07-05)
 Thanks @dkln for added the g_face option
 
