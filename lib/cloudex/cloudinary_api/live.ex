@@ -116,14 +116,14 @@ defmodule Cloudex.CloudinaryApi.Live do
   defp sign(data) do
     timestamp = current_time()
 
-    data_to_sign = data
+    data_without_secret = data
       |> Map.delete(:file)
-      |> Map.merge(%{"timestamp" => (timestamp <> Settings.get(:secret))})
-
-    signature = data_to_sign
-      |> Enum.sort
+      |> Map.merge(%{"timestamp" => timestamp})
       |> Enum.map(fn {key, val} -> "#{key}=#{val}" end)
+      |> Enum.sort
       |> Enum.join("&")
+
+    signature = (data_without_secret <> Settings.get(:secret))
       |> sha
 
     Map.merge(data, %{
