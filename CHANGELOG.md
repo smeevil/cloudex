@@ -1,3 +1,6 @@
+## 0.1.20 (2017-08-29)
+Thanks @Tyler-pierce for adding support to rotate images
+
 ## 0.1.19 (2017-07-10)
 Thanks @nbancajas for fixing signing bug when appending secret
 
@@ -21,7 +24,7 @@ Thanks to @sudostack for fixing a bug when not passing a transformation string a
 - Bumped deps
 
 ## 0.1.15 (2017-01-16)
-Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```  
+Thanks to @pauloancheta you can now also delete a list with ```Cloudex.delete/1```
 
 ## 0.1.13 (2017-01-09)
 Thanks to @pauloancheta its now possible to also delete image given their public id using ```Cloudex.delete/1```
