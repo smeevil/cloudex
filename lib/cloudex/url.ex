@@ -152,6 +152,7 @@ A url to the image using multiple transformation options and a signature
   defp process_option(:density, value), do: ["dn_#{value}"]
   defp process_option(:flags, value), do: ["fl_#{value}"]
   defp process_option(:transformation, value), do: ["t_#{value}"]
+  defp process_option(:rotation, value), do: ["a_#{value}"]
   defp process_option(:face, true), do: ["g_face"]
   defp process_option(_, _), do: []
 end
