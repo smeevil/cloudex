@@ -31,6 +31,11 @@ A url to the image using multiple transformation options and a signature
       iex> Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 
+A url to the image using a named transformation
+
+      iex> Cloudex.Url.for("a_public_id", %{transformation: "my_transformation"})
+      "//res.cloudinary.com/my_cloud_name/image/upload/t_my_transformation/a_public_id"
+
   A url to a specific version of the image
 
       iex> Cloudex.Url.for("a_public_id", %{version: 1471959066})
@@ -50,6 +55,11 @@ A url to the image using multiple transformation options and a signature
 
       iex> Cloudex.Url.for("a_public_id", %{resource_type: "video"})
       "//res.cloudinary.com/my_cloud_name/video/upload/a_public_id"
+
+  A url to the resource type with a named transformation.
+
+      iex> Cloudex.Url.for("a_public_id", %{resource_type: "video", transformation: "my_transformation"})
+      "//res.cloudinary.com/my_cloud_name/video/upload/t_my_transformation/a_public_id"
 
   A url with an overlay
       iex> Cloudex.Url.for("a_public_id", [
