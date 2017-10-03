@@ -5,10 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.15.0">
-    <title>Cloudex – cloudex v0.1.18</title>
+    <title>Cloudex – cloudex v0.1.20</title>
     <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
-    
-      <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.html" />
     
     <script src="dist/sidebar_items-40e94b89f0.js"></script>
   </head>
@@ -28,7 +26,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.18
+        v0.1.20
       </h2>
     </div>
     
@@ -60,7 +58,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v0.1.18</small>
+        <small class="visible-xs">cloudex v0.1.20</small>
         Cloudex
         
         
@@ -145,6 +143,12 @@
     
     
     
+      <div class="specs">
+        
+          <pre>delete([<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>]) :: :ok</pre>
+        
+      </div>
+    
   </div>
   <section class="docstring">
     <p>Delete an image</p>
@@ -163,7 +167,7 @@
     
       <div class="specs">
         
-          <pre>start(settings :: <a href="https://hexdocs.pm/elixir/Map.html#t:t/0">Map.t</a>) :: {:ok, PID.t}</pre>
+          <pre>start(settings :: map) :: {:ok, pid}</pre>
         
       </div>
     
@@ -193,7 +197,7 @@
     
       <div class="specs">
         
-          <pre>upload(list :: [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>], %{tags: [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>]}) :: [<a href="Cloudex.UploadedImage.html#t:t/0">Cloudex.UploadedImage.t</a>]</pre>
+          <pre>upload(list :: [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>], %{tags: [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>]}) :: [%Cloudex.UploadedImage{bytes: term, created_at: term, etag: term, format: term, height: term, original_filename: term, public_id: term, resource_type: term, secure_url: term, signature: term, source: term, tags: term, type: term, url: term, version: term, width: term}]</pre>
         
       </div>
     

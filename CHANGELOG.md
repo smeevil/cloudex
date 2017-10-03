@@ -1,3 +1,12 @@
+## 0.2.0 (2017-10-03)
+- minor version bump
+- Clean up and reformatting of code
+- added specs and dialyzed
+- Removed unnecessary complicated api split from live and test
+- Its no longer needed to add `config :cloudex, :cloudinary_api,
+  Cloudex.CloudinaryApi` in you config
+- Added VCR test actually test real responses from the live api
+
 ## 0.1.20 (2017-08-29)
 Thanks @Tyler-pierce for adding support to rotate images
 

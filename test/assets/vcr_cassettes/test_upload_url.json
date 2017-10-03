@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "file=https%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=214a35ac02d0371a33e64a8b8a636572900f0292&timestamp=1507025035",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"ugnor7qjwgboj1qqhseo\",\"version\":1507025035,\"signature\":\"8a5af4964acfb82b15f16eaad2076ba15cf759f4\",\"width\":2848,\"height\":4288,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T10:03:55Z\",\"tags\":[],\"bytes\":4520895,\"type\":\"upload\",\"etag\":\"22ac1427fa960ef88e1572ad81e5640e\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507025035/ugnor7qjwgboj1qqhseo.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507025035/ugnor7qjwgboj1qqhseo.jpg\",\"original_filename\":\"shutterstock_172896005\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 10:03:56 GMT",
+        "ETag": "\"30602f08ff36a1833fceea54a9fb521e\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "951c1656a17bcde6",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

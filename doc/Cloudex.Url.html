@@ -5,10 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.15.0">
-    <title>Cloudex.Url – cloudex v0.1.18</title>
+    <title>Cloudex.Url – cloudex v0.1.20</title>
     <link rel="stylesheet" href="dist/app-f7824c48e6.css" />
-    
-      <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.Url.html" />
     
     <script src="dist/sidebar_items-40e94b89f0.js"></script>
   </head>
@@ -28,7 +26,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.1.18
+        v0.1.20
       </h2>
     </div>
     
@@ -60,7 +58,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v0.1.18</small>
+        <small class="visible-xs">cloudex v0.1.20</small>
         Cloudex.Url
         
         
@@ -131,7 +129,7 @@ You can also pass a map with options to apply transformations to the image, for 
     
       <div class="specs">
         
-          <pre>for(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, <a href="https://hexdocs.pm/elixir/Map.html#t:t/0">Map.t</a>) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a></pre>
+          <pre>for(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, map) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a></pre>
         
       </div>
     
@@ -144,37 +142,43 @@ You can also pass a map with options to apply transformations to the image, for 
   examples :
 </h2>
 
-<p>A url to the image at its original dimensions and no transformations</p>
+<p>An url to the image at its original dimensions and no transformations</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;)
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id&quot;</code></pre>
-<p>A url to the image with just a signature</p>
+<p>An url to the image with just a signature</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{sign_url: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/s--MXxhpIBQ--/a_public_id&quot;</code></pre>
-<p>A url to the image adjusted to a specific width and height</p>
+<p>An url to the image adjusted to a specific width and height</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id&quot;</code></pre>
-<p>A url to the image using multiple transformation options and a signature</p>
+<p>An url to the image using multiple transformation options and a signature</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{crop: &quot;fill&quot;, fetch_format: &#39;auto&#39;, flags: &#39;progressive&#39;, width: 300, height: 254, quality: &quot;jpegmini&quot;, sign_url: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id&quot;</code></pre>
-<p>A url to a specific version of the image</p>
+<p>An url to the image using a named transformation</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{transformation: &quot;my_transformation&quot;})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/t_my_transformation/a_public_id&quot;</code></pre>
+<p>An url to a specific version of the image</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{version: 1471959066})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id&quot;</code></pre>
-<p>A url to a specific version of the image adjusted to a specific width and height</p>
+<p>An url to a specific version of the image adjusted to a specific width and height</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, version: 1471959066})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id&quot;</code></pre>
-<p>A url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.</p>
+<p>An url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{format: &quot;png&quot;})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png&quot;</code></pre>
-<p>A url to the resource type.  If resource type not specified, “image” is the default</p>
+<p>An url to the resource type.  If resource type not specified, “image” is the default</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{resource_type: &quot;video&quot;})
 &quot;//res.cloudinary.com/my_cloud_name/video/upload/a_public_id&quot;</code></pre>
-<p>A url with an overlay</p>
+<p>An url to the resource type with a named transformation.</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{resource_type: &quot;video&quot;, transformation: &quot;my_transformation&quot;})
+&quot;//res.cloudinary.com/my_cloud_name/video/upload/t_my_transformation/a_public_id&quot;</code></pre>
+<p>An url with an overlay</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, [
 ...&gt;   %{border: &quot;5px_solid_rgb:c22c33&quot;, radius: 5, crop: &quot;fill&quot;, height: 246, width: 470, quality: 80},
 ...&gt;   %{overlay: &quot;my_overlay&quot;, crop: &quot;scale&quot;, gravity: &quot;south_east&quot;, width: 128 ,x: 5, y: 15}
 ...&gt; ])
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id&quot;</code></pre>
-<p>A url with a face</p>
+<p>An url with a face</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, face: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id&quot;</code></pre>
 

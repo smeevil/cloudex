@@ -169,14 +169,14 @@ Cloudex.Url.for("a_public_id", [
 ```
 ## Deleting images
 You can request deletion from cloudinary using ```Cloudex.delete/1``` function where the first argument should be the public id of the image you want to delete.
- 
+
 ### example:
 ```
 Cloudex.delete("public-id-1")
 # => {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}}
 
 Cloudex.delete(["public-id-1", "public-id-2"])
-# => 
+# =>
 [
   {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}},
   {:ok, %Cloudex.DeletedImage{public_id: "public-id-2"}}

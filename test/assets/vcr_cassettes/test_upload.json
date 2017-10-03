@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"dcf3a2164b793c34964373b4af8162359a7cd6de\"}, {\"timestamp\", \"1507024260\"}, {:file, \"test/assets/test.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"tr42vkcgje4q2zxnamvi\",\"version\":1507024260,\"signature\":\"4ce0bc2397da765cdd151f298db5fa44b286bb20\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T09:51:00Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507024260/tr42vkcgje4q2zxnamvi.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507024260/tr42vkcgje4q2zxnamvi.jpg\",\"original_filename\":\"test\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 09:51:01 GMT",
+        "ETag": "\"eb95cf2afaac0c65bb0737d34f008bf0\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "54b9cbb00cc95b59",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "516",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

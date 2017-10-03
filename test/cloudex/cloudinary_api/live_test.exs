@@ -4,7 +4,7 @@ defmodule LiveTest do
 
   test "create a uploaded image from a map" do
     {:ok, data} = Poison.decode(File.read!("./test/cloudinary_response.json"))
-    result = Cloudex.CloudinaryApi.Live.json_result_to_struct(data, "http://example.org/test.jpg")
+    result = Cloudex.CloudinaryApi.json_result_to_struct(data, "http://example.org/test.jpg")
     assert %Cloudex.UploadedImage{
       bytes: 22659,
       created_at: "2015-11-27T10:02:23Z",

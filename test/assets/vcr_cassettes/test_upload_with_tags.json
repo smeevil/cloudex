@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"a9c499eda57314f90d2ebec61ad6ccbcb235e0ff\"}, {\"tags\", \"foo,bar\"}, {\"timestamp\", \"1507024261\"}, {:file, \"./test/assets/test.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"vv7cxdopasmev61rhnzo\",\"version\":1507024261,\"signature\":\"7d91ceebdb31229ce3126f97e8760d725630d904\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T09:51:01Z\",\"tags\":[\"foo\",\"bar\"],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507024261/vv7cxdopasmev61rhnzo.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507024261/vv7cxdopasmev61rhnzo.jpg\",\"original_filename\":\"test\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 09:51:02 GMT",
+        "ETag": "\"dd5b8e604e2e6da510138375d2d4fda9\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "60c0dacd2bfa860c",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "527",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

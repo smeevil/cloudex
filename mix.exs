@@ -4,17 +4,49 @@ defmodule Cloudex.Mixfile do
   def project do
     [
       app: :cloudex,
-      version: "0.1.20",
+      version: "0.2.0",
       description: "A library that helps with uploading image files and urls to cloudinary. Also provides an helper to generate transformations and cloudinary urls pointing to your images",
       package: package(),
-      elixir: "~> 1.4",
+      elixir: "~> 1.5",
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
       deps: deps(),
-      preferred_cli_env: ["coveralls": :test, "coveralls.detail": :test, "coveralls.post": :test, "coveralls.html": :test],
-      test_coverage: [tool: ExCoveralls]
+      dialyzer: [
+        plt_add_deps: true,
+        ignore_warnings: "dialyzer.ignore-warnings",
+        flags: [
+          :error_handling,
+          :no_behaviours,
+          :no_contracts,
+          :no_fail_call,
+          :no_fun_app,
+          :no_improper_lists,
+          :no_match,
+          :no_missing_calls,
+          :no_opaque,
+          :no_return,
+          :no_undefined_callbacks,
+          :no_unused,
+          :race_conditions,
+          :unknown,
+          :unmatched_returns,
+        ],
+      ],
 
-     ]
+      preferred_cli_env: [
+        "coveralls": :test,
+        "coveralls.detail": :test,
+        "coveralls.post": :test,
+        "coveralls.html": :test,
+        "vcr": :test,
+        "vcr.delete": :test,
+        "vcr.check": :test,
+        "vcr.show": :test
+      ],
+      test_coverage: [
+        tool: ExCoveralls
+      ],
+    ]
   end
 
   def application do
@@ -26,15 +58,16 @@ defmodule Cloudex.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 0.11.0"},
-      {:poison, "~> 3.1.0"},
-      {:timex, "~> 3.1.7"},
-      {:tzdata, "~> 0.5.11"},
       {:credo, "> 0.0.0", only: :dev},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev},
-      {:mix_test_watch, "> 0.0.0", only: :dev},
       {:excoveralls, "> 0.0.0", only: :test},
+      {:exvcr, ">= 0.0.0", [only: :test]},
+      {:httpoison, "~> 0.11.0"},
+      {:mix_test_watch, "> 0.0.0", only: :dev},
+      {:poison, "~> 3.1.0"},
+      {:timex, "~> 3.1.7"},
+      {:tzdata, "~> 0.5.11"},
     ]
   end
 
@@ -45,7 +78,7 @@ defmodule Cloudex.Mixfile do
       files: ["lib", "mix.exs", "README*", "LICENSE*", "CHANGELOG*"],
       links: %{
         "GitHub" => "https://github.com/smeevil/cloudex",
-        "Docs"   => "http://smeevil.github.io/cloudex/"
+        "Docs" => "http://smeevil.github.io/cloudex/"
       }
     ]
   end

@@ -1,0 +1,95 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"my_secret\"}, {\"timestamp\", \"1507024263\"}, {:file, \"test/assets/multiple/12205032.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"jnjjah5z8zgc4uotkzpz\",\"version\":1507024263,\"signature\":\"fa716052fce5184a046c7ad78a1616cc3cbd9b4a\",\"width\":800,\"height\":600,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T09:51:03Z\",\"tags\":[],\"bytes\":123550,\"type\":\"upload\",\"etag\":\"95ec85ba403e8d47233600d585ff1b20\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507024263/jnjjah5z8zgc4uotkzpz.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507024263/jnjjah5z8zgc4uotkzpz.jpg\",\"original_filename\":\"12205032\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 09:51:03 GMT",
+        "ETag": "\"6ee678029ca47f8b87221e286fbb3114\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "8ef6059e8951e1f9",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"my_secret\"}, {\"timestamp\", \"1507024263\"}, {:file, \"test/assets/multiple/aa-Gothic-Prayer.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"w3ozap9ukwlopfemsedp\",\"version\":1507024263,\"signature\":\"d403157169282487971d375cc8500525b85c1fb0\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T09:51:03Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507024263/w3ozap9ukwlopfemsedp.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507024263/w3ozap9ukwlopfemsedp.jpg\",\"original_filename\":\"aa-Gothic-Prayer\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 09:51:03 GMT",
+        "ETag": "\"ede33eb3bfa678995260cadfe517d467\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "41df31df55a12765",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "528",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"my_secret\"}, {\"timestamp\", \"1507024263\"}, {:file, \"test/assets/multiple/Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"i0clbfwbjmhxhsidfyyf\",\"version\":1507024264,\"signature\":\"ccaf88243f61e0ca7afec1b3f095fe3780c2fb70\",\"width\":1920,\"height\":1080,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T09:51:04Z\",\"tags\":[],\"bytes\":1628451,\"type\":\"upload\",\"etag\":\"443a3b3e1bc637c185b29b5c76f77906\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507024264/i0clbfwbjmhxhsidfyyf.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507024264/i0clbfwbjmhxhsidfyyf.jpg\",\"original_filename\":\"Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 03 Oct 2017 09:51:05 GMT",
+        "ETag": "\"3f3e9cdaa1d1eaa9691f9ffed27ebbb0\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "794500d487ef3b07",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
