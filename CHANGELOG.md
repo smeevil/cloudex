@@ -1,3 +1,6 @@
+## 0.2.1 (2017-10-06)
+- Enforced strict checking of dialyzer
+
 ## 0.2.0 (2017-10-03)
 - minor version bump
 - Clean up and reformatting of code

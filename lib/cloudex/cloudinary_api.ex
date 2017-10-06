@@ -7,19 +7,13 @@ defmodule Cloudex.CloudinaryApi do
   @cloudinary_headers [{"Content-Type", "application/x-www-form-urlencoded"}, {"Accept", "application/json"}]
 
   @doc """
-  Helper function to enable piping of {:ok, path} tuples into upload
-  """
-  @spec upload(String.t, map) :: %Cloudex.UploadedImage{}
-  @spec upload({:ok, String.t}, map) :: %Cloudex.UploadedImage{}
-  def upload(item, opts \\ %{})
-  def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
-
-  @doc """
   Upload either a file or url to cloudinary
   returns {:ok, %UploadedFile{}} containing all the information from cloudinary
   or {:error, "reason"}
   """
-  @spec upload(item :: String.t, opts :: map) :: %Cloudex.UploadedImage{}
+  @spec upload(String.t | {:ok, String.t}, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  def upload(item, opts \\ %{})
+  def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
   def upload(item, opts)
   def upload(item, opts) when is_binary(item) do
     case item do
@@ -28,13 +22,8 @@ defmodule Cloudex.CloudinaryApi do
       _ -> upload_file(item, opts)
     end
   end
-
-  @doc """
-  Catches upload called without a string argument
-  """
-  @spec upload(any, map) :: {:error, String.t}
   def upload(invalid_item, _opts) do
-    {:error, "Upload/1 only accepts a String or {:ok, String}, received: #{inspect invalid_item}"}
+    {:error, "Upload/1 only accepts a String.t or {:ok, String.t}, received: #{inspect invalid_item}"}
   end
 
   @doc """
@@ -44,16 +33,20 @@ defmodule Cloudex.CloudinaryApi do
   def delete(item) when is_bitstring(item) do
     case delete_file(item) do
       {:ok, _} -> {:ok, %Cloudex.DeletedImage{public_id: item}}
-      {:error, response} -> {:error, response.body}
+      error -> error
     end
+  end
+  def delete(invalid_item) do
+    {:error, "delete/1 only accepts valid public id, received: #{inspect invalid_item}"}
   end
 
   @doc """
-  Catches error when public id was invalid
+    Converts the json result from cloudinary to a %UploadedImage{} struct
   """
-  @spec delete(any) :: {:error, String.t}
-  def delete(invalid_item) do
-    {:error, "delete/1 only accepts valid public id, received: #{inspect invalid_item}"}
+  @spec json_result_to_struct(map, String.t) :: %Cloudex.UploadedImage{}
+  def json_result_to_struct(result, source) do
+    converted = (Enum.map(result, fn ({k, v}) -> {String.to_atom(k), v} end)) ++ [source: source]
+    struct(%Cloudex.UploadedImage{}, converted)
   end
 
   @spec upload_file(String.t, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
@@ -81,7 +74,8 @@ defmodule Cloudex.CloudinaryApi do
     |> post(url)
   end
 
-  @spec delete_file(String.t) :: {:ok, %Cloudex.DeletedImage{}}
+
+  @spec delete_file(bitstring) :: {:ok, %Cloudex.DeletedImage{}} | {:error, %Elixir.HTTPoison.Error{}}
   defp delete_file(item) do
     options = [
       hackney: [
@@ -92,7 +86,7 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(url, @cloudinary_headers, options)
   end
 
-  @spec post(String.t, String.t) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  @spec post(tuple | String.t, binary) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
   defp post(body, source) do
     with {:ok, raw_response} <- HTTPoison.request(
       :post,
@@ -170,12 +164,4 @@ defmodule Cloudex.CloudinaryApi do
     |> Integer.to_string
   end
 
-  @doc """
-    Converts the json result from cloudinary to a %UploadedImage{} struct
-  """
-  @spec json_result_to_struct(map, String.t) :: %Cloudex.UploadedImage{}
-  def json_result_to_struct(result, source) do
-    converted = (Enum.map(result, fn ({k, v}) -> {String.to_atom(k), v} end)) ++ [source: source]
-    struct(%Cloudex.UploadedImage{}, converted)
-  end
 end
