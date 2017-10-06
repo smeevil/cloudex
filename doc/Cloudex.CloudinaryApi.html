@@ -5,10 +5,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.17.1">
-    <title>Cloudex.CloudinaryApi – cloudex v0.2.0</title>
+    <title>Cloudex.CloudinaryApi – cloudex v0.2.1</title>
     <link rel="stylesheet" href="dist/app-110d9134a6.css" />
-    
-      <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.CloudinaryApi.html" />
     
     
     <script src="dist/sidebar_items-4d79f1be5d.js"></script>
@@ -31,7 +29,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v0.2.0
+        v0.2.1
       </h2>
     </div>
     
@@ -65,7 +63,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v0.2.0</small>
+        <small class="visible-xs">cloudex v0.2.1</small>
         Cloudex.CloudinaryApi
         
       </h1>
@@ -98,7 +96,7 @@
     <a href="#delete/1">delete(item)</a>
   </div>
   
-    <div class="summary-synopsis"><p>Catches error when public id was invalid</p>
+    <div class="summary-synopsis"><p>Deletes an image given a public id</p>
 </div>
   
 </div>
@@ -116,7 +114,9 @@
     <a href="#upload/2">upload(item, opts \\ %{})</a>
   </div>
   
-    <div class="summary-synopsis"><p>Catches upload called without a string argument</p>
+    <div class="summary-synopsis"><p>Upload either a file or url to cloudinary
+returns {:ok, %UploadedFile{}} containing all the information from cloudinary
+or {:error, “reason”}</p>
 </div>
   
 </div>
@@ -158,13 +158,11 @@
   {:ok, %Cloudex.DeletedImage{public_id: term}} |
   {:error, any}</pre>
         
-          <pre>delete(any) :: {:error, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>}</pre>
-        
       </div>
     
   </div>
   <section class="docstring">
-    <p>Catches error when public id was invalid</p>
+    <p>Deletes an image given a public id</p>
 
   </section>
 </div>
@@ -208,19 +206,17 @@
     
       <div class="specs">
         
-          <pre>upload(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, map) :: %Cloudex.UploadedImage{bytes: term, created_at: term, etag: term, format: term, height: term, original_filename: term, public_id: term, resource_type: term, secure_url: term, signature: term, source: term, tags: term, type: term, url: term, version: term, width: term}</pre>
-        
-          <pre>upload({:ok, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>}, map) :: %Cloudex.UploadedImage{bytes: term, created_at: term, etag: term, format: term, height: term, original_filename: term, public_id: term, resource_type: term, secure_url: term, signature: term, source: term, tags: term, type: term, url: term, version: term, width: term}</pre>
-        
-          <pre>upload(item :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>, opts :: map) :: %Cloudex.UploadedImage{bytes: term, created_at: term, etag: term, format: term, height: term, original_filename: term, public_id: term, resource_type: term, secure_url: term, signature: term, source: term, tags: term, type: term, url: term, version: term, width: term}</pre>
-        
-          <pre>upload(any, map) :: {:error, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>}</pre>
+          <pre>upload(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a> | {:ok, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>}, map) ::
+  {:ok, %Cloudex.UploadedImage{bytes: term, created_at: term, etag: term, format: term, height: term, original_filename: term, public_id: term, resource_type: term, secure_url: term, signature: term, source: term, tags: term, type: term, url: term, version: term, width: term}} |
+  {:error, any}</pre>
         
       </div>
     
   </div>
   <section class="docstring">
-    <p>Catches upload called without a string argument</p>
+    <p>Upload either a file or url to cloudinary
+returns {:ok, %UploadedFile{}} containing all the information from cloudinary
+or {:error, “reason”}</p>
 
   </section>
 </div>
