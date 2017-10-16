@@ -1,3 +1,6 @@
+## 0.2.2 (2017-10-16)
+- bumped specs
+
 ## 0.2.1 (2017-10-06)
 - Enforced strict checking of dialyzer
 
