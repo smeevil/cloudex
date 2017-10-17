@@ -58,8 +58,8 @@ defmodule Cloudex.Settings do
 
   ## Examples
 
-      Cloudex.Settings.get
-      > %{api_key: "mykey", secret: "s3cr3t", cloud_name: "heaven"}
+      iex> Cloudex.Settings.get
+      %{api_key: "my_key", secret: "my_secret", cloud_name: "my_cloud_name"}
   """
   @spec get() :: map
   def get, do: GenServer.call(:cloudex, :settings)
@@ -68,11 +68,11 @@ defmodule Cloudex.Settings do
   Get a specific cloudinary credential by key.
 
   ## Examples
-      Cloudex.Settings.get(:secret)
-      > "s3cr3t"
+      iex> Cloudex.Settings.get(:secret)
+      "my_secret"
 
-      Cloudex.Settings.get(:bogus)
-      > {:error, "key not found"}
+      iex> Cloudex.Settings.get(:bogus)
+      nil
   """
   def get(key) when is_atom(key) do
     env_key = String.upcase("cloudinary_" <> Atom.to_string(key))

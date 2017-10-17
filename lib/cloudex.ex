@@ -26,7 +26,12 @@ defmodule Cloudex do
                      |> Enum.map(&(Task.async(Cloudex.CloudinaryApi, :upload, [&1, options])))
                      |> Enum.map(&Task.await(&1, 60_000))
 
-    upload_results ++ invalid_list
+    result = upload_results ++ invalid_list
+
+    case Enum.count(result) do
+      1 -> List.first(result)
+      _ -> result
+    end
   end
 
   @doc """

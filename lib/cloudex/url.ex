@@ -68,6 +68,17 @@ defmodule Cloudex.Url do
   An url with a face
       iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, face: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id"
+
+
+  An url with zoom applied to a face
+
+      iex> Cloudex.Url.for("a_public_id", %{zoom: 1.3, face: true, crop: "crop", version: 1471959066})
+      "//res.cloudinary.com/my_cloud_name/image/upload/c_crop,g_face,z_1.3/v1471959066/a_public_id"
+
+  An url retaining aspect ratio
+
+      iex> Cloudex.Url.for("a_public_id", %{aspect_ratio: 2.5, width: 400, height: 300, version: 1471959066})
+      "//res.cloudinary.com/my_cloud_name/image/upload/ar_2.5,h_300,w_400/v1471959066/a_public_id"
   """
 
   @spec for(String.t) :: String.t

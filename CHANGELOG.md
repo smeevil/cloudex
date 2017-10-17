@@ -1,3 +1,10 @@
+## 1.0.0 (2017-10-17)
+- Breaking change : When uploading a single file or url you will no
+  longer get a `[{:ok, %Cloudex.UploadedImage{}}]` but just a tuple like
+  `{:ok, %Cloudex.UploadedImage{}}`, uploading multiple files/urls will
+  return a list of tuples just like it already did.
+- Increased test coverage
+
 ## 0.2.2 (2017-10-16)
 - bumped specs
 

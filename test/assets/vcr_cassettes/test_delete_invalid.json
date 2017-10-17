@@ -1,0 +1,41 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "delete",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/resources/image/upload?public_ids[]=thisIsABogusId"
+    },
+    "response": {
+      "body": "{\"deleted\":{\"thisIsABogusId\":\"not_found\"},\"partial\":false}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 17 Oct 2017 08:28:33 GMT",
+        "ETag": "\"22069c003a15f4fa875850cc52b6e3e6\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-FeatureRateLimit-Limit": "2000",
+        "X-FeatureRateLimit-Remaining": "1999",
+        "X-FeatureRateLimit-Reset": "Tue, 17 Oct 2017 09:00:00 GMT",
+        "X-Request-Id": "58171c574b5c98d4",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "58",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

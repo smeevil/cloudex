@@ -9,7 +9,7 @@ There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ```elixir
 defp deps do
-  [  {:cloudex, "~> 0.1.10"},  ]
+  [  {:cloudex, "~> 1.0.0"},  ]
 end
 ```
 
@@ -45,19 +45,22 @@ You can upload image files or urls pointing to an image as follows :
 ### example
 For uploading a url :
 ```elixir
-Cloudex.upload("http://example.org/test.jpg")
+iex> Cloudex.upload("http://example.org/test.jpg")
+{:ok, %Cloudex.UploadedImage{...}}
 ```
 
 For uploading a file :
 ```elixir
-Cloudex.upload("test/assets/test.jpg")
+iex> Cloudex.upload("test/assets/test.jpg")
+{:ok, %Cloudex.UploadedImage{...}}
 ```
 You can also upload a list of files, urls, or mix by giving upload a list like :
 ```elixir
-["test/assets/test.jpg", "http://example.org/test.jpg"]
-|> Cloudex.upload
+iex> Cloudex.upload(["/non/existing/file.jpg", "http://example.org/test.jpg"])
+[{:error, "File /non/existing/file.jpg does not exist."}, {:ok, %Cloudex.UploadedImage{...}}]
 ```
-The response will be a Cloudex.UploadedImage Struct, or a list of those when you uploaded a list, like :
+
+An example of the %Cloudex.UploadedImage{} Struct looks as follows:
 
 ```elixir
 %Cloudex.UploadedImage{
@@ -84,12 +87,12 @@ You can tag uploaded images with strings:
 
 ```elixir
 # as array
-Cloudex.upload(["test/assets/test.jpg"], %{tags: ["foo", "bar"]})
+Cloudex.upload("test/assets/test.jpg", %{tags: ["foo", "bar"]})
 # as comma-separated string
-Cloudex.upload(["test/assets/test.jpg"], %{tags: "foo,bar"})
+Cloudex.upload("test/assets/test.jpg", %{tags: "foo,bar"})
 
 # result
-%Cloudex.UploadedImage{
+{:ok, %Cloudex.UploadedImage{
     bytes: 22659,
     created_at: "2015-11-27T10:02:23Z",
     etag: "dbb5764565c1b77ff049d20fcfd1d41d",
@@ -106,7 +109,7 @@ Cloudex.upload(["test/assets/test.jpg"], %{tags: "foo,bar"})
     url: "http://images.cloudassets.mobi/image/upload/v1448618543/i2nruesgu4om3w9mtk1z.jpg",
     version: 1448618543,
     width: 250
-}
+}}
 ```
 
 List of additional parameters you can use with `upload/2`:
@@ -172,11 +175,10 @@ You can request deletion from cloudinary using ```Cloudex.delete/1``` function w
 
 ### example:
 ```
-Cloudex.delete("public-id-1")
-# => {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}}
+iex> Cloudex.delete("public-id-1")
+{:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}}
 
-Cloudex.delete(["public-id-1", "public-id-2"])
-# =>
+iex> Cloudex.delete(["public-id-1", "public-id-2"])
 [
   {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}},
   {:ok, %Cloudex.DeletedImage{public_id: "public-id-2"}}

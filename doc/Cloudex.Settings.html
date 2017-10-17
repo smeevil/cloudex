@@ -212,8 +212,8 @@ You can interact with the <code class="inline">get</code> function to retreive t
   Examples
 </h2>
 
-<pre><code class="elixir">Cloudex.Settings.get
-&gt; %{api_key: &quot;mykey&quot;, secret: &quot;s3cr3t&quot;, cloud_name: &quot;heaven&quot;}</code></pre>
+<pre><code class="iex elixir">iex&gt; Cloudex.Settings.get
+%{api_key: &quot;my_key&quot;, secret: &quot;my_secret&quot;, cloud_name: &quot;my_cloud_name&quot;}</code></pre>
 
   </section>
 </div>
@@ -237,11 +237,11 @@ You can interact with the <code class="inline">get</code> function to retreive t
   Examples
 </h2>
 
-<pre><code class="elixir">Cloudex.Settings.get(:secret)
-&gt; &quot;s3cr3t&quot;
+<pre><code class="iex elixir">iex&gt; Cloudex.Settings.get(:secret)
+&quot;my_secret&quot;
 
-Cloudex.Settings.get(:bogus)
-&gt; {:error, &quot;key not found&quot;}</code></pre>
+iex&gt; Cloudex.Settings.get(:bogus)
+nil</code></pre>
 
   </section>
 </div>

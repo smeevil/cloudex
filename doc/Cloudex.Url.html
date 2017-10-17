@@ -191,6 +191,12 @@ You can also pass a map with options to apply transformations to the image, for 
 <p>An url with a face</p>
 <pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, face: true})
 &quot;//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id&quot;</code></pre>
+<p>An url with zoom applied to a face</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{zoom: 1.3, face: true, crop: &quot;crop&quot;, version: 1471959066})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/c_crop,g_face,z_1.3/v1471959066/a_public_id&quot;</code></pre>
+<p>An url retaining aspect ratio</p>
+<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{aspect_ratio: 2.5, width: 400, height: 300, version: 1471959066})
+&quot;//res.cloudinary.com/my_cloud_name/image/upload/ar_2.5,h_300,w_400/v1471959066/a_public_id&quot;</code></pre>
 
   </section>
 </div>

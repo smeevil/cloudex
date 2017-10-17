@@ -1,0 +1,33 @@
+[
+  {
+    "request": {
+      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=d0bd4a00b6cf876429b1423a4d8b1a52cafdd176&timestamp=1508228911",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "body": "{\"public_id\":\"gxoup1d3nzaaqccfjuvr\",\"version\":1508228911,\"signature\":\"e4d879db199488e35e23a91407da624ed9e58ca8\",\"width\":2848,\"height\":4288,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-17T08:28:32Z\",\"tags\":[],\"bytes\":4520895,\"type\":\"upload\",\"etag\":\"22ac1427fa960ef88e1572ad81e5640e\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/betacorp/image/upload/v1508228911/gxoup1d3nzaaqccfjuvr.jpg\",\"secure_url\":\"https://res.cloudinary.com/betacorp/image/upload/v1508228911/gxoup1d3nzaaqccfjuvr.jpg\",\"original_filename\":\"shutterstock_172896005\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Tue, 17 Oct 2017 08:28:32 GMT",
+        "ETag": "\"336027959bcf74bc5cf0ba7bd66fd45c\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "21a9c76d2ca791a2",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "557",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

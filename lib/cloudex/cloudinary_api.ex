@@ -12,7 +12,6 @@ defmodule Cloudex.CloudinaryApi do
   or {:error, "reason"}
   """
   @spec upload(String.t | {:ok, String.t}, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
-  def upload(item, opts \\ %{})
   def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
   def upload(item, opts)
   def upload(item, opts) when is_binary(item) do
