@@ -11,7 +11,7 @@ defmodule Cloudex.CloudinaryApi do
   returns {:ok, %UploadedFile{}} containing all the information from cloudinary
   or {:error, "reason"}
   """
-  @spec upload(String.t | {:ok, String.t}, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  @spec upload(String.t | {:ok, String.t}, map) :: {:ok, Cloudex.UploadedImage.t} | {:error, any}
   def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
   def upload(item, opts)
   def upload(item, opts) when is_binary(item) do
@@ -72,7 +72,6 @@ defmodule Cloudex.CloudinaryApi do
     |> URI.encode_query
     |> post(url)
   end
-
 
   @spec delete_file(bitstring) :: {:ok, %Cloudex.DeletedImage{}} | {:error, %Elixir.HTTPoison.Error{}}
   defp delete_file(item) do
@@ -162,5 +161,4 @@ defmodule Cloudex.CloudinaryApi do
     |> round
     |> Integer.to_string
   end
-
 end

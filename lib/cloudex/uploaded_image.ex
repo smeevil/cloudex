@@ -19,6 +19,26 @@ defmodule Cloudex.UploadedImage do
   * secure_url
   * original_filename
   """
+
+  @type t :: %__MODULE__{
+          source: String.t | nil,
+          public_id: String.t | nil,
+          version: String.t | nil,
+          width: non_neg_integer | nil,
+          height: non_neg_integer | nil,
+          format: String.t | nil,
+          created_at: String.t | nil,
+          resource_type: String.t | nil,
+          tags: [String.t] | [] | nil,
+          bytes: non_neg_integer | nil,
+          type: String.t | nil,
+          etag: String.t | nil,
+          url: String.t | nil,
+          secure_url: String.t | nil,
+          signature: String.t | nil,
+          original_filename: String.t | nil
+        }
+
   defstruct source: nil,
             public_id: nil,
             version: nil,
@@ -35,5 +55,4 @@ defmodule Cloudex.UploadedImage do
             url: nil,
             secure_url: nil,
             original_filename: nil
-
 end

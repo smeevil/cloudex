@@ -12,19 +12,23 @@ defmodule Cloudex do
   @spec start(settings :: map) :: {:ok, pid}
   defdelegate start(settings), to: Cloudex.Settings
 
+  @type upload_result :: {:ok, Cloudex.UploadedImage.t} | {:error, any}
+                       | [{:ok, Cloudex.UploadedImage.t} | {:error, any}]
+
   @doc ~S"""
     Uploads a (list of) image file(s) and/or url(s) to cloudinary
   """
-  @spec upload(list | String.t) :: [%Cloudex.UploadedImage{}]
-  @spec upload(list | [String.t], map) :: [%Cloudex.UploadedImage{}]
+  @spec upload(list | String.t) :: upload_result
+  @spec upload(list | [String.t], map) :: upload_result
   def upload(list, options \\ %{}) do
     sanitized_list = sanitize_list(list)
     invalid_list = Enum.filter(sanitized_list, &(match?({:error, _}, &1)))
     valid_list = Enum.filter(sanitized_list, &(match?({:ok, _}, &1)))
 
-    upload_results = valid_list
-                     |> Enum.map(&(Task.async(Cloudex.CloudinaryApi, :upload, [&1, options])))
-                     |> Enum.map(&Task.await(&1, 60_000))
+    upload_results =
+      valid_list
+      |> Enum.map(&(Task.async(Cloudex.CloudinaryApi, :upload, [&1, options])))
+      |> Enum.map(&Task.await(&1, 60_000))
 
     result = upload_results ++ invalid_list
 
