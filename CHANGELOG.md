@@ -1,3 +1,6 @@
+## 1.0.1 (2017-11-27)
+- Thanks @joshsmith for fixing some dialyzer errors and adding a proper type for Cloudex.UploadedImage
+
 ## 1.0.0 (2017-10-17)
 - Breaking change : When uploading a single file or url you will no
   longer get a `[{:ok, %Cloudex.UploadedImage{}}]` but just a tuple like
