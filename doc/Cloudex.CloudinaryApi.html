@@ -5,12 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.18.1">
-    <title>Cloudex.CloudinaryApi – cloudex v1.0.0</title>
+    <title>Cloudex.CloudinaryApi – cloudex v1.1.0</title>
     <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.CloudinaryApi.html" />
-    
-    <script src="dist/sidebar_items-4d79f1be5d.js"></script>
+    <script src="dist/sidebar_items-2cbfe65d19.js"></script>
     
     
     
@@ -33,7 +31,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v1.0.0
+        v1.1.0
       </h2>
     </div>
     
@@ -67,7 +65,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v1.0.0</small>
+        <small class="visible-xs">cloudex v1.1.0</small>
         Cloudex.CloudinaryApi
         
       </h1>
@@ -184,7 +182,7 @@ or {:error, “reason”}</p>
     
       <div class="specs">
         
-          <pre>json_result_to_struct(map(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: %Cloudex.UploadedImage{bytes: term(), created_at: term(), etag: term(), format: term(), height: term(), original_filename: term(), public_id: term(), resource_type: term(), secure_url: term(), signature: term(), source: term(), tags: term(), type: term(), url: term(), version: term(), width: term()}</pre>
+          <pre>json_result_to_struct(map(), <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()) :: %Cloudex.UploadedImage{bytes: term(), created_at: term(), etag: term(), format: term(), height: term(), original_filename: term(), phash: term(), public_id: term(), resource_type: term(), secure_url: term(), signature: term(), source: term(), tags: term(), type: term(), url: term(), version: term(), width: term()}</pre>
         
       </div>
     
@@ -209,7 +207,7 @@ or {:error, “reason”}</p>
       <div class="specs">
         
           <pre>upload(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>() | {:ok, <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()}, map()) ::
-  {:ok, %Cloudex.UploadedImage{bytes: term(), created_at: term(), etag: term(), format: term(), height: term(), original_filename: term(), public_id: term(), resource_type: term(), secure_url: term(), signature: term(), source: term(), tags: term(), type: term(), url: term(), version: term(), width: term()}} |
+  {:ok, <a href="Cloudex.UploadedImage.html#t:t/0">Cloudex.UploadedImage.t</a>()} |
   {:error, any()}</pre>
         
       </div>

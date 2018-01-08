@@ -5,12 +5,10 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="generator" content="ExDoc v0.18.1">
-    <title>Cloudex – cloudex v1.0.0</title>
+    <title>Cloudex – cloudex v1.1.0</title>
     <link rel="stylesheet" href="dist/app-c922dbe7ef.css" />
     
-      <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.html" />
-    
-    <script src="dist/sidebar_items-4d79f1be5d.js"></script>
+    <script src="dist/sidebar_items-2cbfe65d19.js"></script>
     
     
     
@@ -33,7 +31,7 @@
         cloudex
       </h1>
       <h2 class="sidebar-projectVersion">
-        v1.0.0
+        v1.1.0
       </h2>
     </div>
     
@@ -67,7 +65,7 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v1.0.0</small>
+        <small class="visible-xs">cloudex v1.1.0</small>
         Cloudex
         
       </h1>
@@ -89,6 +87,19 @@
             Summary
           </h1>
           
+  <div class="summary-types summary">
+    <h2>
+      <a href="#types">Types</a>
+    </h2>
+    <div class="summary-row">
+  <div class="summary-signature">
+    <a href="#t:upload_result/0">upload_result()</a>
+  </div>
+  
+</div>
+
+  </div>
+
 
           
   <div class="summary-functions summary">
@@ -132,6 +143,45 @@
         </section>
       
 
+      
+        <section id="types" class="details-list">
+          <h1 class="section-heading">
+            <a class="hover-link" href="#types">
+              <span class="icon-link" aria-hidden="true"></span>
+              <span class="sr-only">Link to this section</span>
+            </a>
+            Types
+          </h1>
+          <div class="types-list">
+            <div class="detail" id="t:upload_result/0">
+  
+  
+  <div class="detail-header">
+    <a href="#t:upload_result/0" class="detail-link" title="Link to this type">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this type</span>
+    </a>
+    <span class="signature">upload_result()</span>
+    
+    
+    
+      <div class="specs">
+        
+          <pre><a href="#t:upload_result/0">upload_result</a>() ::
+  {:ok, <a href="Cloudex.UploadedImage.html#t:t/0">Cloudex.UploadedImage.t</a>()} |
+  {:error, any()} |
+  [ok: <a href="Cloudex.UploadedImage.html#t:t/0">Cloudex.UploadedImage.t</a>(), error: any()]</pre>
+        
+      </div>
+    
+  </div>
+  <section class="docstring">
+    
+  </section>
+</div>
+
+          </div>
+        </section>
       
 
       
@@ -213,7 +263,7 @@
     
       <div class="specs">
         
-          <pre>upload(list() | [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()], map()) :: [%Cloudex.UploadedImage{bytes: term(), created_at: term(), etag: term(), format: term(), height: term(), original_filename: term(), public_id: term(), resource_type: term(), secure_url: term(), signature: term(), source: term(), tags: term(), type: term(), url: term(), version: term(), width: term()}]</pre>
+          <pre>upload(list() | [<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()], map()) :: <a href="#t:upload_result/0">upload_result</a>()</pre>
         
       </div>
     

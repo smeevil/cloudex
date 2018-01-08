@@ -1,3 +1,6 @@
+## 1.1.0 (2018-01-08)
+- Thanks @angelikatyborska for adding Phash support to detect duplicate images
+
 ## 1.0.1 (2017-11-27)
 - Thanks @joshsmith for fixing some dialyzer errors and adding a proper type for Cloudex.UploadedImage
 
