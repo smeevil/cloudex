@@ -18,6 +18,7 @@ defmodule Cloudex.UploadedImage do
   * url
   * secure_url
   * original_filename
+  * phash
   """
 
   @type t :: %__MODULE__{
@@ -36,7 +37,8 @@ defmodule Cloudex.UploadedImage do
           url: String.t | nil,
           secure_url: String.t | nil,
           signature: String.t | nil,
-          original_filename: String.t | nil
+          original_filename: String.t | nil,
+          phash: String.t | nil
         }
 
   defstruct source: nil,
@@ -54,5 +56,6 @@ defmodule Cloudex.UploadedImage do
             etag: nil,
             url: nil,
             secure_url: nil,
-            original_filename: nil
+            original_filename: nil,
+            phash: nil
 end

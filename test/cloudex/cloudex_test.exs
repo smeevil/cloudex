@@ -55,6 +55,13 @@ defmodule CloudexTest do
     end
   end
 
+  test "upload with phash" do
+    use_cassette "test_upload_with_phash" do
+      {:ok, uploaded_image} = Cloudex.upload(["./test/assets/test.jpg"], %{phash: "true"})
+      assert uploaded_image.phash != nil
+    end
+  end
+
   test "delete image with public id" do
     use_cassette "test_delete" do
       assert {:ok, %Cloudex.DeletedImage{public_id: "rurwrndtvgzfajljllnr"}} = Cloudex.delete("rurwrndtvgzfajljllnr")
