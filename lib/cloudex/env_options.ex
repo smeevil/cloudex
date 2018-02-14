@@ -15,7 +15,7 @@ defmodule Cloudex.EnvOptions do
   @spec merge(options :: map) :: map
   def merge(%{} = options) do
     options
-    |> Map.keys
+    |> Map.keys()
     |> merge(options)
   end
 
@@ -25,11 +25,12 @@ defmodule Cloudex.EnvOptions do
   @spec merge_missing_settings(options :: map) :: map
   def merge_missing_settings(%{} = options) do
     options
-    |> Map.keys
+    |> Map.keys()
     |> merge_if_missing(options)
   end
 
   defp merge([], options), do: options
+
   defp merge([key | keys], options) do
     env_value = get_value(key)
     new_options = merge_value(options, key, env_value)
@@ -37,6 +38,7 @@ defmodule Cloudex.EnvOptions do
   end
 
   defp merge_if_missing([], options), do: options
+
   defp merge_if_missing([key | keys], options) do
     value = get_value(key)
     new_options = merge_value_if_missing(options, key, value)
@@ -46,13 +48,14 @@ defmodule Cloudex.EnvOptions do
   defp merge_value(options, _key, nil), do: options
 
   defp merge_value(options, key, value), do: Map.put(options, key, value)
+
   defp merge_value_if_missing(options, key, value) do
     if options[key] != nil, do: options, else: Map.put(options, key, value)
   end
 
   defp get_value(key) do
     ("cloudex_" <> Atom.to_string(key))
-    |> String.upcase
-    |> System.get_env
+    |> String.upcase()
+    |> System.get_env()
   end
 end

@@ -1,3 +1,7 @@
+## 1.1.1 (2018-02-14)
+- Added moderation to the UploadedImage struct as per request of @gccoding
+- reformatted to elixir 1.6
+
 ## 1.1.0 (2018-01-08)
 - Thanks @angelikatyborska for adding Phash support to detect duplicate images
 

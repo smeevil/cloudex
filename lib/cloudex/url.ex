@@ -69,7 +69,6 @@ defmodule Cloudex.Url do
       iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, face: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id"
 
-
   An url with zoom applied to a face
 
       iex> Cloudex.Url.for("a_public_id", %{zoom: 1.3, face: true, crop: "crop", version: 1471959066})
@@ -81,8 +80,8 @@ defmodule Cloudex.Url do
       "//res.cloudinary.com/my_cloud_name/image/upload/ar_2.5,h_300,w_400/v1471959066/a_public_id"
   """
 
-  @spec for(String.t) :: String.t
-  @spec for(String.t, map) :: String.t
+  @spec for(String.t()) :: String.t()
+  @spec for(String.t(), map) :: String.t()
   def for(public_id, options \\ %{}) do
     transformations = transformation_string_from(options)
 
@@ -91,7 +90,7 @@ defmodule Cloudex.Url do
       resource_type(options),
       "upload",
       signature_for(public_id, options, transformations),
-      (if String.length(transformations) > 0, do: transformations),
+      if(String.length(transformations) > 0, do: transformations),
       version_for(options),
       public_id
     ]
@@ -107,15 +106,17 @@ defmodule Cloudex.Url do
   defp signature_for(public_id, %{sign_url: true}, transformations) do
     to_sign = transformations <> "/#{public_id}" <> Cloudex.Settings.get(:secret)
 
-    signature = :sha
-                |> :crypto.hash(to_sign)
-                |> Base.encode64
-                |> String.slice(0..7)
-                |> String.replace("+", "-")
-                |> String.replace("/", "_")
+    signature =
+      :sha
+      |> :crypto.hash(to_sign)
+      |> Base.encode64()
+      |> String.slice(0..7)
+      |> String.replace("+", "-")
+      |> String.replace("/", "_")
 
     "s--" <> signature <> "--"
   end
+
   defp signature_for(_, _, _), do: nil
 
   defp version_for(%{version: version}) when is_integer(version), do: "v#{version}"
@@ -132,6 +133,7 @@ defmodule Cloudex.Url do
     |> Enum.map(&transformation_string_from/1)
     |> Enum.join("/")
   end
+
   defp transformation_string_from(options) when is_map(options) do
     options
     |> Enum.sort()
@@ -143,13 +145,9 @@ defmodule Cloudex.Url do
   defp join_transformations(transformations), do: Enum.join(transformations, ",")
 
   defp process(options) do
-    Enum.reduce(
-      options,
-      [],
-      fn ({key, value}, acc) ->
-        acc ++ process_option(key, value)
-      end
-    )
+    Enum.reduce(options, [], fn {key, value}, acc ->
+      acc ++ process_option(key, value)
+    end)
   end
 
   defp process_option(:width, value), do: ["w_#{value}"]

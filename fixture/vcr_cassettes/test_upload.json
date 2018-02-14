@@ -1,0 +1,34 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9df6d242c28f0ca2c69e8de07dded0667a74ba5e\"}, {\"timestamp\", \"1518601221\"}, {:file, \"test/assets/test.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 9df6d242c28f0ca2c69e8de07dded0667a74ba5e. String to sign - 'timestamp=1518601221'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:21 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 9df6d242c28f0ca2c69e8de07dded0667a74ba5e. String to sign - 'timestamp=1518601221'.",
+        "X-Request-Id": "d0398cb85220e491",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

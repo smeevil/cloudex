@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "delete",
+      "options": {
+        "basic_auth": [
+          "744339717378358",
+          "de0ac522c40924d55575d081c01a885d68acad99"
+        ]
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/betacorp/resources/image/upload?public_ids[]=vv7cxdopasmev61rhnzo"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"api_secret mismatch\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:22 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "WWW-Authenticate": "Basic realm=\"Cloudinary\"",
+        "X-Cld-Error": "api_secret mismatch",
+        "X-Request-Id": "789aeb838e7a90a9",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "Content-Length": "43",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

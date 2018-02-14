@@ -1,0 +1,98 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/aa-Gothic-Prayer.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:16 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
+        "X-Request-Id": "a4e5464cc3cbaea6",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/12205032.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:16 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
+        "X-Request-Id": "33d9353839246a0e",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "124",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:19 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
+        "X-Request-Id": "13331fb7e3dd4464",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "124",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

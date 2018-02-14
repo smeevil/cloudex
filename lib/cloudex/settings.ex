@@ -6,13 +6,20 @@ defmodule Cloudex.Settings do
 
   use GenServer
 
+  @doc"""
+  Required by GenServer
+  """
+  def init(args) do
+    {:ok, args}
+  end
+
   @doc """
   Called by the supervisor, this will use settings defined in config.exs or ENV vars
   """
   def start(:normal, []) do
     [:api_key, :secret, :cloud_name]
     |> get_app_config
-    |> Cloudex.EnvOptions.merge_missing_settings
+    |> Cloudex.EnvOptions.merge_missing_settings()
     |> start
   end
 
@@ -26,7 +33,8 @@ defmodule Cloudex.Settings do
     |> do_start
   end
 
-  def do_start({:error, :placeholder_settings}), do: {:error, placeholder_settings_error_message()}
+  def do_start({:error, :placeholder_settings}),
+    do: {:error, placeholder_settings_error_message()}
 
   def do_start({:error, _} = error), do: error
 
@@ -35,7 +43,9 @@ defmodule Cloudex.Settings do
   """
   def do_start({:ok, settings}) do
     case GenServer.start(__MODULE__, settings, name: :cloudex) do
-      {:ok, pid} -> {:ok, pid}
+      {:ok, pid} ->
+        {:ok, pid}
+
       {:error, {:already_started, _pid}} ->
         stop()
         start(settings)
@@ -103,7 +113,7 @@ defmodule Cloudex.Settings do
     {
       :error,
       ~s<
-We received the following incorrect settings : #{inspect settings}
+We received the following incorrect settings : #{inspect(settings)}
 You can solve this in two ways :
 add the following to your config.exs or config/[dev/test/prod]: cloudex, api_key: YOUR_CLOUDINARY_API_KEY, secret: YOUR_CLOUDINARY_SECRET, cloud_name: YOUR_CLOUDINARY_CLOUD_NAME
 -or-

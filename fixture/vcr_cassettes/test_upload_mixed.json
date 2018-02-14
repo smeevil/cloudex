@@ -1,0 +1,66 @@
+[
+  {
+    "request": {
+      "body": "file=https%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=744339717378358&signature=c01b58a90364ab87c87c644d775656cc73acb20b&timestamp=1518601220",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:20 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.",
+        "X-Request-Id": "30da550f3fdea692",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "124",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"c01b58a90364ab87c87c644d775656cc73acb20b\"}, {\"timestamp\", \"1518601220\"}, {:file, \"./test/assets/test.jpg\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:21 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.",
+        "X-Request-Id": "585a7e1fb5501771",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]

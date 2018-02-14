@@ -1,0 +1,34 @@
+[
+  {
+    "request": {
+      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=744339717378358&signature=2a35268695868d218519042e520d65f7b9a1796a&timestamp=1518601223",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 2a35268695868d218519042e520d65f7b9a1796a. String to sign - 'timestamp=1518601223'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Wed, 14 Feb 2018 09:40:23 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 2a35268695868d218519042e520d65f7b9a1796a. String to sign - 'timestamp=1518601223'.",
+        "X-Request-Id": "c5b0177de2f75d6a",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
