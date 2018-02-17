@@ -9,7 +9,7 @@
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "http://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "body": "{\"public_id\":\"ycavponklkzxtdzsmjcb\",\"version\":1507025036,\"signature\":\"ce48ba55019f1a6af2bd219a8f18cc2dc3607305\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2017-10-03T10:03:56Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1507025036/ycavponklkzxtdzsmjcb.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1507025036/ycavponklkzxtdzsmjcb.jpg\",\"original_filename\":\"test\"}",

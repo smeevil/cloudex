@@ -104,7 +104,7 @@ defmodule Cloudex.CloudinaryApi do
     with {:ok, raw_response} <-
            HTTPoison.request(
              :post,
-             "http://api.cloudinary.com/v1_1/#{Cloudex.Settings.get(:cloud_name)}/image/upload",
+             "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/image/upload",
              body,
              [
                {"Content-Type", "application/x-www-form-urlencoded"},
