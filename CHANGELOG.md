@@ -1,3 +1,6 @@
+## 1.1.2 (2018-02-19)
+- Thanks @kuon for moving the http upload to https :D
+
 ## 1.1.1 (2018-02-14)
 - Added moderation to the UploadedImage struct as per request of @gccoding
 - reformatted to elixir 1.6
