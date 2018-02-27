@@ -52,16 +52,16 @@ defmodule Cloudex.CloudinaryApi do
   @doc """
   Deletes images by prefix
   """
-  @spec delete_by_prefix(String.t()) :: {:ok, String.t} | {:error, any}
-  def delete_by_prefix(prefix) when is_bitstring(prefix) do
-    case delete_prefix(prefix) do
+  @spec delete_prefix(String.t()) :: {:ok, String.t} | {:error, any}
+  def delete_prefix(prefix) when is_bitstring(prefix) do
+    case delete_by_prefix(prefix) do
       {:ok, _} -> {:ok, prefix}
       error -> error
     end
   end
 
-  def delete_by_prefix(invalid_prefix) do
-    {:error, "delete_by_prefix/1 only accepts a valid prefix, received: #{inspect(invalid_prefix)}"}
+  def delete_prefix(invalid_prefix) do
+    {:error, "delete_prefix/1 only accepts a valid prefix, received: #{inspect(invalid_prefix)}"}
   end
 
   @doc """
@@ -114,9 +114,9 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(url, @cloudinary_headers, options)
   end
 
-  @spec delete_prefix(bitstring) ::
+  @spec delete_by_prefix(bitstring) ::
           {:ok, String.t} | {:error, %Elixir.HTTPoison.Error{}}
-  defp delete_prefix(prefix) do
+  defp delete_by_prefix(prefix) do
     options = [
       hackney: [
         basic_auth: {Cloudex.Settings.get(:api_key), Cloudex.Settings.get(:secret)}
