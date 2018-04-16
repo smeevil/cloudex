@@ -1,3 +1,6 @@
+## 1.1.3 (2018-04-16)
+- bumped deps
+
 ## 1.1.2 (2018-02-19)
 - Thanks @kuon for moving the http upload to https :D
 

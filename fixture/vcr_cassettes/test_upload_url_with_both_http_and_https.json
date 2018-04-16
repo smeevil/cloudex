@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=744339717378358&signature=2a35268695868d218519042e520d65f7b9a1796a&timestamp=1518601223",
+      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=2a35268695868d218519042e520d65f7b9a1796a&timestamp=1518601223",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
@@ -9,7 +9,7 @@
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "https://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,

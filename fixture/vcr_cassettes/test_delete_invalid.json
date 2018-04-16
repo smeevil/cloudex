@@ -9,12 +9,12 @@
       "method": "delete",
       "options": {
         "basic_auth": [
-          "744339717378358",
+          "my_key",
           "de0ac522c40924d55575d081c01a885d68acad99"
         ]
       },
       "request_body": "",
-      "url": "https://api.cloudinary.com/v1_1/betacorp/resources/image/upload?public_ids[]=thisIsABogusId"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/resources/image/upload?public_ids[]=thisIsABogusId"
     },
     "response": {
       "binary": false,

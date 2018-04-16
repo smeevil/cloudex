@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9df6d242c28f0ca2c69e8de07dded0667a74ba5e\"}, {\"timestamp\", \"1518601221\"}, {:file, \"test/assets/test.jpg\"}]}",
+      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"9df6d242c28f0ca2c69e8de07dded0667a74ba5e\"}, {\"timestamp\", \"1518601221\"}, {:file, \"test/assets/test.jpg\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
@@ -9,7 +9,7 @@
       "method": "post",
       "options": [],
       "request_body": "",
-      "url": "https://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
