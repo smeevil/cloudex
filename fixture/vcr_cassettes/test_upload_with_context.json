@@ -1,0 +1,34 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"context\", \"{\\\"foo\\\":\\\"bar\\\"}\"}, {\"signature\", \"099cb9c54183eb5608bd5a0f40c701073e702e8d\"}, {\"timestamp\", \"1530872318\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": [],
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Unknown API key my_key\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Fri, 06 Jul 2018 10:18:39 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Unknown API key my_key",
+        "X-Request-Id": "051e1a8eb19fec89",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "46",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
