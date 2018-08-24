@@ -5,8 +5,10 @@ defmodule Cloudex.Mixfile do
     [
       app: :cloudex,
       version: "1.1.3",
-      description:
-        "A library that helps with uploading image files and urls to cloudinary. Also provides an helper to generate transformations and cloudinary urls pointing to your images",
+      description: """
+        A library that helps with uploading image files and urls to cloudinary.
+        Also provides a helper to generate transformations and cloudinary urls pointing to your images
+      """,
       package: package(),
       elixir: "~> 1.5",
       build_embedded: Mix.env() == :prod,
