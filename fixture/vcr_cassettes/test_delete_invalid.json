@@ -10,7 +10,7 @@
       "options": {
         "basic_auth": [
           "my_key",
-          "de0ac522c40924d55575d081c01a885d68acad99"
+          "my_secret"
         ]
       },
       "request_body": "",
@@ -18,21 +18,24 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"api_secret mismatch\"}}",
+      "body": "{\"deleted\":{\"thisIsABogusId\":\"not_found\"},\"partial\":false}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:20 GMT",
+        "Date": "Thu, 23 Aug 2018 06:23:08 GMT",
+        "ETag": "\"22069c003a15f4fa875850cc52b6e3e6\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "WWW-Authenticate": "Basic realm=\"Cloudinary\"",
-        "X-Cld-Error": "api_secret mismatch",
-        "X-Request-Id": "d65a150bd4fa9204",
+        "Status": "200 OK",
+        "X-FeatureRateLimit-Limit": "500",
+        "X-FeatureRateLimit-Remaining": "496",
+        "X-FeatureRateLimit-Reset": "Thu, 23 Aug 2018 07:00:00 GMT",
+        "X-Request-Id": "3aa175d82e85a59d",
         "X-UA-Compatible": "IE=Edge,chrome=1",
-        "transfer-encoding": "chunked",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "58",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }

@@ -1,33 +1,38 @@
 [
   {
     "request": {
-      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=2a35268695868d218519042e520d65f7b9a1796a&timestamp=1518601223",
+      "body": "file=http%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=50ee565292fc72c3c32a070df36a245e4417a4ed&timestamp=1535005381",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
       "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature 2a35268695868d218519042e520d65f7b9a1796a. String to sign - 'timestamp=1518601223'.\"}}",
+      "body": "{\"public_id\":\"eyntzs01p0cwvqorxstu\",\"version\":1535005381,\"signature\":\"17da37e7ef60880e138bf6b041bbef84c55c1cb9\",\"width\":2848,\"height\":4288,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-23T06:23:01Z\",\"tags\":[],\"bytes\":4520895,\"type\":\"upload\",\"etag\":\"22ac1427fa960ef88e1572ad81e5640e\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535005381/eyntzs01p0cwvqorxstu.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535005381/eyntzs01p0cwvqorxstu.jpg\",\"original_filename\":\"shutterstock_172896005\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:23 GMT",
+        "Date": "Thu, 23 Aug 2018 06:23:02 GMT",
+        "ETag": "\"7b832ebab7af748de595aa3e9333d849\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature 2a35268695868d218519042e520d65f7b9a1796a. String to sign - 'timestamp=1518601223'.",
-        "X-Request-Id": "c5b0177de2f75d6a",
+        "Status": "200 OK",
+        "X-Request-Id": "83069b6d01e701ea",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "transfer-encoding": "chunked",
+        "Content-Length": "559",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }

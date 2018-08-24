@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{:file, \"test/assets/teamwork.mp4\"}, {\"api_key\", \"my_key\"}, {\"resource_type\", \"video\"}, {\"signature\", \"3b51489e06ec14993a64635f9fe30636696314f8\"}, {\"timestamp\", \"1535005387\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/video/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"error\":{\"message\":\"Invalid Signature 3b51489e06ec14993a64635f9fe30636696314f8. String to sign - 'timestamp=1535005387'.\"}}",
+      "headers": {
+        "Cache-Control": "no-cache",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Thu, 23 Aug 2018 06:23:07 GMT",
+        "Server": "cloudinary",
+        "Status": "401 Unauthorized",
+        "X-Cld-Error": "Invalid Signature 3b51489e06ec14993a64635f9fe30636696314f8. String to sign - 'timestamp=1535005387'.",
+        "X-Request-Id": "0805569a7c427ff7",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "124",
+        "Connection": "keep-alive"
+      },
+      "status_code": 401,
+      "type": "ok"
+    }
+  }
+]
