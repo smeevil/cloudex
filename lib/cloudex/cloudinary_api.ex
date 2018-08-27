@@ -120,13 +120,27 @@ defmodule Cloudex.CloudinaryApi do
          do: handle_response(response, source)
   end
 
+
   defp common_post(body, opts) do
     HTTPoison.request(:post, url_for(opts), body, @cloudinary_headers, credentials())
   end
+  
+  defp context_to_list (context) do
+    context
+    |> Enum.reduce([], fn {k, v}, acc ->  acc ++ ["#{k}=#{v}"] end)
+    |> Enum.join("|")
+  end
 
   @spec prepare_opts(map | list) :: map
+
+  defp prepare_opts(%{context: context, tags: tags} = opts) when is_list(tags),
+    do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
+
   defp prepare_opts(%{tags: tags} = opts) when is_list(tags),
     do: %{opts | tags: Enum.join(tags, ",")}
+
+  defp prepare_opts(%{context: context} = opts) when is_map(context),
+    do: %{opts | context: context_to_list(context)}
 
   defp prepare_opts(opts), do: opts
 
@@ -154,7 +168,6 @@ defmodule Cloudex.CloudinaryApi do
   @spec sign(map) :: map
   defp sign(data) do
     timestamp = current_time()
-
     data_without_secret =
       data
       |> Map.delete(:file)

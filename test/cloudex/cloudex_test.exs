@@ -85,6 +85,13 @@ defmodule CloudexTest do
     end
   end
 
+  test "upload with context" do
+    use_cassette "test_upload_with_context" do
+      {:ok, uploaded_image} = Cloudex.upload(["./test/assets/test.jpg"], %{context: %{foo: "bar"}})
+      assert uploaded_image.context != nil
+    end
+  end
+
   test "delete image with public id" do
     use_cassette "test_delete" do
       assert {:ok, %Cloudex.DeletedImage{public_id: "rurwrndtvgzfajljllnr"}} =
