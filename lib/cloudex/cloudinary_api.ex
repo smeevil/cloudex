@@ -100,8 +100,8 @@ defmodule Cloudex.CloudinaryApi do
     ]
   end
 
-  @spec delete_file(bitstring, map) ::
-          {:ok, %Cloudex.DeletedImage{}} | {:error, %Elixir.HTTPoison.Error{}}
+  @spec delete_file(bitstring, map)
+        :: {:ok, HTTPoison.Response.t | HTTPoison.AsyncResponse.t} | {:error, HTTPoison.Error.t}
   defp delete_file(item, opts) do
     HTTPoison.delete(delete_url_for(opts, item), @cloudinary_headers, credentials())
   end
@@ -124,23 +124,23 @@ defmodule Cloudex.CloudinaryApi do
   defp common_post(body, opts) do
     HTTPoison.request(:post, url_for(opts), body, @cloudinary_headers, credentials())
   end
-  
+
   defp context_to_list (context) do
     context
-    |> Enum.reduce([], fn {k, v}, acc ->  acc ++ ["#{k}=#{v}"] end)
+    |> Enum.reduce([], fn {k, v}, acc -> acc ++ ["#{k}=#{v}"] end)
     |> Enum.join("|")
   end
 
   @spec prepare_opts(map | list) :: map
 
   defp prepare_opts(%{context: context, tags: tags} = opts) when is_list(tags),
-    do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
+       do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
 
   defp prepare_opts(%{tags: tags} = opts) when is_list(tags),
-    do: %{opts | tags: Enum.join(tags, ",")}
+       do: %{opts | tags: Enum.join(tags, ",")}
 
   defp prepare_opts(%{context: context} = opts) when is_map(context),
-    do: %{opts | context: context_to_list(context)}
+       do: %{opts | context: context_to_list(context)}
 
   defp prepare_opts(opts), do: opts
 
@@ -152,7 +152,14 @@ defmodule Cloudex.CloudinaryApi do
   end
 
   @spec handle_response(map, String.t()) :: {:error, any} | {:ok, %Cloudex.UploadedImage{}}
-  defp handle_response(%{"error" => %{"message" => error}}, _source) do
+  defp handle_response(
+         %{
+           "error" => %{
+             "message" => error
+           }
+         },
+         _source
+       ) do
     {:error, error}
   end
 
@@ -178,11 +185,14 @@ defmodule Cloudex.CloudinaryApi do
 
     signature = sha(data_without_secret <> Cloudex.Settings.get(:secret))
 
-    Map.merge(data, %{
-      "timestamp" => timestamp,
-      "signature" => signature,
-      "api_key" => Cloudex.Settings.get(:api_key)
-    })
+    Map.merge(
+      data,
+      %{
+        "timestamp" => timestamp,
+        "signature" => signature,
+        "api_key" => Cloudex.Settings.get(:api_key)
+      }
+    )
   end
 
   @spec sha(String.t()) :: String.t()

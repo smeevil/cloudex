@@ -1,3 +1,9 @@
+
+## 1.2.0 (2018-08-27)
+- bumped deps
+- Thank you @suranyami for adding video support by allowing passing in resource_type: "video".
+- Thank you @cmtt for adding context support
+
 ## 1.1.3 (2018-04-16)
 - bumped deps
 

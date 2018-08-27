@@ -4,7 +4,7 @@ defmodule Cloudex.Mixfile do
   def project do
     [
       app: :cloudex,
-      version: "1.1.3",
+      version: "1.2.0",
       description: """
         A library that helps with uploading image files and urls to cloudinary.
         Also provides a helper to generate transformations and cloudinary urls pointing to your images
@@ -50,15 +50,15 @@ defmodule Cloudex.Mixfile do
   defp deps do
     [
       {:credo, "> 0.0.0", only: :dev, runtime: false},
-      {:dialyxir, "> 0.0.0", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:excoveralls, "> 0.0.0", only: :test},
       {:exvcr, "~> 0.10.2", [only: :test]},
-      {:httpoison, "~> 1.1.0"},
+      {:httpoison, "~> 1.3.0"},
       {:mix_test_watch, "> 0.0.0", only: :dev},
       {:poison, "~> 3.1.0"},
-      {:timex, "~> 3.2.2"},
+      {:timex, "~> 3.3.0"},
       {:tzdata, "~> 0.5.11"}
     ]
   end

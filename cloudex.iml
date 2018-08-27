@@ -7,8 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/lib" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="Elixir 1.7.2" jdkType="Elixir SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
 </module>
-

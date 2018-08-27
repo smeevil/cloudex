@@ -1,33 +1,38 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"context\", \"{\\\"foo\\\":\\\"bar\\\"}\"}, {\"signature\", \"099cb9c54183eb5608bd5a0f40c701073e702e8d\"}, {\"timestamp\", \"1530872318\"}]}",
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"context\", \"foo=bar\"}, {\"signature\", \"79b4492f6deb4771c93191f972473bc0d5e0b97b\"}, {\"timestamp\", \"1535386299\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "someuser",
+          "somepassword"
+        ]
+      },
       "request_body": "",
       "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Unknown API key my_key\"}}",
+      "body": "{\"public_id\":\"ezgeuakp8nwema5dockx\",\"version\":1535386300,\"signature\":\"948e2d3c3b15e53f753aba28b5ab3dfa54957929\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T16:11:40Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535386300/ezgeuakp8nwema5dockx.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535386300/ezgeuakp8nwema5dockx.jpg\",\"access_mode\":\"public\",\"context\":{\"custom\":{\"foo\":\"bar\"}},\"original_filename\":\"test\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Fri, 06 Jul 2018 10:18:39 GMT",
+        "Date": "Mon, 27 Aug 2018 16:11:40 GMT",
+        "ETag": "\"61a93708db478c18fc63eac65349034c\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Unknown API key my_key",
-        "X-Request-Id": "051e1a8eb19fec89",
+        "Status": "200 OK",
+        "X-Request-Id": "361451df1749211c",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "Content-Length": "46",
+        "transfer-encoding": "chunked",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }
