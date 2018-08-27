@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"e0cc694d87eac4c50565499620d8fc066ec9e672\"}, {\"tags\", \"foo,bar\"}, {\"timestamp\", \"1535005384\"}]}",
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"f0ef09686140d6a86e39eb8ba58e013f3b7ae7b7\"}, {\"tags\", \"foo,bar\"}, {\"timestamp\", \"1535339735\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
@@ -18,15 +18,15 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"public_id\":\"lidk6j6vcr2mlivdhiw3\",\"version\":1535005384,\"signature\":\"627ccdfa7aa206a285dcfc5af0ad19cf091f1f2f\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-23T06:23:04Z\",\"tags\":[\"foo\",\"bar\"],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535005384/lidk6j6vcr2mlivdhiw3.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535005384/lidk6j6vcr2mlivdhiw3.jpg\",\"original_filename\":\"test\"}",
+      "body": "{\"public_id\":\"qxucxnntovwwuxd9vvih\",\"version\":1535339738,\"signature\":\"fd7aae4333e39774085b7ca483557456cbbae549\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:38Z\",\"tags\":[\"foo\",\"bar\"],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339738/qxucxnntovwwuxd9vvih.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339738/qxucxnntovwwuxd9vvih.jpg\",\"original_filename\":\"test\"}",
       "headers": {
         "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Thu, 23 Aug 2018 06:23:04 GMT",
-        "ETag": "\"3e0092a8426bfff307e3c4b385591191\"",
+        "Date": "Mon, 27 Aug 2018 03:15:38 GMT",
+        "ETag": "\"955ecdb87502c3033c92cc77b33c2de7\"",
         "Server": "cloudinary",
         "Status": "200 OK",
-        "X-Request-Id": "f21224267e5d357d",
+        "X-Request-Id": "f7f515a92a5fb366",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
         "Content-Length": "549",

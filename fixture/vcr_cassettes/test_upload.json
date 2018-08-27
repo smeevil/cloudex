@@ -1,7 +1,7 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{:file, \"test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"56aa1c2740fc1f5f388f38a006df1e444614072c\"}, {\"timestamp\", \"1535005385\"}]}",
+      "body": "{:multipart, [{:file, \"test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"4e18fed080e226884ce9205358f2109cd96c68a8\"}, {\"timestamp\", \"1535339745\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
@@ -18,15 +18,15 @@
     },
     "response": {
       "binary": false,
-      "body": "{\"public_id\":\"pvirxreqeuvul15ih3ow\",\"version\":1535005385,\"signature\":\"f04fa585f07777fe83f74d98c6d1eb31c09bbb63\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-23T06:23:05Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535005385/pvirxreqeuvul15ih3ow.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535005385/pvirxreqeuvul15ih3ow.jpg\",\"original_filename\":\"test\"}",
+      "body": "{\"public_id\":\"dbrqer4od0lt17ubf5lg\",\"version\":1535339746,\"signature\":\"d31d5b7b702d40dd8096fbd53c000149fa5a2c28\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:46Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339746/dbrqer4od0lt17ubf5lg.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339746/dbrqer4od0lt17ubf5lg.jpg\",\"original_filename\":\"test\"}",
       "headers": {
         "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Thu, 23 Aug 2018 06:23:05 GMT",
-        "ETag": "\"7cc09051613bd0cb552b30081db824db\"",
+        "Date": "Mon, 27 Aug 2018 03:15:46 GMT",
+        "ETag": "\"b3d4dc444f16fa13e9a9507749eca1cf\"",
         "Server": "cloudinary",
         "Status": "200 OK",
-        "X-Request-Id": "f0f8c735530ea425",
+        "X-Request-Id": "4053df01b4856836",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
         "transfer-encoding": "chunked",
