@@ -20,6 +20,12 @@ defmodule CloudexTest do
     end
   end
 
+  test "upload single video file" do
+    use_cassette "test_upload_video" do
+      assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
+    end
+  end
+
   test "upload multiple image files" do
     use_cassette "multi_upload" do
       assert [

@@ -1,33 +1,38 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"phash\", \"true\"}, {\"signature\", \"b523ad9a26a6c1f495deb7d4f7162aae2ac465eb\"}, {\"timestamp\", \"1518601222\"}, {:file, \"./test/assets/test.jpg\"}]}",
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"phash\", \"true\"}, {\"signature\", \"dfedde116c773f358fb29fbe72b6151f3a6a8ea0\"}, {\"timestamp\", \"1535339748\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
       "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature b523ad9a26a6c1f495deb7d4f7162aae2ac465eb. String to sign - 'phash=true&timestamp=1518601222'.\"}}",
+      "body": "{\"public_id\":\"u22kjzowivnv2wv8i5qw\",\"version\":1535339748,\"signature\":\"2ee02ecc11ba85d1be2d3e71d05c51f9488d2d11\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:48Z\",\"tags\":[],\"pages\":1,\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339748/u22kjzowivnv2wv8i5qw.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339748/u22kjzowivnv2wv8i5qw.jpg\",\"phash\":\"34b30d34d37323ce\",\"original_filename\":\"test\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:22 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:49 GMT",
+        "ETag": "\"8874847d60a937db82dd4c710a3eae7d\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature b523ad9a26a6c1f495deb7d4f7162aae2ac465eb. String to sign - 'phash=true&timestamp=1518601222'.",
-        "X-Request-Id": "eaeeff81663fe8be",
+        "Status": "200 OK",
+        "X-Request-Id": "03a68022d30d1ab4",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "Content-Length": "135",
+        "Content-Length": "575",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }

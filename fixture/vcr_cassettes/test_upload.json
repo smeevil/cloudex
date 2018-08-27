@@ -1,33 +1,38 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"my_key\"}, {\"signature\", \"9df6d242c28f0ca2c69e8de07dded0667a74ba5e\"}, {\"timestamp\", \"1518601221\"}, {:file, \"test/assets/test.jpg\"}]}",
+      "body": "{:multipart, [{:file, \"test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"4e18fed080e226884ce9205358f2109cd96c68a8\"}, {\"timestamp\", \"1535339745\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
       "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature 9df6d242c28f0ca2c69e8de07dded0667a74ba5e. String to sign - 'timestamp=1518601221'.\"}}",
+      "body": "{\"public_id\":\"dbrqer4od0lt17ubf5lg\",\"version\":1535339746,\"signature\":\"d31d5b7b702d40dd8096fbd53c000149fa5a2c28\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:46Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339746/dbrqer4od0lt17ubf5lg.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339746/dbrqer4od0lt17ubf5lg.jpg\",\"original_filename\":\"test\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:21 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:46 GMT",
+        "ETag": "\"b3d4dc444f16fa13e9a9507749eca1cf\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature 9df6d242c28f0ca2c69e8de07dded0667a74ba5e. String to sign - 'timestamp=1518601221'.",
-        "X-Request-Id": "d0398cb85220e491",
+        "Status": "200 OK",
+        "X-Request-Id": "4053df01b4856836",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
         "transfer-encoding": "chunked",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }
