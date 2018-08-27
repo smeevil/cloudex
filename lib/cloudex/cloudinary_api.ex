@@ -66,6 +66,7 @@ defmodule Cloudex.CloudinaryApi do
   defp upload_file(file_path, opts) do
     options =
       opts
+      |> extract_cloudinary_opts
       |> prepare_opts
       |> sign
       |> unify
@@ -74,6 +75,11 @@ defmodule Cloudex.CloudinaryApi do
     body = {:multipart, [{:file, file_path} | options]}
 
     post(body, file_path, opts)
+  end
+
+  @spec extract_cloudinary_opts(map) :: map
+  defp extract_cloudinary_opts(opts) do
+    Map.delete(opts, :resource_type)
   end
 
   @spec upload_url(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
