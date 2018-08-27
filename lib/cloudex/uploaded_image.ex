@@ -39,7 +39,8 @@ defmodule Cloudex.UploadedImage do
           type: String.t() | nil,
           url: String.t() | nil,
           version: String.t() | nil,
-          width: non_neg_integer | nil
+          width: non_neg_integer | nil,
+          context: struct | nil
         }
 
   defstruct bytes: nil,
@@ -59,5 +60,6 @@ defmodule Cloudex.UploadedImage do
             type: nil,
             url: nil,
             version: nil,
-            width: nil
+            width: nil,
+            context: nil
 end
