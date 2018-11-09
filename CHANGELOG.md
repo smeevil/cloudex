@@ -1,4 +1,8 @@
 
+## 1.2.1 (2018-11-09)
+- Thank you @edouardmenayde for bumping timex from 3.3.0 which contained a serious bug
+- Thank you @neenaoffline for bumping the version in the readme :)
+
 ## 1.2.0 (2018-08-27)
 - bumped deps
 - Thank you @suranyami for adding video support by allowing passing in resource_type: "video".
