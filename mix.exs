@@ -58,7 +58,7 @@ defmodule Cloudex.Mixfile do
       {:httpoison, "~> 1.3.0"},
       {:mix_test_watch, "> 0.0.0", only: :dev},
       {:poison, "~> 3.1.0"},
-      {:timex, "~> 3.3.0"},
+      {:timex, "~> 3.4.2"},
       {:tzdata, "~> 0.5.11"}
     ]
   end
