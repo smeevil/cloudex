@@ -1,4 +1,8 @@
 
+## 1.2.1 (2019-02-21)
+- Thank you @StareIntoTheBeard for adding the video codec option
+- bumped deps
+
 ## 1.2.1 (2018-11-09)
 - Thank you @edouardmenayde for bumping timex from 3.3.0 which contained a serious bug
 - Thank you @neenaoffline for bumping the version in the readme :)
