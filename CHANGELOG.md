@@ -1,5 +1,7 @@
+## 1.2.3 (2019-02-25)
+- Thank you @erikreedstrom for removing resource_type from signing
 
-## 1.2.1 (2019-02-21)
+## 1.2.2 (2019-02-21)
 - Thank you @StareIntoTheBeard for adding the video codec option
 - bumped deps
 
