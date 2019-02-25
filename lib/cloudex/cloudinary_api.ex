@@ -177,7 +177,7 @@ defmodule Cloudex.CloudinaryApi do
     timestamp = current_time()
     data_without_secret =
       data
-      |> Map.delete(:file)
+      |> Map.drop([:file, :resource_type])
       |> Map.merge(%{"timestamp" => timestamp})
       |> Enum.map(fn {key, val} -> "#{key}=#{val}" end)
       |> Enum.sort()
