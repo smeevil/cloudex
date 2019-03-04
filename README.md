@@ -116,6 +116,7 @@ List of additional parameters you can use with `upload/2`:
 http://cloudinary.com/documentation/image_upload_api_reference#upload
 
 ## Cloudinary URL generation
+
 This package also provides an helper to generate urls from cloudinary given a public id of the image.
 As a second argument you can pass in options to transform your image according via cloudinary.
 
