@@ -128,16 +128,10 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(delete_url_for(opts, item), @cloudinary_headers, credentials())
   end
 
-  defp delete_url_for(%{resource_type: resource_type, type: type}, item),
-    do: delete_url(resource_type, item, type)
-
-  defp delete_url_for(%{resource_type: resource_type}, item), do: delete_url(resource_type, item)
-  defp delete_url_for(_, item), do: delete_url("image", item)
-
-  defp delete_url(resource_type, item, type \\ "upload") do
-    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/#{type}?public_ids[]=#{
-      item
-    }"
+  defp delete_url_for(opts, item) do
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{
+      Map.get(opts, :resource_type, "image")
+    }/#{Map.get(opts, :type, "upload")}?public_ids[]=#{item}"
   end
 
   @spec delete_file(bitstring, map) ::
