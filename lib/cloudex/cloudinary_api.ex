@@ -11,13 +11,16 @@ defmodule Cloudex.CloudinaryApi do
 
   @doc """
   Upload either a file or url to cloudinary
+  `opts` can contain:
+    %{resource_type: "video"}
+  which will cause a video upload to occur.
   returns {:ok, %UploadedFile{}} containing all the information from cloudinary
   or {:error, "reason"}
   """
   @spec upload(String.t() | {:ok, String.t()}, map) ::
           {:ok, Cloudex.UploadedImage.t()} | {:error, any}
+  def upload(item, opts \\ %{})
   def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
-  def upload(item, opts)
 
   def upload(item, opts) when is_binary(item) do
     case item do
@@ -37,15 +40,16 @@ defmodule Cloudex.CloudinaryApi do
   @doc """
   Deletes an image given a public id
   """
-  @spec delete(String.t()) :: {:ok, %Cloudex.DeletedImage{}} | {:error, any}
-  def delete(item) when is_bitstring(item) do
-    case delete_file(item) do
+  @spec delete(String.t(), map) :: {:ok, %Cloudex.DeletedImage{}} | {:error, any}
+  def delete(item, opts \\ %{})
+  def delete(item, opts) when is_bitstring(item) do
+    case delete_file(item, opts) do
       {:ok, _} -> {:ok, %Cloudex.DeletedImage{public_id: item}}
       error -> error
     end
   end
 
-  def delete(invalid_item) do
+  def delete(invalid_item, _opts) do
     {:error, "delete/1 only accepts valid public id, received: #{inspect(invalid_item)}"}
   end
 
@@ -77,6 +81,7 @@ defmodule Cloudex.CloudinaryApi do
   defp upload_file(file_path, opts) do
     options =
       opts
+      |> extract_cloudinary_opts
       |> prepare_opts
       |> sign
       |> unify
@@ -84,7 +89,12 @@ defmodule Cloudex.CloudinaryApi do
 
     body = {:multipart, [{:file, file_path} | options]}
 
-    post(body, file_path)
+    post(body, file_path, opts)
+  end
+
+  @spec extract_cloudinary_opts(map) :: map
+  defp extract_cloudinary_opts(opts) do
+    Map.delete(opts, :resource_type)
   end
 
   @spec upload_url(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
@@ -94,18 +104,24 @@ defmodule Cloudex.CloudinaryApi do
     |> prepare_opts
     |> sign
     |> URI.encode_query()
-    |> post(url)
+    |> post(url, opts)
   end
 
-  @spec delete_file(bitstring) ::
-          {:ok, %Cloudex.DeletedImage{}} | {:error, %Elixir.HTTPoison.Error{}}
-  defp delete_file(item) do
-    options = [
+  defp credentials do
+    [
       hackney: [
         basic_auth: {Cloudex.Settings.get(:api_key), Cloudex.Settings.get(:secret)}
       ]
     ]
+  end
 
+  @spec delete_file(bitstring, map)
+        :: {:ok, HTTPoison.Response.t | HTTPoison.AsyncResponse.t} | {:error, HTTPoison.Error.t}
+  defp delete_file(item, opts) do
+    HTTPoison.delete(delete_url_for(opts, item), @cloudinary_headers, credentials())
+  end
+
+<<<<<<< HEAD
     url =
       "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/image/upload?public_ids[]=#{
         item
@@ -131,27 +147,50 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(url, @cloudinary_headers, options)
   end
 
-  @spec post(tuple | String.t(), binary) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
-  defp post(body, source) do
-    with {:ok, raw_response} <-
-           HTTPoison.request(
-             :post,
-             "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/image/upload",
-             body,
-             [
-               {"Content-Type", "application/x-www-form-urlencoded"},
-               {"Accept", "application/json"}
-             ]
-           ),
+  defp delete_url_for(%{resource_type: resource_type}, item), do: delete_url(resource_type, item)
+  defp delete_url_for(_, item), do: delete_url("image", item)
+
+  defp delete_url(resource_type, item) do
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?public_ids[]=#{item}"
+  end
+
+  @spec post(tuple | String.t(), binary, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  defp post(body, source, opts) do
+    with {:ok, raw_response} <- common_post(body, opts),
          {:ok, response} <- Poison.decode(raw_response.body),
          do: handle_response(response, source)
   end
 
+
+  defp common_post(body, opts) do
+    HTTPoison.request(:post, url_for(opts), body, @cloudinary_headers, credentials())
+  end
+
+  defp context_to_list (context) do
+    context
+    |> Enum.reduce([], fn {k, v}, acc -> acc ++ ["#{k}=#{v}"] end)
+    |> Enum.join("|")
+  end
+
   @spec prepare_opts(map | list) :: map
+
+  defp prepare_opts(%{context: context, tags: tags} = opts) when is_list(tags),
+       do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
+
   defp prepare_opts(%{tags: tags} = opts) when is_list(tags),
-    do: %{opts | tags: Enum.join(tags, ",")}
+       do: %{opts | tags: Enum.join(tags, ",")}
+
+  defp prepare_opts(%{context: context} = opts) when is_map(context),
+       do: %{opts | context: context_to_list(context)}
 
   defp prepare_opts(opts), do: opts
+
+  defp url_for(%{resource_type: resource_type}), do: url(resource_type)
+  defp url_for(_), do: url("image")
+
+  def url(resource_type) do
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/#{resource_type}/upload"
+  end
 
   @spec handle_response(map, String.t()) :: {:error, any} | {:ok, %Cloudex.UploadedImage{}}
   defp handle_response(
@@ -177,10 +216,9 @@ defmodule Cloudex.CloudinaryApi do
   @spec sign(map) :: map
   defp sign(data) do
     timestamp = current_time()
-
     data_without_secret =
       data
-      |> Map.delete(:file)
+      |> Map.drop([:file, :resource_type])
       |> Map.merge(%{"timestamp" => timestamp})
       |> Enum.map(fn {key, val} -> "#{key}=#{val}" end)
       |> Enum.sort()
@@ -188,11 +226,14 @@ defmodule Cloudex.CloudinaryApi do
 
     signature = sha(data_without_secret <> Cloudex.Settings.get(:secret))
 
-    Map.merge(data, %{
-      "timestamp" => timestamp,
-      "signature" => signature,
-      "api_key" => Cloudex.Settings.get(:api_key)
-    })
+    Map.merge(
+      data,
+      %{
+        "timestamp" => timestamp,
+        "signature" => signature,
+        "api_key" => Cloudex.Settings.get(:api_key)
+      }
+    )
   end
 
   @spec sha(String.t()) :: String.t()

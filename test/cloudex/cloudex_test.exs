@@ -20,6 +20,12 @@ defmodule CloudexTest do
     end
   end
 
+  test "upload single video file" do
+    use_cassette "test_upload_video" do
+      assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
+    end
+  end
+
   test "upload multiple image files" do
     use_cassette "multi_upload" do
       assert [
@@ -76,6 +82,13 @@ defmodule CloudexTest do
     use_cassette "test_upload_with_phash" do
       {:ok, uploaded_image} = Cloudex.upload(["./test/assets/test.jpg"], %{phash: "true"})
       assert uploaded_image.phash != nil
+    end
+  end
+
+  test "upload with context" do
+    use_cassette "test_upload_with_context" do
+      {:ok, uploaded_image} = Cloudex.upload(["./test/assets/test.jpg"], %{context: %{foo: "bar"}})
+      assert uploaded_image.context != nil
     end
   end
 

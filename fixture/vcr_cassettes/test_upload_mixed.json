@@ -1,65 +1,75 @@
 [
   {
     "request": {
-      "body": "file=https%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=744339717378358&signature=c01b58a90364ab87c87c644d775656cc73acb20b&timestamp=1518601220",
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"660752753750b2962a3ad6da8fc1e7a32ea05bca\"}, {\"timestamp\", \"1535339746\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
-      "url": "https://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.\"}}",
+      "body": "{\"public_id\":\"arg7vj3g7grjfkydndkw\",\"version\":1535339747,\"signature\":\"f72968ffd40f863b158169969f6d62aad4eca1e6\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:47Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339747/arg7vj3g7grjfkydndkw.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339747/arg7vj3g7grjfkydndkw.jpg\",\"original_filename\":\"test\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:20 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:47 GMT",
+        "ETag": "\"7950831465c2363c003e21909176ddfa\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.",
-        "X-Request-Id": "30da550f3fdea692",
-        "X-UA-Compatible": "IE=Edge,chrome=1",
-        "X-XSS-Protection": "1; mode=block",
-        "Content-Length": "124",
-        "Connection": "keep-alive"
-      },
-      "status_code": 401,
-      "type": "ok"
-    }
-  },
-  {
-    "request": {
-      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"c01b58a90364ab87c87c644d775656cc73acb20b\"}, {\"timestamp\", \"1518601220\"}, {:file, \"./test/assets/test.jpg\"}]}",
-      "headers": {
-        "Content-Type": "application/x-www-form-urlencoded",
-        "Accept": "application/json"
-      },
-      "method": "post",
-      "options": [],
-      "request_body": "",
-      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
-    },
-    "response": {
-      "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.\"}}",
-      "headers": {
-        "Cache-Control": "no-cache",
-        "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:21 GMT",
-        "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature c01b58a90364ab87c87c644d775656cc73acb20b. String to sign - 'timestamp=1518601220'.",
-        "X-Request-Id": "585a7e1fb5501771",
+        "Status": "200 OK",
+        "X-Request-Id": "6c2267c674c1d92f",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
         "transfer-encoding": "chunked",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "file=https%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=660752753750b2962a3ad6da8fc1e7a32ea05bca&timestamp=1535339746",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"public_id\":\"iapxlsdafm9ccbqbwqno\",\"version\":1535339747,\"signature\":\"bc211af26451435dd8a60bf22f8d2a55ac2ed756\",\"width\":2848,\"height\":4288,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:47Z\",\"tags\":[],\"bytes\":4520895,\"type\":\"upload\",\"etag\":\"22ac1427fa960ef88e1572ad81e5640e\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339747/iapxlsdafm9ccbqbwqno.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339747/iapxlsdafm9ccbqbwqno.jpg\",\"original_filename\":\"shutterstock_172896005\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Mon, 27 Aug 2018 03:15:47 GMT",
+        "ETag": "\"c5e41ac9f7898265fd488248b657f73d\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "49bf46fb27d39125",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "559",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
       "type": "ok"
     }
   }

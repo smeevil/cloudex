@@ -1,97 +1,112 @@
 [
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/aa-Gothic-Prayer.jpg\"}]}",
+      "body": "{:multipart, [{:file, \"test/assets/multiple/Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"fd86e32f09ecb75aeae52d5c7a2cc8c9b38ca1e6\"}, {\"timestamp\", \"1535339739\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
-      "url": "https://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "body": "{\"public_id\":\"attyaccjyjc024axynra\",\"version\":1535339740,\"signature\":\"dce6593c83ddcfbdf094d93bf37db2be87ae2dc6\",\"width\":1920,\"height\":1080,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:40Z\",\"tags\":[],\"bytes\":1628451,\"type\":\"upload\",\"etag\":\"443a3b3e1bc637c185b29b5c76f77906\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339740/attyaccjyjc024axynra.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339740/attyaccjyjc024axynra.jpg\",\"original_filename\":\"Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:16 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:41 GMT",
+        "ETag": "\"ac53deb6320941d40b38cf4cd318d600\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
-        "X-Request-Id": "a4e5464cc3cbaea6",
+        "Status": "200 OK",
+        "X-Request-Id": "0cdfe0fbcce234ea",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "transfer-encoding": "chunked",
+        "Content-Length": "610",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   },
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/12205032.jpg\"}]}",
+      "body": "{:multipart, [{:file, \"test/assets/multiple/aa-Gothic-Prayer.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"fd86e32f09ecb75aeae52d5c7a2cc8c9b38ca1e6\"}, {\"timestamp\", \"1535339739\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
-      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "body": "{\"public_id\":\"jada4j5kngvj0yevrzhj\",\"version\":1535339741,\"signature\":\"b3ca61f846c2c26e474b0d2e01d01d2e7b7a5177\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:41Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339741/jada4j5kngvj0yevrzhj.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339741/jada4j5kngvj0yevrzhj.jpg\",\"original_filename\":\"aa-Gothic-Prayer\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:16 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:41 GMT",
+        "ETag": "\"7ce45e32f6c96f17c9394441df7704f5\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
-        "X-Request-Id": "33d9353839246a0e",
+        "Status": "200 OK",
+        "X-Request-Id": "c7e613d2f682ba66",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "Content-Length": "124",
+        "Content-Length": "550",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   },
   {
     "request": {
-      "body": "{:multipart, [{\"api_key\", \"744339717378358\"}, {\"signature\", \"9c7baa55fde6dac9e588a15c55d6e08e9805e7ae\"}, {\"timestamp\", \"1518601215\"}, {:file, \"test/assets/multiple/Gothic_Face_Brunette_girl_Hair_Fantasy_Girl_fantasy_skull_death_1920x1080.jpg\"}]}",
+      "body": "{:multipart, [{:file, \"test/assets/multiple/12205032.jpg\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"fd86e32f09ecb75aeae52d5c7a2cc8c9b38ca1e6\"}, {\"timestamp\", \"1535339739\"}]}",
       "headers": {
         "Content-Type": "application/x-www-form-urlencoded",
         "Accept": "application/json"
       },
       "method": "post",
-      "options": [],
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
       "request_body": "",
-      "url": "http://api.cloudinary.com/v1_1/betacorp/image/upload"
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
     },
     "response": {
       "binary": false,
-      "body": "{\"error\":{\"message\":\"Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.\"}}",
+      "body": "{\"public_id\":\"jtosixilhwxryyfafmjg\",\"version\":1535339741,\"signature\":\"d946c46e583dea1991857ac1f0cf05cdf39d8d87\",\"width\":800,\"height\":600,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2018-08-27T03:15:41Z\",\"tags\":[],\"bytes\":123550,\"type\":\"upload\",\"etag\":\"95ec85ba403e8d47233600d585ff1b20\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1535339741/jtosixilhwxryyfafmjg.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1535339741/jtosixilhwxryyfafmjg.jpg\",\"original_filename\":\"12205032\"}",
       "headers": {
-        "Cache-Control": "no-cache",
+        "Cache-Control": "max-age=0, private, must-revalidate",
         "Content-Type": "application/json; charset=utf-8",
-        "Date": "Wed, 14 Feb 2018 09:40:19 GMT",
+        "Date": "Mon, 27 Aug 2018 03:15:41 GMT",
+        "ETag": "\"c6b34c91828300ae4b5d36494737c40d\"",
         "Server": "cloudinary",
-        "Status": "401 Unauthorized",
-        "X-Cld-Error": "Invalid Signature 9c7baa55fde6dac9e588a15c55d6e08e9805e7ae. String to sign - 'timestamp=1518601215'.",
-        "X-Request-Id": "13331fb7e3dd4464",
+        "Status": "200 OK",
+        "X-Request-Id": "53baaa081725e8a1",
         "X-UA-Compatible": "IE=Edge,chrome=1",
         "X-XSS-Protection": "1; mode=block",
-        "Content-Length": "124",
+        "Content-Length": "542",
         "Connection": "keep-alive"
       },
-      "status_code": 401,
+      "status_code": 200,
       "type": "ok"
     }
   }

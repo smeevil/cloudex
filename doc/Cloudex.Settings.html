@@ -1,24 +1,19 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.18.2">
-    <title>Cloudex.Settings – cloudex v1.1.1</title>
-    <link rel="stylesheet" href="dist/app-81d381dea4.css" />
-    
+    <meta name="generator" content="ExDoc v0.19.3">
+    <title>Cloudex.Settings — cloudex v1.2.3</title>
+    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
       <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.Settings.html" />
-    
-    <script src="dist/sidebar_items-5d80be386d.js"></script>
-    
-    
-    
+    <script src="dist/sidebar_items-232784b6c2.js"></script>
+    <script async src="dist/html-399e30b9b028e3059575.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
-
     <div class="main">
 <button class="sidebar-button sidebar-toggle">
   <span class="icon-menu" aria-hidden="true"></span>
@@ -30,17 +25,14 @@
 </button>
 <section class="sidebar">
 
-  
   <a href="api-reference.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
-        cloudex
-      </h1>
+cloudex      </h1>
       <h2 class="sidebar-projectVersion">
-        v1.1.1
+        v1.2.3
       </h2>
     </div>
-    
   </a>
 
   <form class="sidebar-search" action="search.html">
@@ -53,13 +45,9 @@
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
 
-    
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-    
 
-    
 
-    
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -71,20 +59,15 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v1.1.1</small>
-        Cloudex.Settings
-        
-      </h1>
+        <small class="visible-xs">cloudex v1.2.3</small>
+Cloudex.Settings              </h1>
 
-      
+
         <section id="moduledoc">
-          <p>This is a GenServer that contains the API settings for cloudinary
+<p>This is a GenServer that contains the API settings for cloudinary
 You can interact with the <code class="inline">get</code> function to retreive the settings you want.</p>
-
         </section>
-      
 
-      
         <section id="summary" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#summary">
@@ -93,259 +76,206 @@ You can interact with the <code class="inline">get</code> function to retreive t
             </a>
             Summary
           </h1>
-          
-
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
-    <div class="summary-row">
+<div class="summary-row">
+  <div class="summary-signature">
+    <a href="#child_spec/1">child_spec(arg)</a>
+  </div>
+    <div class="summary-synopsis"><p>Returns a specification to start this module under a supervisor</p>
+</div>
+</div>
+<div class="summary-row">
   <div class="summary-signature">
     <a href="#do_start/1">do_start(error)</a>
   </div>
-  
     <div class="summary-synopsis"><p>Helper function to start or restart the GenServer when already started with given settings</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#get/0">get()</a>
   </div>
-  
     <div class="summary-synopsis"><p>Get the cloudinary credentials as map</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#get/1">get(key)</a>
   </div>
-  
     <div class="summary-synopsis"><p>Get a specific cloudinary credential by key</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#init/1">init(args)</a>
   </div>
-  
     <div class="summary-synopsis"><p>Required by GenServer</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#start/1">start(settings)</a>
   </div>
-  
     <div class="summary-synopsis"><p>Actually starting the GenServer with given settings</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#start/2">start(atom, list)</a>
   </div>
-  
     <div class="summary-synopsis"><p>Called by the supervisor, this will use settings defined in config.exs or ENV vars</p>
 </div>
-  
 </div>
 <div class="summary-row">
   <div class="summary-signature">
     <a href="#stop/0">stop()</a>
   </div>
-  
     <div class="summary-synopsis"><p>Helper function to stop the GenServer</p>
 </div>
-  
 </div>
-
   </div>
-
-
-          
-
         </section>
-      
 
-      
-
-      
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Functions
-          </h1>
-          <div class="detail" id="do_start/1">
-  
-  
-  <div class="detail-header">
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="child_spec/1">
+    <div class="detail-header">
+    <a href="#child_spec/1" class="detail-link" title="Link to this function">
+      <span class="icon-link" aria-hidden="true"></span>
+      <span class="sr-only">Link to this function</span>
+    </a>
+    <h1 class="signature">child_spec(arg)</span>
+          </div>
+  <section class="docstring">
+<p>Returns a specification to start this module under a supervisor.</p>
+<p>See <a href="https://hexdocs.pm/elixir/Supervisor.html"><code class="inline">Supervisor</code></a>.</p>
+  </section>
+</section>
+<section class="detail" id="do_start/1">
+    <div class="detail-header">
     <a href="#do_start/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">do_start(error)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">do_start(error)</span>
+          </div>
   <section class="docstring">
-    <p>Helper function to start or restart the GenServer when already started with given settings</p>
-
+<p>Helper function to start or restart the GenServer when already started with given settings</p>
   </section>
-</div>
-<div class="detail" id="get/0">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="get/0">
+    <div class="detail-header">
     <a href="#get/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get()</span>
-    
-    
-    
+    <h1 class="signature">get()</span>
+        
       <div class="specs">
-        
           <pre>get() :: <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()</pre>
-        
       </div>
-    
   </div>
   <section class="docstring">
-    <p>Get the cloudinary credentials as map.</p>
+<p>Get the cloudinary credentials as map.</p>
 <h2 id="get/0-examples" class="section-heading">
   <a href="#get/0-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Cloudex.Settings.get
-%{api_key: &quot;my_key&quot;, secret: &quot;my_secret&quot;, cloud_name: &quot;my_cloud_name&quot;}</code></pre>
-
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Settings</span><span class="o">.</span><span class="n">get</span><span class="w">
+</span><span class="p" data-group-id="0488313728-1">%{</span><span class="ss">api_key</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_key&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">secret</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_secret&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">cloud_name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_cloud_name&quot;</span><span class="p" data-group-id="0488313728-1">}</span></code></pre>
   </section>
-</div>
-<div class="detail" id="get/1">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="get/1">
+    <div class="detail-header">
     <a href="#get/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">get(key)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">get(key)</span>
+          </div>
   <section class="docstring">
-    <p>Get a specific cloudinary credential by key.</p>
+<p>Get a specific cloudinary credential by key.</p>
 <h2 id="get/1-examples" class="section-heading">
   <a href="#get/1-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
   Examples
 </h2>
 
-<pre><code class="iex elixir">iex&gt; Cloudex.Settings.get(:secret)
-&quot;my_secret&quot;
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Settings</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1887819931-1">(</span><span class="ss">:secret</span><span class="p" data-group-id="1887819931-1">)</span><span class="w">
+</span><span class="s">&quot;my_secret&quot;</span><span class="w">
 
-iex&gt; Cloudex.Settings.get(:bogus)
-nil</code></pre>
-
+</span><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Settings</span><span class="o">.</span><span class="n">get</span><span class="p" data-group-id="1887819931-2">(</span><span class="ss">:bogus</span><span class="p" data-group-id="1887819931-2">)</span><span class="w">
+</span><span class="no">nil</span></code></pre>
   </section>
-</div>
-<div class="detail" id="init/1">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="init/1">
+    <div class="detail-header">
     <a href="#init/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">init(args)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">init(args)</span>
+          </div>
   <section class="docstring">
-    <p>Required by GenServer</p>
-
+<p>Required by GenServer</p>
   </section>
-</div>
-<div class="detail" id="start/1">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="start/1">
+    <div class="detail-header">
     <a href="#start/1" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">start(settings)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">start(settings)</span>
+          </div>
   <section class="docstring">
-    <p>  Actually starting the GenServer with given settings</p>
-
+<p>  Actually starting the GenServer with given settings</p>
   </section>
-</div>
-<div class="detail" id="start/2">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="start/2">
+    <div class="detail-header">
     <a href="#start/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">start(atom, list)</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">start(atom, list)</span>
+          </div>
   <section class="docstring">
-    <p>Called by the supervisor, this will use settings defined in config.exs or ENV vars</p>
-
+<p>Called by the supervisor, this will use settings defined in config.exs or ENV vars</p>
   </section>
-</div>
-<div class="detail" id="stop/0">
-  
-  
-  <div class="detail-header">
+</section>
+<section class="detail" id="stop/0">
+    <div class="detail-header">
     <a href="#stop/0" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">stop()</span>
-    
-    
-    
-  </div>
+    <h1 class="signature">stop()</span>
+          </div>
   <section class="docstring">
-    <p>Helper function to stop the GenServer</p>
-
+<p>Helper function to stop the GenServer</p>
   </section>
-</div>
-
+</section>
+          </div>
         </section>
-      
-
-      
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.2),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
           </span>
           <span class="line">
             designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
             </span>
         </p>
       </footer>
@@ -353,10 +283,6 @@ nil</code></pre>
   </div>
 </section>
 </div>
-  <script src="dist/app-ad33bc0e7d.js"></script>
-  
-  
-  
   
   </body>
 </html>

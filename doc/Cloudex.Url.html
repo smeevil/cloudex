@@ -1,24 +1,19 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="generator" content="ExDoc v0.18.2">
-    <title>Cloudex.Url – cloudex v1.1.1</title>
-    <link rel="stylesheet" href="dist/app-81d381dea4.css" />
-    
+    <meta name="generator" content="ExDoc v0.19.3">
+    <title>Cloudex.Url — cloudex v1.2.3</title>
+    <link rel="stylesheet" href="dist/html-399e30b9b028e3059575.css" />
       <link rel="canonical" href="https://hexdocs.pm/cloudex/Cloudex.Url.html" />
-    
-    <script src="dist/sidebar_items-5d80be386d.js"></script>
-    
-    
-    
+    <script src="dist/sidebar_items-232784b6c2.js"></script>
+    <script async src="dist/html-399e30b9b028e3059575.js"></script>
     
   </head>
   <body data-type="modules">
     <script>try { if(localStorage.getItem('night-mode')) document.body.className += ' night-mode'; } catch (e) { }</script>
-
     <div class="main">
 <button class="sidebar-button sidebar-toggle">
   <span class="icon-menu" aria-hidden="true"></span>
@@ -30,17 +25,14 @@
 </button>
 <section class="sidebar">
 
-  
   <a href="api-reference.html" class="sidebar-projectLink">
     <div class="sidebar-projectDetails">
       <h1 class="sidebar-projectName">
-        cloudex
-      </h1>
+cloudex      </h1>
       <h2 class="sidebar-projectVersion">
-        v1.1.1
+        v1.2.3
       </h2>
     </div>
-    
   </a>
 
   <form class="sidebar-search" action="search.html">
@@ -53,13 +45,9 @@
   <ul class="sidebar-listNav">
     <li><a id="extras-list" href="#full-list">Pages</a></li>
 
-    
       <li><a id="modules-list" href="#full-list">Modules</a></li>
-    
 
-    
 
-    
   </ul>
   <div class="gradient"></div>
   <ul id="full-list" class="sidebar-fullList"></ul>
@@ -71,19 +59,14 @@
 
 
       <h1>
-        <small class="visible-xs">cloudex v1.1.1</small>
-        Cloudex.Url
-        
-      </h1>
+        <small class="visible-xs">cloudex v1.2.3</small>
+Cloudex.Url              </h1>
 
-      
+
         <section id="moduledoc">
-          <p>A module that helps creating urls to your cloudinary image, which can optionally transform the image as well.</p>
-
+<p>A module that helps creating urls to your cloudinary image, which can optionally transform the image as well.</p>
         </section>
-      
 
-      
         <section id="summary" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#summary">
@@ -92,66 +75,45 @@
             </a>
             Summary
           </h1>
-          
-
-          
   <div class="summary-functions summary">
     <h2>
       <a href="#functions">Functions</a>
     </h2>
-    <div class="summary-row">
+<div class="summary-row">
   <div class="summary-signature">
     <a href="#for/2">for(public_id, options \\ %{})</a>
   </div>
-  
     <div class="summary-synopsis"><p>Given a cloudinary public id string, this will generate an image url of where the image is hosted.
 You can also pass a map with options to apply transformations to the image, for more information see the documentation</p>
 </div>
-  
 </div>
-
   </div>
-
-
-          
-
         </section>
-      
 
-      
-
-      
         <section id="functions" class="details-list">
           <h1 class="section-heading">
             <a class="hover-link" href="#functions">
               <span class="icon-link" aria-hidden="true"></span>
               <span class="sr-only">Link to this section</span>
             </a>
-            Functions
-          </h1>
-          <div class="detail" id="for/2">
-  
+Functions          </h1>
+          <div class="functions-list">
+<section class="detail" id="for/2">
   
     <span id="for/1"></span>
-  
   <div class="detail-header">
     <a href="#for/2" class="detail-link" title="Link to this function">
       <span class="icon-link" aria-hidden="true"></span>
       <span class="sr-only">Link to this function</span>
     </a>
-    <span class="signature">for(public_id, options \\ %{})</span>
-    
-    
-    
+    <h1 class="signature">for(public_id, options \\ %{})</span>
+        
       <div class="specs">
-        
           <pre>for(<a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>(), <a href="https://hexdocs.pm/elixir/typespecs.html#basic-types">map</a>()) :: <a href="https://hexdocs.pm/elixir/String.html#t:t/0">String.t</a>()</pre>
-        
       </div>
-    
   </div>
   <section class="docstring">
-    <p>Given a cloudinary public id string, this will generate an image url of where the image is hosted.
+<p>Given a cloudinary public id string, this will generate an image url of where the image is hosted.
 You can also pass a map with options to apply transformations to the image, for more information see the documentation.</p>
 <h2 id="for/2-examples" class="section-heading">
   <a href="#for/2-examples" class="hover-link"><span class="icon-link" aria-hidden="true"></span></a>
@@ -159,67 +121,66 @@ You can also pass a map with options to apply transformations to the image, for 
 </h2>
 
 <p>An url to the image at its original dimensions and no transformations</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;)
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="8107871360-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p" data-group-id="8107871360-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id&quot;</span></code></pre>
 <p>An url to the image with just a signature</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{sign_url: true})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/s--MXxhpIBQ--/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="2697199363-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2697199363-2">%{</span><span class="ss">sign_url</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="2697199363-2">}</span><span class="p" data-group-id="2697199363-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/s--MXxhpIBQ--/a_public_id&quot;</span></code></pre>
 <p>An url to the image adjusted to a specific width and height</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="7294191493-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7294191493-2">%{</span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p" data-group-id="7294191493-2">}</span><span class="p" data-group-id="7294191493-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id&quot;</span></code></pre>
 <p>An url to the image using multiple transformation options and a signature</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{crop: &quot;fill&quot;, fetch_format: &#39;auto&#39;, flags: &#39;progressive&#39;, width: 300, height: 254, quality: &quot;jpegmini&quot;, sign_url: true})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="6239179365-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6239179365-2">%{</span><span class="ss">crop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fill&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">fetch_format</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;auto&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">flags</span><span class="p">:</span><span class="w"> </span><span class="sc">&#39;progressive&#39;</span><span class="p">,</span><span class="w"> </span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">254</span><span class="p">,</span><span class="w"> </span><span class="ss">quality</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jpegmini&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">sign_url</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="6239179365-2">}</span><span class="p" data-group-id="6239179365-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id&quot;</span></code></pre>
 <p>An url to the image using a named transformation</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{transformation: &quot;my_transformation&quot;})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/t_my_transformation/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="2940982607-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2940982607-2">%{</span><span class="ss">transformation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_transformation&quot;</span><span class="p" data-group-id="2940982607-2">}</span><span class="p" data-group-id="2940982607-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/t_my_transformation/a_public_id&quot;</span></code></pre>
 <p>An url to a specific version of the image</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{version: 1471959066})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="4985703778-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4985703778-2">%{</span><span class="ss">version</span><span class="p">:</span><span class="w"> </span><span class="mi">1471959066</span><span class="p" data-group-id="4985703778-2">}</span><span class="p" data-group-id="4985703778-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/v1471959066/a_public_id&quot;</span></code></pre>
 <p>An url to a specific version of the image adjusted to a specific width and height</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, version: 1471959066})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="6697299755-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6697299755-2">%{</span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="ss">version</span><span class="p">:</span><span class="w"> </span><span class="mi">1471959066</span><span class="p" data-group-id="6697299755-2">}</span><span class="p" data-group-id="6697299755-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/v1471959066/a_public_id&quot;</span></code></pre>
 <p>An url to the image with the file extension of the requested delivery format for the resource. The resource is delivered in the original uploaded format if the file extension is not included.</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{format: &quot;png&quot;})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png&quot;</code></pre>
-<p>An url to the resource type.  If resource type not specified, “image” is the default</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{resource_type: &quot;video&quot;})
-&quot;//res.cloudinary.com/my_cloud_name/video/upload/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="6134636835-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="6134636835-2">%{</span><span class="ss">format</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;png&quot;</span><span class="p" data-group-id="6134636835-2">}</span><span class="p" data-group-id="6134636835-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/a_public_id.png&quot;</span></code></pre>
+<p>An url to the resource type.  If resource type not specified, &quot;image&quot; is the default</p>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="1904608670-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="1904608670-2">%{</span><span class="ss">resource_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;video&quot;</span><span class="p" data-group-id="1904608670-2">}</span><span class="p" data-group-id="1904608670-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/video/upload/a_public_id&quot;</span></code></pre>
 <p>An url to the resource type with a named transformation.</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{resource_type: &quot;video&quot;, transformation: &quot;my_transformation&quot;})
-&quot;//res.cloudinary.com/my_cloud_name/video/upload/t_my_transformation/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="2182280483-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2182280483-2">%{</span><span class="ss">resource_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;video&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">transformation</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_transformation&quot;</span><span class="p" data-group-id="2182280483-2">}</span><span class="p" data-group-id="2182280483-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/video/upload/t_my_transformation/a_public_id&quot;</span></code></pre>
 <p>An url with an overlay</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, [
-...&gt;   %{border: &quot;5px_solid_rgb:c22c33&quot;, radius: 5, crop: &quot;fill&quot;, height: 246, width: 470, quality: 80},
-...&gt;   %{overlay: &quot;my_overlay&quot;, crop: &quot;scale&quot;, gravity: &quot;south_east&quot;, width: 128 ,x: 5, y: 15}
-...&gt; ])
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="7502162167-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="7502162167-2">[</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="7502162167-3">%{</span><span class="ss">border</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;5px_solid_rgb:c22c33&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">radius</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="ss">crop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;fill&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">246</span><span class="p">,</span><span class="w"> </span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">470</span><span class="p">,</span><span class="w"> </span><span class="ss">quality</span><span class="p">:</span><span class="w"> </span><span class="mi">80</span><span class="p" data-group-id="7502162167-3">}</span><span class="p">,</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="w">  </span><span class="p" data-group-id="7502162167-4">%{</span><span class="ss">overlay</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;my_overlay&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">crop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;scale&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">gravity</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;south_east&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">128</span><span class="w"> </span><span class="p">,</span><span class="ss">x</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="ss">y</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p" data-group-id="7502162167-4">}</span><span class="w">
+</span><span class="gp unselectable">...&gt; </span><span class="p" data-group-id="7502162167-2">]</span><span class="p" data-group-id="7502162167-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/bo_5px_solid_rgb:c22c33,c_fill,h_246,q_80,r_5,w_470/c_scale,g_south_east,l_my_overlay,w_128,x_5,y_15/a_public_id&quot;</span></code></pre>
 <p>An url with a face</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{width: 400, height: 300, face: true})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="2787236788-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="2787236788-2">%{</span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="ss">face</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p" data-group-id="2787236788-2">}</span><span class="p" data-group-id="2787236788-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id&quot;</span></code></pre>
+<p>An url with a video codec setting</p>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="4629723189-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4629723189-2">%{</span><span class="ss">resource_type</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;video&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">video_codec</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;h265&quot;</span><span class="p" data-group-id="4629723189-2">}</span><span class="p" data-group-id="4629723189-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/video/upload/vc_h265/a_public_id&quot;</span></code></pre>
 <p>An url with zoom applied to a face</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{zoom: 1.3, face: true, crop: &quot;crop&quot;, version: 1471959066})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/c_crop,g_face,z_1.3/v1471959066/a_public_id&quot;</code></pre>
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="4264805466-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="4264805466-2">%{</span><span class="ss">zoom</span><span class="p">:</span><span class="w"> </span><span class="mf">1.3</span><span class="p">,</span><span class="w"> </span><span class="ss">face</span><span class="p">:</span><span class="w"> </span><span class="no">true</span><span class="p">,</span><span class="w"> </span><span class="ss">crop</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;crop&quot;</span><span class="p">,</span><span class="w"> </span><span class="ss">version</span><span class="p">:</span><span class="w"> </span><span class="mi">1471959066</span><span class="p" data-group-id="4264805466-2">}</span><span class="p" data-group-id="4264805466-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/c_crop,g_face,z_1.3/v1471959066/a_public_id&quot;</span></code></pre>
 <p>An url retaining aspect ratio</p>
-<pre><code class="iex elixir">iex&gt; Cloudex.Url.for(&quot;a_public_id&quot;, %{aspect_ratio: 2.5, width: 400, height: 300, version: 1471959066})
-&quot;//res.cloudinary.com/my_cloud_name/image/upload/ar_2.5,h_300,w_400/v1471959066/a_public_id&quot;</code></pre>
-
+<pre><code class="nohighlight makeup elixir"><span class="gp unselectable">iex&gt; </span><span class="nc">Cloudex.Url</span><span class="o">.</span><span class="k">for</span><span class="p" data-group-id="0174090670-1">(</span><span class="s">&quot;a_public_id&quot;</span><span class="p">,</span><span class="w"> </span><span class="p" data-group-id="0174090670-2">%{</span><span class="ss">aspect_ratio</span><span class="p">:</span><span class="w"> </span><span class="mf">2.5</span><span class="p">,</span><span class="w"> </span><span class="ss">width</span><span class="p">:</span><span class="w"> </span><span class="mi">400</span><span class="p">,</span><span class="w"> </span><span class="ss">height</span><span class="p">:</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="ss">version</span><span class="p">:</span><span class="w"> </span><span class="mi">1471959066</span><span class="p" data-group-id="0174090670-2">}</span><span class="p" data-group-id="0174090670-1">)</span><span class="w">
+</span><span class="s">&quot;//res.cloudinary.com/my_cloud_name/image/upload/ar_2.5,h_300,w_400/v1471959066/a_public_id&quot;</span></code></pre>
   </section>
-</div>
-
+</section>
+          </div>
         </section>
-      
-
-      
           <footer class="footer">
         <p>
           <span class="line">
             Built using
-            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" rel="help" target="_blank">ExDoc</a> (v0.18.2),
+            <a href="https://github.com/elixir-lang/ex_doc" title="ExDoc" target="_blank" rel="help noopener">ExDoc</a> (v0.19.3),
           </span>
           <span class="line">
             designed by
-            <a href="https://twitter.com/dignifiedquire" target="_blank" title="@dignifiedquire">Friedel Ziegelmayer</a>.
+            <a href="https://twitter.com/dignifiedquire" target="_blank" rel="noopener" title="@dignifiedquire">Friedel Ziegelmayer</a>.
             </span>
         </p>
       </footer>
@@ -227,10 +188,6 @@ You can also pass a map with options to apply transformations to the image, for 
   </div>
 </section>
 </div>
-  <script src="dist/app-ad33bc0e7d.js"></script>
-  
-  
-  
   
   </body>
 </html>

@@ -69,6 +69,10 @@ defmodule Cloudex.Url do
       iex> Cloudex.Url.for("a_public_id", %{width: 400, height: 300, face: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/g_face,h_300,w_400/a_public_id"
 
+  An url with a video codec setting
+      iex> Cloudex.Url.for("a_public_id", %{resource_type: "video", video_codec: "h265"})
+      "//res.cloudinary.com/my_cloud_name/video/upload/vc_h265/a_public_id"
+
   An url with zoom applied to a face
 
       iex> Cloudex.Url.for("a_public_id", %{zoom: 1.3, face: true, crop: "crop", version: 1471959066})
@@ -175,6 +179,7 @@ defmodule Cloudex.Url do
   defp process_option(:flags, value), do: ["fl_#{value}"]
   defp process_option(:transformation, value), do: ["t_#{value}"]
   defp process_option(:rotation, value), do: ["a_#{value}"]
+  defp process_option(:video_codec, value), do: ["vc_#{value}"]
   defp process_option(:face, true), do: ["g_face"]
   defp process_option(_, _), do: []
 end

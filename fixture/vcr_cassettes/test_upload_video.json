@@ -1,0 +1,39 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{:file, \"test/assets/teamwork.mp4\"}, {\"api_key\", \"my_key\"}, {\"signature\", \"aa6f94f62cb7b78a06178d6aefc5ff4ecb16cf9e\"}, {\"timestamp\", \"1535339742\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ]
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/video/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"public_id\":\"bqzkffnaviwjafajqraf\",\"version\":1535339742,\"signature\":\"5b477564193de869ad6cf84e561dd74a091a2211\",\"width\":640,\"height\":400,\"format\":\"mp4\",\"resource_type\":\"video\",\"created_at\":\"2018-08-27T03:15:42Z\",\"tags\":[],\"pages\":0,\"bytes\":299396,\"type\":\"upload\",\"etag\":\"aaf7d25e2f37927b2be50e20c58304e3\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/video/upload/v1535339742/bqzkffnaviwjafajqraf.mp4\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/video/upload/v1535339742/bqzkffnaviwjafajqraf.mp4\",\"audio\":{},\"video\":{\"pix_format\":\"yuv420p\",\"codec\":\"h264\",\"level\":31,\"profile\":\"Constrained Baseline\",\"bit_rate\":\"26340\",\"dar\":\"8:5\"},\"frame_rate\":25.0,\"bit_rate\":27217,\"duration\":88.0,\"rotation\":0,\"original_filename\":\"teamwork\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Mon, 27 Aug 2018 03:15:43 GMT",
+        "ETag": "\"c5d655eeed12a3dd6f10ad00656d1b3f\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "X-Request-Id": "ed4db33f257161ae",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "750",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
