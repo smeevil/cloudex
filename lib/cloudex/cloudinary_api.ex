@@ -121,15 +121,6 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(delete_url_for(opts, item), @cloudinary_headers, credentials())
   end
 
-<<<<<<< HEAD
-    url =
-      "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/image/upload?public_ids[]=#{
-        item
-      }"
-
-    HTTPoison.delete(url, @cloudinary_headers, options)
-  end
-
   @spec delete_by_prefix(bitstring) ::
           {:ok, String.t} | {:error, %Elixir.HTTPoison.Error{}}
   defp delete_by_prefix(prefix) do
