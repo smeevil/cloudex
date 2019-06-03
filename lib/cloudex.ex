@@ -59,7 +59,7 @@ defmodule Cloudex do
   Deletes a prefix
   """
   def delete_prefix(prefix) do
-    Cloudex.CloudinaryApi
+    Cloudex.CloudinaryApi()
     |> Task.async(:delete_prefix, [prefix])
     |> Task.await(60_000)
   end
