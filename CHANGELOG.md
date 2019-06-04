@@ -1,3 +1,7 @@
+## 1.2.4 (2019-06-05)
+
+  - Thank you @abitdodgy for adding the ability to delete images by prefix
+
 ## 1.2.3 (2019-02-25)
 
   - Thank you @erikreedstrom for removing resource_type from signing
