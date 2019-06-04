@@ -115,6 +115,13 @@ defmodule CloudexTest do
     end
   end
 
+  test "delete images for a prefix" do
+    use_cassette "test_delete_prefix" do
+      assert {:ok, "some_prefix"} =
+        Cloudex.delete_prefix("some_prefix")
+    end
+  end
+
   test "create a uploaded image from a map" do
     {:ok, data} = Poison.decode(File.read!("./test/cloudinary_response.json"))
     result = Cloudex.CloudinaryApi.json_result_to_struct(data, "http://example.org/test.jpg")

@@ -54,6 +54,22 @@ defmodule Cloudex.CloudinaryApi do
   end
 
   @doc """
+  Deletes images given their prefix
+  """
+  @spec delete_prefix(String.t(), map) :: {:ok, String.t} | {:error, any}
+  def delete_prefix(prefix, opts \\ %{})
+  def delete_prefix(prefix, opts) when is_bitstring(prefix) do
+    case delete_by_prefix(prefix, opts) do
+      {:ok, _} -> {:ok, prefix}
+      error -> error
+    end
+  end
+
+  def delete_prefix(invalid_prefix, _opts) do
+    {:error, "delete_prefix/1 only accepts a valid prefix, received: #{inspect(invalid_prefix)}"}
+  end
+
+  @doc """
     Converts the json result from cloudinary to a %UploadedImage{} struct
   """
   @spec json_result_to_struct(map, String.t()) :: %Cloudex.UploadedImage{}
@@ -111,6 +127,21 @@ defmodule Cloudex.CloudinaryApi do
 
   defp delete_url(resource_type, item) do
     "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?public_ids[]=#{item}"
+  end
+
+  @spec delete_file(bitstring, map)
+        :: {:ok, HTTPoison.Response.t | HTTPoison.AsyncResponse.t} | {:error, HTTPoison.Error.t}
+  defp delete_by_prefix(prefix, opts) do
+    HTTPoison.delete(delete_prefix_url_for(opts, prefix), @cloudinary_headers, credentials())
+  end
+
+  defp delete_prefix_url_for(%{resource_type: resource_type}, prefix) do
+    delete_prefix_url(resource_type, prefix)
+  end
+  defp delete_prefix_url_for(_, prefix), do: delete_prefix_url("image", prefix)
+
+  defp delete_prefix_url(resource_type, prefix) do
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?prefix=#{prefix}"
   end
 
   @spec post(tuple | String.t(), binary, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}

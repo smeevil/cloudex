@@ -55,6 +55,15 @@ defmodule Cloudex do
     |> Task.await(60_000)
   end
 
+  @doc """
+  Deletes a prefix
+  """
+  def delete_prefix(prefix) do
+    Cloudex.CloudinaryApi
+    |> Task.async(:delete_prefix, [prefix])
+    |> Task.await(60_000)
+  end
+
   @spec sanitize_list(list | String.t(), list) :: [{:ok, String.t()} | {:error, String.t()}]
   defp sanitize_list(list, sanitized_list \\ [])
   defp sanitize_list(item, _sanitized_list) when is_binary(item), do: sanitize_list([item])
