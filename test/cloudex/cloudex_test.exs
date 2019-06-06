@@ -2,6 +2,8 @@ defmodule CloudexTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
+  @json_library Application.get_env(:cloudex, :json_library)
+
   setup_all do
     ExVCR.Config.cassette_library_dir("test/assets/vcr_cassettes")
     :ok
@@ -123,7 +125,7 @@ defmodule CloudexTest do
   end
 
   test "create a uploaded image from a map" do
-    {:ok, data} = Poison.decode(File.read!("./test/cloudinary_response.json"))
+    {:ok, data} = @json_library.decode(File.read!("./test/cloudinary_response.json"))
     result = Cloudex.CloudinaryApi.json_result_to_struct(data, "http://example.org/test.jpg")
 
     assert %Cloudex.UploadedImage{
