@@ -36,7 +36,7 @@ or in your config.exs using :
   config :cloudex,
     api_key: "my-api-key",
     secret: "my-secret",
-    cloud_name: "my-cloud-name",
+    cloud_name: "my-cloud-name"
 ```
 
 [Jason](http://github.com/michalmuskala/jason) is the default json library in Cloudex. You can configure Cloudex to use another library. For example:
