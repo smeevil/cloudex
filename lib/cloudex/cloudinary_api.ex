@@ -9,7 +9,7 @@ defmodule Cloudex.CloudinaryApi do
     {"Accept", "application/json"}
   ]
 
-  @json_library Application.get_env(:cloudex, :json_library)
+  @json_library Application.get_env(:cloudex, :json_library, Jason)
 
   @doc """
   Upload either a file or url to cloudinary

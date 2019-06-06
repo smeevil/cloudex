@@ -2,7 +2,7 @@ defmodule CloudexTest do
   use ExUnit.Case, async: false
   use ExVCR.Mock, adapter: ExVCR.Adapter.Hackney
 
-  @json_library Application.get_env(:cloudex, :json_library)
+  @json_library Application.get_env(:cloudex, :json_library, Jason)
 
   setup_all do
     ExVCR.Config.cassette_library_dir("test/assets/vcr_cassettes")
