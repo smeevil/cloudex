@@ -39,6 +39,13 @@ or in your config.exs using :
     cloud_name: "my-cloud-name"
 ```
 
+[Jason](http://github.com/michalmuskala/jason) is the default json library in Cloudex. You can configure Cloudex to use another library. For example:
+
+```elixir
+config :cloudex, :json_library, YourLibraryOfChoice
+```
+
+
 ## Uploading
 You can upload image files or urls pointing to an image as follows :
 

@@ -9,6 +9,8 @@ defmodule Cloudex.CloudinaryApi do
     {"Accept", "application/json"}
   ]
 
+  @json_library Application.get_env(:cloudex, :json_library, Jason)
+
   @doc """
   Upload either a file or url to cloudinary
   `opts` can contain:
@@ -147,7 +149,7 @@ defmodule Cloudex.CloudinaryApi do
   @spec post(tuple | String.t(), binary, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
   defp post(body, source, opts) do
     with {:ok, raw_response} <- common_post(body, opts),
-         {:ok, response} <- Poison.decode(raw_response.body),
+         {:ok, response} <- @json_library.decode(raw_response.body),
          do: handle_response(response, source)
   end
 
