@@ -172,14 +172,11 @@ defmodule Cloudex.CloudinaryApi do
 
   @spec prepare_opts(map | list) :: map
 
-  defp prepare_opts(%{context: context, tags: tags} = opts) when is_list(tags),
-    do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
-
   defp prepare_opts(%{tags: tags} = opts) when is_list(tags),
-    do: %{opts | tags: Enum.join(tags, ",")}
+    do: %{opts | tags: Enum.join(tags, ",")} |> prepare_opts()
 
   defp prepare_opts(%{context: context} = opts) when is_map(context),
-    do: %{opts | context: context_to_list(context)}
+    do: %{opts | context: context_to_list(context)} |> prepare_opts()
 
   defp prepare_opts(opts), do: opts
 
