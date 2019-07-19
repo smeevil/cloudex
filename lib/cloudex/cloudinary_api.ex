@@ -48,7 +48,7 @@ defmodule Cloudex.CloudinaryApi do
 
   def delete(item, opts) when is_bitstring(item) do
     case delete_file(item, opts) do
-      {:ok, result} -> {:ok, result}
+      {:ok, response} -> {:ok, %Cloudex.DeletedImage{public_id: item, response: response}}
       error -> error
     end
   end
