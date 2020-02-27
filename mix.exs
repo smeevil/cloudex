@@ -4,7 +4,7 @@ defmodule Cloudex.Mixfile do
   def project do
     [
       app: :cloudex,
-      version: "1.3.0",
+      version: "1.4.0",
       description: """
         A library that helps with uploading image files and urls to cloudinary.
         Also provides a helper to generate transformations and cloudinary urls pointing to your images
