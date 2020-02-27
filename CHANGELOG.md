@@ -1,3 +1,8 @@
+# 1.4.0 (2020-02-27)
+  - Thanks @davepersing to Allow S3 paths to be passed to Cloudinary when using a private bucket.
+  - Thanks @saicoder for bumping httpoison and timex
+  
+
 ## 1.3.0 (2019-06-07)
 
   - Thanks again @abitdodgy for interexchanging the json library from Poison to Jason and making it configurable out of the box :)
