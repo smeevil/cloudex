@@ -71,7 +71,7 @@ defmodule Cloudex do
 
   defp sanitize_list([item | tail], sanitized_list) do
     result =
-      if Regex.match?(~r/^http/, item), do: {:ok, item}, else: handle_file_or_directory(item)
+      if Regex.match?(~r/^(http|s3)/, item), do: {:ok, item}, else: handle_file_or_directory(item)
 
     new_list = [result | sanitized_list]
     sanitize_list(tail, new_list)

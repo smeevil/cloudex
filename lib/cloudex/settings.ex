@@ -6,7 +6,7 @@ defmodule Cloudex.Settings do
 
   use GenServer
 
-  @doc"""
+  @doc """
   Required by GenServer
   """
   def init(args) do
