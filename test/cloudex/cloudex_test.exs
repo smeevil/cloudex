@@ -24,7 +24,8 @@ defmodule CloudexTest do
 
   test "upload single video file" do
     use_cassette "test_upload_video" do
-      assert {:ok, %Cloudex.UploadedImage{}} = Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
+      assert {:ok, %Cloudex.UploadedImage{}} =
+               Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
     end
   end
 
@@ -49,6 +50,13 @@ defmodule CloudexTest do
                Cloudex.upload(
                  "https://cdn.mhpbooks.com/uploads/2014/10/shutterstock_172896005.jpg"
                )
+    end
+  end
+
+  test "upload s3 image url" do
+    use_cassette "test_upload_url with s3" do
+      assert {:ok, %Cloudex.UploadedImage{}} =
+               Cloudex.upload("s3://my-bucket/folder/test_image.jpg")
     end
   end
 
@@ -89,7 +97,9 @@ defmodule CloudexTest do
 
   test "upload with context" do
     use_cassette "test_upload_with_context" do
-      {:ok, uploaded_image} = Cloudex.upload(["./test/assets/test.jpg"], %{context: %{foo: "bar"}})
+      {:ok, uploaded_image} =
+        Cloudex.upload(["./test/assets/test.jpg"], %{context: %{foo: "bar"}})
+
       assert uploaded_image.context != nil
     end
   end
@@ -119,8 +129,7 @@ defmodule CloudexTest do
 
   test "delete images for a prefix" do
     use_cassette "test_delete_prefix" do
-      assert {:ok, "some_prefix"} =
-        Cloudex.delete_prefix("some_prefix")
+      assert {:ok, "some_prefix"} = Cloudex.delete_prefix("some_prefix")
     end
   end
 
