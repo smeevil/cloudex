@@ -49,9 +49,9 @@ defmodule Cloudex do
   @doc """
   Delete an image
   """
-  def delete(item) do
+  def delete(item, opts \\ %{}) do
     Cloudex.CloudinaryApi
-    |> Task.async(:delete, [item])
+    |> Task.async(:delete, [item, opts])
     |> Task.await(60_000)
   end
 

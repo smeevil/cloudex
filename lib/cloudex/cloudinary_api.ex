@@ -48,7 +48,7 @@ defmodule Cloudex.CloudinaryApi do
 
   def delete(item, opts) when is_bitstring(item) do
     case delete_file(item, opts) do
-      {:ok, _} -> {:ok, %Cloudex.DeletedImage{public_id: item}}
+      {:ok, response} -> {:ok, %Cloudex.DeletedImage{public_id: item, response: response}}
       error -> error
     end
   end
@@ -128,13 +128,10 @@ defmodule Cloudex.CloudinaryApi do
     HTTPoison.delete(delete_url_for(opts, item), @cloudinary_headers, credentials())
   end
 
-  defp delete_url_for(%{resource_type: resource_type}, item), do: delete_url(resource_type, item)
-  defp delete_url_for(_, item), do: delete_url("image", item)
-
-  defp delete_url(resource_type, item) do
-    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?public_ids[]=#{
-      item
-    }"
+  defp delete_url_for(opts, item) do
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{
+      Map.get(opts, :resource_type, "image")
+    }/#{Map.get(opts, :type, "upload")}?public_ids[]=#{item}"
   end
 
   @spec delete_file(bitstring, map) ::
@@ -175,14 +172,11 @@ defmodule Cloudex.CloudinaryApi do
 
   @spec prepare_opts(map | list) :: map
 
-  defp prepare_opts(%{context: context, tags: tags} = opts) when is_list(tags),
-    do: %{opts | context: context_to_list(context), tags: Enum.join(tags, ",")}
-
   defp prepare_opts(%{tags: tags} = opts) when is_list(tags),
-    do: %{opts | tags: Enum.join(tags, ",")}
+    do: %{opts | tags: Enum.join(tags, ",")} |> prepare_opts()
 
   defp prepare_opts(%{context: context} = opts) when is_map(context),
-    do: %{opts | context: context_to_list(context)}
+    do: %{opts | context: context_to_list(context)} |> prepare_opts()
 
   defp prepare_opts(opts), do: opts
 

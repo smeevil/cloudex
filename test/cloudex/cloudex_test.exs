@@ -133,6 +133,13 @@ defmodule CloudexTest do
     end
   end
 
+  test "delete private image" do
+    use_cassette "test_private_image" do
+      assert {:ok, %Cloudex.DeletedImage{public_id: "eMUnBDShgtAfxcdx"}} =
+               Cloudex.delete("eMUnBDShgtAfxcdx", %{resource_type: "image", type: "private"})
+    end
+  end
+
   test "create a uploaded image from a map" do
     {:ok, data} = @json_library.decode(File.read!("./test/cloudinary_response.json"))
     result = Cloudex.CloudinaryApi.json_result_to_struct(data, "http://example.org/test.jpg")
