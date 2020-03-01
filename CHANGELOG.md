@@ -1,3 +1,6 @@
+# 1.4.1 (2020-03-01)
+  - Thanks @tonnenpinguin for adding options to delete private images like: `Cloudex.delete(public_id, %{resource_type: "image", type: "private"})`
+
 # 1.4.0 (2020-02-27)
   - Thanks @davepersing to Allow S3 paths to be passed to Cloudinary when using a private bucket.
   - Thanks @saicoder for bumping httpoison and timex
