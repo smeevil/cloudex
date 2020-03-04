@@ -1,6 +1,6 @@
 Cloudex
 ======
-![](https://img.shields.io/hexpm/v/cloudex.svg) ![](https://img.shields.io/hexpm/dt/cloudex.svg) ![](https://img.shields.io/hexpm/dw/cloudex.svg) ![](https://img.shields.io/coveralls/smeevil/cloudex.svg) ![](https://img.shields.io/github/issues/smeevil/cloudex.svg) ![](https://img.shields.io/github/issues-pr/smeevil/cloudex.svg) ![](https://semaphoreci.com/api/v1/smeevil/cloudex/branches/master/shields_badge.svg)
+[![](https://img.shields.io/hexpm/v/cloudex.svg)](https://hex.pm/packages/cloudex) ![](https://img.shields.io/hexpm/dt/cloudex.svg) ![](https://img.shields.io/hexpm/dw/cloudex.svg) ![](https://img.shields.io/coveralls/smeevil/cloudex.svg) [![](https://img.shields.io/github/issues/smeevil/cloudex.svg)](https://github.com/smeevil/cloudex/issues) [![](https://img.shields.io/github/issues-pr/smeevil/cloudex.svg)](https://github.com/smeevil/cloudex/pulls) ![](https://semaphoreci.com/api/v1/smeevil/cloudex/branches/master/shields_badge.svg)
 
 Cloudex is an Elixir library that can upload image files or urls to Cloudinary.
 There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
@@ -128,7 +128,7 @@ This package also provides an helper to generate urls from cloudinary given a pu
 As a second argument you can pass in options to transform your image according via cloudinary.
 
 Current supported options are :
-```
+```elixir
   :aspect_ratio
   :border
   :color
@@ -155,23 +155,23 @@ Current supported options are :
   :zoom
 ```
 ### Example
-```
+```elixir
 Cloudex.Url.for("a_public_id")
 "//res.cloudinary.com/my_cloud_name/image/upload/a_public_id"
 ```
 
-```
+```elixir
 Cloudex.Url.for("a_public_id", %{width: 400, height: 300})
 "//res.cloudinary.com/my_cloud_name/image/upload/h_300,w_400/a_public_id"
 ```
 
-```
+```elixir
 Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
 "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 ```
 
 You can add multiple effects using Cloudex.Url.for/2, an example would be adding an overlay to your image, using:
-```
+```elixir
 Cloudex.Url.for("a_public_id", [
   %{border: "5px_solid_rgb:c22c33", radius: 5, crop: "fill", height: 246, width: 470, quality: 80},
   %{overlay: "my_overlay", crop: "scale", gravity: "south_east", width: 128 ,x: 5, y: 15}
@@ -182,7 +182,7 @@ Cloudex.Url.for("a_public_id", [
 You can request deletion from cloudinary using ```Cloudex.delete/1``` function where the first argument should be the public id of the image you want to delete.
 
 ### example:
-```
+```elixir
 iex> Cloudex.delete("public-id-1")
 {:ok, %Cloudex.DeletedImage{public_id: "public-id-1"}}
 
