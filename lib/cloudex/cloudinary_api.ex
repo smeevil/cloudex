@@ -20,7 +20,7 @@ defmodule Cloudex.CloudinaryApi do
   or {:error, "reason"}
   """
   @spec upload(String.t() | {:ok, String.t()}, map) ::
-          {:ok, Cloudex.UploadedImage.t()} | {:error, any}
+          {:ok, Cloudex.UploadedImage.t()} | {:ok, %Cloudex.UploadedVideo{}} | {:error, any}
   def upload(item, opts \\ %{})
   def upload({:ok, item}, opts) when is_binary(item), do: upload(item, opts)
 
@@ -77,13 +77,20 @@ defmodule Cloudex.CloudinaryApi do
   @doc """
     Converts the json result from cloudinary to a %UploadedImage{} struct
   """
-  @spec json_result_to_struct(map, String.t()) :: %Cloudex.UploadedImage{}
+  @spec json_result_to_struct(map, String.t()) ::
+          %Cloudex.UploadedImage{} | %Cloudex.UploadedVideo{}
   def json_result_to_struct(result, source) do
     converted = Enum.map(result, fn {k, v} -> {String.to_atom(k), v} end) ++ [source: source]
-    struct(%Cloudex.UploadedImage{}, converted)
+
+    if result["resource_type"] == "video" do
+      struct(%Cloudex.UploadedVideo{}, converted)
+    else
+      struct(%Cloudex.UploadedImage{}, converted)
+    end
   end
 
-  @spec upload_file(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  @spec upload_file(String.t(), map) ::
+          {:ok, %Cloudex.UploadedImage{}} | {:ok, %Cloudex.UploadedVideo{}} | {:error, any}
   defp upload_file(file_path, opts) do
     options =
       opts
@@ -103,7 +110,8 @@ defmodule Cloudex.CloudinaryApi do
     Map.delete(opts, :resource_type)
   end
 
-  @spec upload_url(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  @spec upload_url(String.t(), map) ::
+          {:ok, %Cloudex.UploadedImage{}} | {:ok, %Cloudex.UploadedVideo{}} | {:error, any}
   defp upload_url(url, opts) do
     opts
     |> Map.merge(%{file: url})
@@ -153,7 +161,8 @@ defmodule Cloudex.CloudinaryApi do
     }"
   end
 
-  @spec post(tuple | String.t(), binary, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
+  @spec post(tuple | String.t(), binary, map) ::
+          {:ok, %Cloudex.UploadedImage{}} | {:ok, %Cloudex.UploadedVideo{}} | {:error, any}
   defp post(body, source, opts) do
     with {:ok, raw_response} <- common_post(body, opts),
          {:ok, response} <- @json_library.decode(raw_response.body),
@@ -187,7 +196,8 @@ defmodule Cloudex.CloudinaryApi do
     "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/#{resource_type}/upload"
   end
 
-  @spec handle_response(map, String.t()) :: {:error, any} | {:ok, %Cloudex.UploadedImage{}}
+  @spec handle_response(map, String.t()) ::
+          {:error, any} | {:ok, %Cloudex.UploadedImage{}} | {:ok, %Cloudex.UploadedVideo{}}
   defp handle_response(
          %{
            "error" => %{
