@@ -24,8 +24,41 @@ defmodule CloudexTest do
 
   test "upload single video file" do
     use_cassette "test_upload_video" do
-      assert {:ok, %Cloudex.UploadedImage{}} =
-               Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
+      result = Cloudex.upload("test/assets/teamwork.mp4", %{resource_type: "video"})
+
+      assert {:ok,
+              %Cloudex.UploadedVideo{
+                audio: %{},
+                bit_rate: 27217,
+                bytes: 299_396,
+                created_at: "2018-08-27T03:15:42Z",
+                duration: 88.0,
+                etag: "aaf7d25e2f37927b2be50e20c58304e3",
+                format: "mp4",
+                frame_rate: 25.0,
+                height: 400,
+                original_filename: "teamwork",
+                public_id: "bqzkffnaviwjafajqraf",
+                resource_type: "video",
+                secure_url:
+                  "https://res.cloudinary.com/my_cloud_name/video/upload/v1535339742/bqzkffnaviwjafajqraf.mp4",
+                signature: "5b477564193de869ad6cf84e561dd74a091a2211",
+                source: "test/assets/teamwork.mp4",
+                tags: [],
+                type: "upload",
+                url:
+                  "http://res.cloudinary.com/my_cloud_name/video/upload/v1535339742/bqzkffnaviwjafajqraf.mp4",
+                version: 1_535_339_742,
+                video: %{
+                  "bit_rate" => "26340",
+                  "codec" => "h264",
+                  "dar" => "8:5",
+                  "level" => 31,
+                  "pix_format" => "yuv420p",
+                  "profile" => "Constrained Baseline"
+                },
+                width: 640
+              }} = result
     end
   end
 
