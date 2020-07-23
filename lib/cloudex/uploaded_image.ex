@@ -9,6 +9,7 @@ defmodule Cloudex.UploadedImage do
   * width
   * hieght
   * format
+  * eager
   * resource_type
   * created_at
   * tags
@@ -24,6 +25,7 @@ defmodule Cloudex.UploadedImage do
   @type t :: %__MODULE__{
           bytes: non_neg_integer | nil,
           created_at: String.t() | nil,
+          eager: eager_transformations() | nil,
           etag: String.t() | nil,
           format: String.t() | nil,
           height: non_neg_integer | nil,
@@ -43,9 +45,14 @@ defmodule Cloudex.UploadedImage do
           context: struct | nil
         }
 
+  @type eager_transformations :: list(%{
+    String.t() => String.t()
+  })
+
   defstruct bytes: nil,
             created_at: nil,
             etag: nil,
+            eager: nil,
             format: nil,
             height: nil,
             moderation: nil,
