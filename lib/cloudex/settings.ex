@@ -9,6 +9,7 @@ defmodule Cloudex.Settings do
   @doc """
   Required by GenServer
   """
+  @impl true
   def init(args) do
     {:ok, args}
   end
@@ -16,11 +17,11 @@ defmodule Cloudex.Settings do
   @doc """
   Called by the supervisor, this will use settings defined in config.exs or ENV vars
   """
-  def start(:normal, []) do
+  def start_link(_opts) do
     [:api_key, :secret, :cloud_name]
-    |> get_app_config
+    |> get_app_config()
     |> Cloudex.EnvOptions.merge_missing_settings()
-    |> start
+    |> start()
   end
 
   @doc """
@@ -29,19 +30,16 @@ defmodule Cloudex.Settings do
   def start(%{} = settings) do
     settings
     |> Map.merge(settings)
-    |> validate
-    |> do_start
+    |> validate()
+    |> do_start()
   end
 
-  def do_start({:error, :placeholder_settings}),
+  defp do_start({:error, :placeholder_settings}),
     do: {:error, placeholder_settings_error_message()}
 
-  def do_start({:error, _} = error), do: error
+  defp do_start({:error, _} = error), do: error
 
-  @doc """
-  Helper function to start or restart the GenServer when already started with given settings
-  """
-  def do_start({:ok, settings}) do
+  defp do_start({:ok, settings}) do
     case GenServer.start(__MODULE__, settings, name: :cloudex) do
       {:ok, pid} ->
         {:ok, pid}
@@ -57,10 +55,13 @@ defmodule Cloudex.Settings do
   """
   def stop, do: GenServer.call(:cloudex, :stop)
 
+  @impl true
   def handle_call(:stop, _caller, state), do: {:stop, :normal, :ok, state}
 
+  @impl true
   def handle_call(:settings, _caller, state), do: {:reply, state, state}
 
+  @impl true
   def terminate(_reason, _state), do: :ok
 
   @doc """
