@@ -116,7 +116,9 @@ defmodule Cloudex.CloudinaryApi do
   defp credentials do
     [
       hackney: [
-        basic_auth: {Cloudex.Settings.get(:api_key), Cloudex.Settings.get(:secret)}
+        basic_auth: {Cloudex.Settings.get(:api_key), Cloudex.Settings.get(:secret)},
+        timeout: 60_000,
+        recv_timeout: 60_000
       ]
     ]
   end
