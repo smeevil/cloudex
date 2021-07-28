@@ -84,7 +84,7 @@ defmodule Cloudex.CloudinaryApi do
   end
 
   @spec upload_file(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
-  defp upload_file(file_path, opts) do
+  defp upload_file(file, opts) do
     options =
       opts
       |> extract_cloudinary_opts
@@ -93,9 +93,11 @@ defmodule Cloudex.CloudinaryApi do
       |> unify
       |> Map.to_list()
 
-    body = {:multipart, [{:file, file_path} | options]}
+    body_type = if Regex.match?(~r/base64/, file), do: :form, else: :multipart
 
-    post(body, file_path, opts)
+    body = {body_type, [{:file, file} | options]}
+
+    post(body, file, opts)
   end
 
   @spec extract_cloudinary_opts(map) :: map
