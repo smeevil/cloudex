@@ -1,5 +1,6 @@
 Cloudex
 ======
+
 [![](https://img.shields.io/hexpm/v/cloudex.svg)](https://hex.pm/packages/cloudex) ![](https://img.shields.io/hexpm/dt/cloudex.svg) ![](https://img.shields.io/hexpm/dw/cloudex.svg) ![](https://img.shields.io/coveralls/smeevil/cloudex.svg) [![](https://img.shields.io/github/issues/smeevil/cloudex.svg)](https://github.com/smeevil/cloudex/issues) [![](https://img.shields.io/github/issues-pr/smeevil/cloudex.svg)](https://github.com/smeevil/cloudex/pulls) ![](https://semaphoreci.com/api/v1/smeevil/cloudex/branches/master/shields_badge.svg)
 
 Cloudex is an Elixir library that can upload image files or urls to Cloudinary.
@@ -9,11 +10,13 @@ There is also a [CLI tool](https://github.com/smeevil/cloudex_cli) available.
 
 ```elixir
 defp deps do
-  [  {:cloudex, "~> 1.3.0"},  ]
+  [
+    {:cloudex, "~> 1.3.0"},
+  ]
 end
 ```
 
-If you are using elixir 1.4, you can skip this step.
+If you are using Elixir 1.4 onwards, you can skip this step.
 The Cloudex app must be started. This can be done by adding :cloudex to
 the applications list in your mix.exs file. An example:
 
@@ -30,13 +33,13 @@ Cloudex requires the API credentials of your Cloudinary account.
 You can define either as ENV settings using the keys :
 ```CLOUDEX_API_KEY``` ```CLOUDEX_SECRET``` and  ```CLOUDEX_CLOUD_NAME```
 
-or in your config.exs using :
+or in your config.exs using:
 
 ```elixir
-  config :cloudex,
-    api_key: "my-api-key",
-    secret: "my-secret",
-    cloud_name: "my-cloud-name"
+config :cloudex,
+  api_key: "my-api-key",
+  secret: "my-secret",
+  cloud_name: "my-cloud-name"
 ```
 
 [Jason](http://github.com/michalmuskala/jason) is the default json library in Cloudex. You can configure Cloudex to use another library. For example:
@@ -45,11 +48,11 @@ or in your config.exs using :
 config :cloudex, :json_library, YourLibraryOfChoice
 ```
 
-
 ## Uploading
 You can upload image files or urls pointing to an image as follows :
 
 ### example
+
 For uploading a url :
 ```elixir
 iex> Cloudex.upload("http://example.org/test.jpg")
@@ -57,11 +60,13 @@ iex> Cloudex.upload("http://example.org/test.jpg")
 ```
 
 For uploading a file :
+
 ```elixir
 iex> Cloudex.upload("test/assets/test.jpg")
 {:ok, %Cloudex.UploadedImage{...}}
 ```
 You can also upload a list of files, urls, or mix by giving upload a list like :
+
 ```elixir
 iex> Cloudex.upload(["/non/existing/file.jpg", "http://example.org/test.jpg"])
 [{:error, "File /non/existing/file.jpg does not exist."}, {:ok, %Cloudex.UploadedImage{...}}]
@@ -241,6 +246,8 @@ cl_image_tag(public_id, class: "thumbnail", transforms: %{opacity: "50", quality
 
 Documentation can be found at docs/index.html or [online](http://smeevil.github.io/cloudex)
 
-## License
+## Copyright and License
 
-The Cloudex Elixir library is released under the DWTFYW license. See the LICENSE file.
+Copyright (C) 2004 Sam Hocevar <sam@hocevar.net>
+
+The Cloudex Elixir library is released under the DWTFYW license. See the [LICENSE](./LICENSE.md) file.
