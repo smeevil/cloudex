@@ -7,7 +7,7 @@ defmodule Cloudex.UploadedImage do
   * version
   * signature
   * width
-  * hieght
+  * height
   * format
   * resource_type
   * created_at

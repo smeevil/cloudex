@@ -1,7 +1,7 @@
 defmodule Cloudex.Settings do
   @moduledoc """
   This is a GenServer that contains the API settings for cloudinary
-  You can interact with the `get` function to retreive the settings you want.
+  You can interact with the `get` function to retrieve the settings you want.
   """
 
   use GenServer
