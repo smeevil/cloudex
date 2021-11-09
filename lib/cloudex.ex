@@ -23,16 +23,18 @@ defmodule Cloudex do
   @spec upload(list | String.t()) :: upload_result
   @spec upload(list | [String.t()], map) :: upload_result
   def upload(list, options \\ %{}) do
-    sanitized_list = sanitize_list(list)
-    invalid_list = Enum.filter(sanitized_list, &match?({:error, _}, &1))
-    valid_list = Enum.filter(sanitized_list, &match?({:ok, _}, &1))
-
-    upload_results =
-      valid_list
-      |> Enum.map(&Task.async(Cloudex.CloudinaryApi, :upload, [&1, options]))
+    result =
+      list
+      |> sanitize_list()
+      |> Enum.map(fn item ->
+        Task.async(fn ->
+          case item do
+            {:ok, item} -> Cloudex.CloudinaryApi.upload(item, options)
+            {:error, error} -> {:error, error}
+          end
+        end)
+      end)
       |> Enum.map(&Task.await(&1, 60_000))
-
-    result = upload_results ++ invalid_list
 
     case Enum.count(result) do
       1 -> List.first(result)

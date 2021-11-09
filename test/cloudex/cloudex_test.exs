@@ -64,8 +64,8 @@ defmodule CloudexTest do
     use_cassette "test_upload_mixed" do
       assert [
                {:ok, %Cloudex.UploadedImage{}},
-               {:ok, %Cloudex.UploadedImage{}},
-               {:error, "File nonexistent.png does not exist."}
+               {:error, "File nonexistent.png does not exist."},
+               {:ok, %Cloudex.UploadedImage{}}
              ] =
                Cloudex.upload([
                  "./test/assets/test.jpg",
