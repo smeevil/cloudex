@@ -104,6 +104,44 @@ defmodule CloudexTest do
     end
   end
 
+  describe "upload_list_with_options" do
+    test "mixed files / urls" do
+      use_cassette "test_upload_mixed" do
+        assert [
+                 {:ok, %Cloudex.UploadedImage{}},
+                 {:error, "File nonexistent.png does not exist."},
+                 {:ok, %Cloudex.UploadedImage{}}
+               ] =
+                 Cloudex.upload_list_with_options([
+                   %{image_resource: "./test/assets/test.jpg"},
+                   %{image_resource: "nonexistent.png"},
+                   %{
+                     image_resource:
+                       "https://cdn.mhpbooks.com/uploads/2014/10/shutterstock_172896005.jpg"
+                   }
+                 ])
+      end
+    end
+
+    test "mixed files / urls with specific options" do
+      use_cassette "test_upload_mixed_with_options" do
+        assert [
+                 {:ok, %Cloudex.UploadedImage{}},
+                 {:error, "File nonexistent.png does not exist."},
+                 {:ok, %Cloudex.UploadedImage{}}
+               ] =
+                 Cloudex.upload_list_with_options([
+                   %{image_resource: "./test/assets/test.jpg", options: %{public_id: "foo"}},
+                   %{image_resource: "nonexistent.png", options: %{public_id: "bar"}},
+                   %{
+                     image_resource:
+                       "https://cdn.mhpbooks.com/uploads/2014/10/shutterstock_172896005.jpg"
+                   }
+                 ])
+      end
+    end
+  end
+
   test "delete image with public id" do
     use_cassette "test_delete" do
       assert {:ok, %Cloudex.DeletedImage{public_id: "rurwrndtvgzfajljllnr"}} =

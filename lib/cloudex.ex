@@ -5,6 +5,7 @@ defmodule Cloudex do
 
   @callback start(settings :: map) :: {:ok, pid}
   @callback upload(list | [String.t()], map) :: upload_result
+  @callback upload_list_with_options(list(map), map) :: upload_result
   @callback delete([String.t()]) :: :ok
 
   @doc """
@@ -44,6 +45,31 @@ defmodule Cloudex do
       1 -> List.first(result)
       _ -> result
     end
+  end
+
+  @doc """
+  Upload a list of maps, containing an :image_resource and any item specific :options, which
+  will be merged with the :default_options.
+  """
+  @spec upload_list_with_options(list(map), map) :: upload_result
+  def upload_list_with_options(list, default_options \\ %{}) do
+    list
+    |> Enum.map(fn item ->
+      image_resource = item.image_resource
+      item_specific_options = item[:options] || %{}
+      options = Map.merge(default_options, item_specific_options)
+
+      Task.async(fn ->
+        case sanitize_list(image_resource) do
+          [{:ok, sanitized_resource}] ->
+            Cloudex.CloudinaryApi.upload(sanitized_resource, options)
+
+          [{:error, error}] ->
+            {:error, error}
+        end
+      end)
+    end)
+    |> Enum.map(&Task.await(&1, 60_000))
   end
 
   @doc """

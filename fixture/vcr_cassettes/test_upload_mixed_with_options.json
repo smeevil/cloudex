@@ -1,0 +1,82 @@
+[
+  {
+    "request": {
+      "body": "{:multipart, [{:file, \"./test/assets/test.jpg\"}, {\"api_key\", \"my_key\"}, {\"public_id\", \"foo\"}, {\"signature\", \"6ae20d6b7f9e96e5a14d13243b9473477f7bf304\"}, {\"timestamp\", \"1639369577\"}]}",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ],
+        "timeout": 60000,
+        "recv_timeout": 60000
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"asset_id\":\"bc2a1d2eda4f365015fe9aee78617609\",\"public_id\":\"foo\",\"version\":1639369497,\"version_id\":\"4a5b48279e427e7b973bc7f6fa3771cf\",\"signature\":\"d16106b6494cf6be948815aa46bad94b0a6aa798\",\"width\":776,\"height\":1000,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2021-12-13T04:24:57Z\",\"tags\":[],\"bytes\":79916,\"type\":\"upload\",\"etag\":\"7ee0f78f4cd8d261a2e5d0f5e39e8f03\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1639369497/foo.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1639369497/foo.jpg\",\"overwritten\":true,\"original_filename\":\"test\",\"api_key\":\"my_key\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Mon, 13 Dec 2021 04:26:21 GMT",
+        "ETag": "\"94f871cf2661be2e7a8ec2afca6eb954\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "Vary": "Accept-Encoding",
+        "X-Request-Id": "67f523ca9c69e0f61a8a84e5bc2ddaca",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "transfer-encoding": "chunked",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "file=https%3A%2F%2Fcdn.mhpbooks.com%2Fuploads%2F2014%2F10%2Fshutterstock_172896005.jpg&api_key=my_key&signature=36a57b8a13a1e29a0a6e5d0d38adb5b6ec9a94fb&timestamp=1639369577",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ],
+        "timeout": 60000,
+        "recv_timeout": 60000
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"asset_id\":\"5ea3cee61a6681b22ded258113e8b0e7\",\"public_id\":\"d3egkw6b98hqccfy9sba\",\"version\":1639369581,\"version_id\":\"6c121cc6eb6df28a0e045d2fea11815b\",\"signature\":\"489e78fb4ceb797d212d78425e0789560c4146b3\",\"width\":2848,\"height\":4288,\"format\":\"jpg\",\"resource_type\":\"image\",\"created_at\":\"2021-12-13T04:26:21Z\",\"tags\":[],\"bytes\":4520895,\"type\":\"upload\",\"etag\":\"22ac1427fa960ef88e1572ad81e5640e\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1639369581/d3egkw6b98hqccfy9sba.jpg\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1639369581/d3egkw6b98hqccfy9sba.jpg\",\"original_filename\":\"shutterstock_172896005\",\"api_key\":\"my_key\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Mon, 13 Dec 2021 04:26:22 GMT",
+        "ETag": "\"3f9e4804468e174ab984464e4e3de4c8\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "Vary": "Accept-Encoding",
+        "X-Request-Id": "b160eeb06eea53bd009d95893c671f18",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "681",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
