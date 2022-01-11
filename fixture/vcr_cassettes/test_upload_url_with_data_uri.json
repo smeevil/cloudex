@@ -1,0 +1,42 @@
+[
+  {
+    "request": {
+      "body": "file=data%3Aimage%2Fbmp%3Bbase64%2CQk1xAAAAAAAAAHsAAABsAAAAAQAAAAEAAAABACAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD%2FAAD%2FAAD%2FAAAAAAAA%2FwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ%3D%3D&api_key=my_key&signature=48b142ec383bcaa08f6e68c8e2ae9607e602224c&timestamp=1641848235",
+      "headers": {
+        "Content-Type": "application/x-www-form-urlencoded",
+        "Accept": "application/json"
+      },
+      "method": "post",
+      "options": {
+        "basic_auth": [
+          "my_key",
+          "my_secret"
+        ],
+        "timeout": 60000,
+        "recv_timeout": 60000
+      },
+      "request_body": "",
+      "url": "https://api.cloudinary.com/v1_1/my_cloud_name/image/upload"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\"asset_id\":\"dd7dc0f5307959e6a984089abea4ca97\",\"public_id\":\"khmtjlzfpeoi5dl6h1nq\",\"version\":1641848237,\"version_id\":\"1f96bffaf15dd593e4e23520a6b32603\",\"signature\":\"b55bfedd15c582c81516bc179f02349ee45e87b0\",\"width\":1,\"height\":1,\"format\":\"bmp\",\"resource_type\":\"image\",\"created_at\":\"2022-01-10T20:57:17Z\",\"tags\":[],\"bytes\":127,\"type\":\"upload\",\"etag\":\"8a8477a235332148ee93a3502061c4c7\",\"placeholder\":false,\"url\":\"http://res.cloudinary.com/my_cloud_name/image/upload/v1641848237/khmtjlzfpeoi5dl6h1nq.bmp\",\"secure_url\":\"https://res.cloudinary.com/my_cloud_name/image/upload/v1641848237/khmtjlzfpeoi5dl6h1nq.bmp\",\"api_key\":\"my_key\"}",
+      "headers": {
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "Content-Type": "application/json; charset=utf-8",
+        "Date": "Mon, 10 Jan 2022 20:57:18 GMT",
+        "ETag": "\"bca3c9b9956a9bc6b5a77b0f0b536ed3\"",
+        "Server": "cloudinary",
+        "Status": "200 OK",
+        "Vary": "Accept-Encoding",
+        "X-Request-Id": "3fff6b12790aea0fc7a8b7e4707815d0",
+        "X-UA-Compatible": "IE=Edge,chrome=1",
+        "X-XSS-Protection": "1; mode=block",
+        "Content-Length": "626",
+        "Connection": "keep-alive"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]

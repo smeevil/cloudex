@@ -29,6 +29,7 @@ defmodule Cloudex.CloudinaryApi do
       "http://" <> _rest -> upload_url(item, opts)
       "https://" <> _rest -> upload_url(item, opts)
       "s3://" <> _rest -> upload_url(item, opts)
+      "data:" <> _rest -> upload_url(item, opts)
       _ -> upload_file(item, opts)
     end
   end
@@ -131,9 +132,7 @@ defmodule Cloudex.CloudinaryApi do
   end
 
   defp delete_url_for(opts, item) do
-    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{
-      Map.get(opts, :resource_type, "image")
-    }/#{Map.get(opts, :type, "upload")}?public_ids[]=#{item}"
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{Map.get(opts, :resource_type, "image")}/#{Map.get(opts, :type, "upload")}?public_ids[]=#{item}"
   end
 
   @spec delete_file(bitstring, map) ::
@@ -150,9 +149,7 @@ defmodule Cloudex.CloudinaryApi do
   defp delete_prefix_url_for(_, prefix), do: delete_prefix_url("image", prefix)
 
   defp delete_prefix_url(resource_type, prefix) do
-    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?prefix=#{
-      prefix
-    }"
+    "#{@base_url}#{Cloudex.Settings.get(:cloud_name)}/resources/#{resource_type}/upload?prefix=#{prefix}"
   end
 
   @spec post(tuple | String.t(), binary, map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
