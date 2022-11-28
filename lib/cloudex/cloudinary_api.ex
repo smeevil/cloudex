@@ -85,7 +85,7 @@ defmodule Cloudex.CloudinaryApi do
   end
 
   @spec upload_file(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
-  defp upload_file(file_path, opts) do
+  def upload_file(file_path, opts) do
     options =
       opts
       |> extract_cloudinary_opts
@@ -94,9 +94,18 @@ defmodule Cloudex.CloudinaryApi do
       |> unify
       |> Map.to_list()
 
-    body = {:multipart, [{:file, file_path} | options]}
+    body = {:multipart, [{:file, file_path}]}
 
-    post(body, file_path, opts)
+    with {:ok, raw_response} <-
+           HTTPoison.request(
+             :post,
+             url_for(options),
+             body,
+             @cloudinary_headers,
+             [params: options] ++ credentials()
+           ),
+         {:ok, response} <- @json_library.decode(raw_response.body),
+         do: handle_response(response, file_path)
   end
 
   @spec extract_cloudinary_opts(map) :: map
