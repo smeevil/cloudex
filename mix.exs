@@ -59,7 +59,8 @@ defmodule Cloudex.Mixfile do
       {:mix_test_watch, "> 0.0.0", only: :dev},
       {:jason, "~> 1.0", optional: true},
       {:timex, "~> 3.6"},
-      {:tzdata, "~> 1.0"}
+      {:tzdata, "~> 1.0"},
+      {:temp, "~> 0.4"}
     ]
   end
 

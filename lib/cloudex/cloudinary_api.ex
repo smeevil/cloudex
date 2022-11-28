@@ -84,6 +84,37 @@ defmodule Cloudex.CloudinaryApi do
     struct(%Cloudex.UploadedImage{}, converted)
   end
 
+  def ingest_image_data(raw_data, file_name, opts \\ [format: "svg"]) do
+    with {:ok, fd, abs_file_path} <- Temp.open(file_name),
+         :ok <- IO.write(fd, raw_data),
+         :ok <- File.close(fd) do
+      public_id = generate_public_id(file_name)
+      format = Keyword.get(opts, :format)
+      upload_file(abs_file_path, format, public_id)
+    else
+      error ->
+        {:error, error}
+    end
+  end
+
+  def generate_public_id(string) when is_binary(string) do
+    string
+    |> then(&:crypto.hash(:md5, &1))
+    |> Base.encode16(case: :lower)
+  end
+
+  def upload_file(file_path, media_type, public_id) do
+    options = %{
+      public_id: public_id,
+      resource_type: "image",
+      format: media_type,
+      overwrite: true,
+      invalidate: true
+    }
+
+    Cloudex.CloudinaryApi.upload_file(file_path, options)
+  end
+
   @spec upload_file(String.t(), map) :: {:ok, %Cloudex.UploadedImage{}} | {:error, any}
   def upload_file(file_path, opts) do
     options =
