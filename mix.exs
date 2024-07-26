@@ -4,13 +4,13 @@ defmodule Cloudex.Mixfile do
   def project do
     [
       app: :cloudex,
-      version: "1.4.1",
+      version: "1.4.2",
       description: """
         A library that helps with uploading image files and urls to cloudinary.
         Also provides a helper to generate transformations and cloudinary urls pointing to your images
       """,
       package: package(),
-      elixir: "~> 1.7",
+      elixir: "~> 1.17.1",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -49,17 +49,17 @@ defmodule Cloudex.Mixfile do
 
   defp deps do
     [
-      {:credo, "> 0.0.0", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
+      {:credo, "~> 1.7", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:excoveralls, "> 0.0.0", only: :test},
-      {:exvcr, "~> 0.10", [only: :test]},
-      {:httpoison, "~> 1.6"},
-      {:mix_test_watch, "> 0.0.0", only: :dev},
-      {:jason, "~> 1.0", optional: true},
-      {:timex, "~> 3.6"},
-      {:tzdata, "~> 1.0"}
+      {:exvcr, "~> 0.11", [only: :test]},
+      {:httpoison, "~> 2.0"},
+      {:mix_test_watch, "~> 1.0", only: :dev},
+      {:jason, "~> 1.4", optional: true},
+      {:timex, "~> 3.7.11"},
+      {:tzdata, "~> 1.1"}
     ]
   end
 
