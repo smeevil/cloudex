@@ -9,7 +9,7 @@ defmodule Cloudex.CloudinaryApi do
     {"Accept", "application/json"}
   ]
 
-  @json_library Application.get_env(:cloudex, :json_library, Jason)
+  @json_library Application.compile_env(:cloudex, :json_library, Jason)
 
   @doc """
   Upload either a file or url to cloudinary
@@ -242,9 +242,6 @@ defmodule Cloudex.CloudinaryApi do
 
   @spec current_time :: String.t()
   defp current_time do
-    Timex.now()
-    |> Timex.to_unix()
-    |> round
-    |> Integer.to_string()
+    :os.system_time(:second) |> Integer.to_string()
   end
 end

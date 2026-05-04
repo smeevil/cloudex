@@ -10,7 +10,7 @@ defmodule Cloudex.Mixfile do
         Also provides a helper to generate transformations and cloudinary urls pointing to your images
       """,
       package: package(),
-      elixir: "~> 1.7",
+      elixir: "~> 1.11",
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -24,7 +24,15 @@ defmodule Cloudex.Mixfile do
           :unmatched_returns
         ]
       ],
-      preferred_cli_env: [
+      test_coverage: [
+        tool: ExCoveralls
+      ]
+    ]
+  end
+
+  def cli do
+    [
+      preferred_envs: [
         coveralls: :test,
         "coveralls.detail": :test,
         "coveralls.post": :test,
@@ -33,9 +41,6 @@ defmodule Cloudex.Mixfile do
         "vcr.delete": :test,
         "vcr.check": :test,
         "vcr.show": :test
-      ],
-      test_coverage: [
-        tool: ExCoveralls
       ]
     ]
   end
@@ -49,17 +54,17 @@ defmodule Cloudex.Mixfile do
 
   defp deps do
     [
-      {:credo, "> 0.0.0", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.0.0-rc.3", only: [:dev], runtime: false},
+      {:credo, "~> 1.7", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false},
       {:earmark, "> 0.0.0", only: :dev},
       {:ex_doc, "> 0.0.0", only: :dev},
       {:excoveralls, "> 0.0.0", only: :test},
-      {:exvcr, "~> 0.10", [only: :test]},
-      {:httpoison, "~> 1.6"},
-      {:mix_test_watch, "> 0.0.0", only: :dev},
-      {:jason, "~> 1.0", optional: true},
-      {:timex, "~> 3.6"},
-      {:tzdata, "~> 1.0"}
+      {:exvcr, "~> 0.17", only: :test},
+      {:httpoison, "~> 2.3"},
+      # Transitive ssl_verify_fun < 1.1.7 fails to compile on OTP 26+ (public_key records).
+      {:ssl_verify_fun, "~> 1.1.7", override: true},
+      {:mix_test_watch, "~> 1.4", only: :dev},
+      {:jason, "~> 1.0", optional: true}
     ]
   end
 

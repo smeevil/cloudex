@@ -25,7 +25,7 @@ defmodule Cloudex.Url do
 
   An url to the image using multiple transformation options and a signature
 
-      iex> Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: 'auto', flags: 'progressive', width: 300, height: 254, quality: "jpegmini", sign_url: true})
+      iex> Cloudex.Url.for("a_public_id", %{crop: "fill", fetch_format: "auto", flags: "progressive", width: 300, height: 254, quality: "jpegmini", sign_url: true})
       "//res.cloudinary.com/my_cloud_name/image/upload/s--jwB_Ds4w--/c_fill,f_auto,fl_progressive,h_254,q_jpegmini,w_300/a_public_id"
 
   An url to the image using a named transformation

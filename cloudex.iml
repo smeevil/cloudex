@@ -22,8 +22,6 @@
     <orderEntry type="library" name="httpoison" level="project" />
     <orderEntry type="library" name="mix_test_watch" level="project" />
     <orderEntry type="library" name="poison" level="project" />
-    <orderEntry type="library" name="timex" level="project" />
-    <orderEntry type="library" name="tzdata" level="project" />
     <orderEntry type="library" name="bunt" level="project" />
     <orderEntry type="library" name="jason" level="project" />
     <orderEntry type="library" name="inch_ex" level="project" />
@@ -44,8 +42,6 @@
     <orderEntry type="library" name="jiffy" level="project" />
     <orderEntry type="library" name="json" level="project" />
     <orderEntry type="library" name="jazz" level="project" />
-    <orderEntry type="library" name="combine" level="project" />
-    <orderEntry type="library" name="gettext" level="project" />
     <orderEntry type="library" name="dialyze" level="project" />
     <orderEntry type="library" name="nimble_parsec" level="project" />
     <orderEntry type="library" name="makeup" level="project" />
